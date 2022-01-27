@@ -1,3 +1,37 @@
+@charset "UTF-8";
+/*!
+ *  index.css
+ *
+ *  2022.01.27      Initial
+ *
+ */
+:root {
+    --text-color: black;
+    --text-size: 14px;
+
+    --button-border-color: black;
+    --button-hover-color: #f44336;
+    --button-hover-text-color: white;
+    --button-text-color: black;
+
+    --nav-underline: red;
+
+    --product-background:lightgray;
+    --product-border: black;
+    --product-shadow: rgba(0, 0, 0,  0.4);
+
+    --site-hover-color: rgba(226, 0, 0 ,0.7);
+
+    --contacts-text: white;
+    --contacts-background: darkcyan;
+
+    --footer-heart-color: #f44336; 
+    
+}
+
+/* -------------------------------------------------
+    Basic elements
+-------------------------------------------------- */
 * {
     margin: 0;
     padding: 0;
@@ -13,14 +47,14 @@ h1 {
     font-weight: 600;
 }
 p {
-    color: black;
-    font-size: 14px;
+    color: var(--text-color);
+    font-size: var(--text-size);
     font-weight: 300;
     line-height: 22px;
     padding: 10px;
 }
 button {
-    border: 1px solid black;
+    border: 1px solid var(--button-border-color);
     border-radius: 5px;
     padding: 12px 34px;
     font-size: 13px;
@@ -30,9 +64,9 @@ button {
 }
 
 button:hover {
-    border: 1px solid #f44336;
-    color: white;
-    background: #f44336;
+    color: var(--button-hover-text-color);
+    border: 1px solid var(--button-hover-color);
+    background: var(--button-hover-color);
     transition: 1s;
 }
 
@@ -43,6 +77,31 @@ button:hover {
     justify-content: space-between;
     align-items:stretch;
 }
+.row.centered {
+    justify-content: center;
+}
+/* -------------------------------------------------
+    URL like buttons 
+-------------------------------------------------- */
+.urlbutton {
+    display: inline-block;
+    text-decoration: none;
+    color: var(--button-text-color);
+    border: 1px solid var(--button-border-color);
+    border-radius: 5px;
+    padding: 12px 34px;
+    font-size: 13px;
+    background: transparent;
+    position: relative;
+    cursor: pointer;
+    margin-bottom: 1rem;
+}
+.urlbutton:hover {
+    border: 1px solid var(--button-hover-color);
+    color: var(--button-hover-text-color);
+    background: var(--button-hover-color);
+    transition: 1s;
+}
 /* -------------------------------------------------
     Menu 
 -------------------------------------------------- */
@@ -51,7 +110,7 @@ button:hover {
     width: 100%;
     background-position: center;
     background-size: cover;
-    background-color: white;
+    background-color: var(--color-white);
     position: sticky;
     top: 0;
     z-index: 99;
@@ -74,13 +133,12 @@ nav img {
     display: inline-block;
     padding: 8px 12px;
     position: relative;
-    color: #f44336;
 }
 .nav-links ul li::after {
     content: '';
     width: 0%;
     height: 2px;
-    background: #f44336;
+    background: var(--nav-underline);
     display: block;
     margin: auto;
     transition: 0.5s;
@@ -119,27 +177,6 @@ nav .fa {
 }
 .info p {
     margin: 10px 0 20px;
-    font-size: 14px;
-    color: black;
-}
-.hero-btn {
-    display: inline-block;
-    text-decoration: none;
-    color: black;
-    border: 1px solid black;
-    border-radius: 5px;
-    padding: 12px 34px;
-    font-size: 13px;
-    background: transparent;
-    position: relative;
-    cursor: pointer;
-    margin-bottom: 1rem;
-}
-.hero-btn:hover {
-    border: 1px solid #f44336;
-    color: white;
-    background: #f44336;
-    transition: 1s;
 }
 
 /* -------------------------------------------------
@@ -155,16 +192,18 @@ nav .fa {
 .product {
     flex-basis: 32%;
     height: auto;
-    background: #fff3f3;
+    background-color: var(--product-background);
     border-radius: 10px;
     margin-bottom: 30px;
-    border-bottom:  1px solid black;
+    margin-right: 0.7rem;
+    border-bottom:  1px solid var(--product-border);
     transition: 0.5s;
 }
 .product img {
     width: 200px;
     height: 20vh;
     border-radius: 10px;
+    margin: 0 .4rem 0 .6rem;
 }
 .product p {
     font-weight: 400;
@@ -175,7 +214,7 @@ h3 {
     margin: 10px 0;
 }
 .product:hover {
-    box-shadow: 0 0 20px 0px rgba(0, 0, 0,  0.4);
+    box-shadow: 0 0 20px 0px ;
 }
 
 .product-desc {
@@ -221,7 +260,7 @@ h3 {
 /* -------------------------------------------------
     How to display shops photos
 ------------------------------------------------- */
-.layer {
+.sitephoto {
     background: transparent;
     height: 100%;
     width: 100%;
@@ -230,10 +269,10 @@ h3 {
     left: 0;
     transition: 0.5s;
 }
-.layer:hover {
-    background:rgba(226, 0, 0 ,0.7);
+.sitephoto:hover {
+    background:var(--site-hover-color);
 }
-.layer h3 {
+.sitephoto h3 {
     width: 100%;
     font-weight: 500;
     color: #fff;
@@ -245,7 +284,7 @@ h3 {
     opacity: 0;
     transition: 0.5s;
 }
-.layer:hover h3 {
+.sitephoto:hover h3 {
     bottom: 49%;
     opacity: 1;
 }
@@ -263,8 +302,8 @@ h3 {
 .contacts p {
     margin: 10px 0 20px;
     font-size: 14px;
-    color: white;
-    background-color: darkcyan;
+    color: var(--contacts-text);
+    background-color: var(--contacts-background);
     border-radius: 10px;
 }
 
@@ -282,7 +321,7 @@ h3 {
     font-weight: 600;
 }
 .fa-heart-o {
-    color: #f44336;
+    color: var(--footer-heart-color);
 }
 
 /* -------------------------------------------------
