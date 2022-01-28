@@ -175,6 +175,28 @@ nav .fa {
 }
 
 /* -------------------------------------------------
+    The shops section 
+------------------------------------------------- */
+.shops {
+    width: 80%;
+    margin: auto;
+    text-align: center;
+    padding-top: 10px;
+}
+.shops-col {
+    flex-basis: 32%;
+    height: 40vh;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    position: relative;
+    overflow: hidden;
+}
+.shops img {
+    width: 100%;
+    height: 100%;
+}
+
+/* -------------------------------------------------
      The products section 
 ------------------------------------------------- */
 
@@ -185,7 +207,6 @@ nav .fa {
     padding-top: 1rem;
 }
 .product {
-    flex-basis: 32%;
     height: auto;
     background-color: var(--product-background);
     border-radius: 10px;
@@ -239,27 +260,6 @@ nav .fa {
     border-radius: 10px;
 }
 
-/* -------------------------------------------------
-    The shops section 
-------------------------------------------------- */
-.shops {
-    width: 80%;
-    margin: auto;
-    text-align: center;
-    padding-top: 10px;
-}
-.shops-col {
-    flex-basis: 32%;
-    height: 40vh;
-    border-radius: 10px;
-    margin-bottom: 30px;
-    position: relative;
-    overflow: hidden;
-}
-.shops img {
-    width: 100%;
-    height: 100%;
-}
 /* -------------------------------------------------
     How to display shops photos
 ------------------------------------------------- */
