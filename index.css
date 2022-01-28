@@ -76,39 +76,6 @@ button:hover {
     background: var(--button-hover-color);
     transition: 1s;
 }
-
-.row {
-    margin-top: 5%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items:stretch;
-}
-.row.centered {
-    justify-content: center;
-}
-/* -------------------------------------------------
-    URL like buttons 
--------------------------------------------------- */
-.urlbutton {
-    display: inline-block;
-    text-decoration: none;
-    color: var(--button-text-color);
-    border: 1px solid var(--button-border-color);
-    border-radius: 5px;
-    padding: 12px 34px;
-    font-size: 13px;
-    background: transparent;
-    position: relative;
-    cursor: pointer;
-    margin-bottom: 1rem;
-}
-.urlbutton:hover {
-    border: 1px solid var(--button-hover-color);
-    color: var(--button-hover-text-color);
-    background: var(--button-hover-color);
-    transition: 1s;
-}
 /* -------------------------------------------------
     Menu 
 -------------------------------------------------- */
@@ -165,6 +132,28 @@ nav .fa {
     color: var(--menu-text-color);
 }
 
+/* -------------------------------------------------
+    URL like buttons 
+-------------------------------------------------- */
+.urlbutton {
+    display: inline-block;
+    text-decoration: none;
+    color: var(--button-text-color);
+    border: 1px solid var(--button-border-color);
+    border-radius: 5px;
+    padding: 12px 34px;
+    font-size: 13px;
+    background: transparent;
+    position: relative;
+    cursor: pointer;
+    margin-bottom: 1rem;
+}
+.urlbutton:hover {
+    border: 1px solid var(--button-hover-color);
+    color: var(--button-hover-text-color);
+    background: var(--button-hover-color);
+    transition: 1s;
+}
 
 /* -------------------------------------------------
   Informations display area 
@@ -221,19 +210,32 @@ nav .fa {
 .product-desc {
     box-sizing: border-box;
 }
+.row {
+    margin-top: 5%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items:stretch;
+}
+.row.centered {
+    justify-content: center;
+}
 
 /* -------------------------------------------------
      The Gallery section 
 ------------------------------------------------- */
+.col {
+    margin-top: 5%;
+    justify-content: center;
+}
 .gallery {
-    width: 90%;
     margin: auto;
     text-align: center;
     padding-top: 10px;
 }
 .gallery img {
-    width: 20vh;
-    height: 20vh;
+    width: 15vh;
+    height: 15vh;
     border-radius: 10px;
 }
 
@@ -241,7 +243,7 @@ nav .fa {
     The shops section 
 ------------------------------------------------- */
 .shops {
-    width: 70%;
+    width: 80%;
     margin: auto;
     text-align: center;
     padding-top: 10px;
@@ -268,7 +270,6 @@ nav .fa {
     position: absolute;
     top: 0;
     left: 0;
-    transition: 0.5s;
 }
 .sitephoto:hover {
     background:var(--site-hover-color);
@@ -283,7 +284,6 @@ nav .fa {
     transform: translateX(-50%);
     position: absolute;
     opacity: 0;
-    transition: 0.5s;
 }
 .sitephoto:hover h3 {
     bottom: 49%;
@@ -380,6 +380,11 @@ nav .fa {
     }
     nav img {
         width: 70px;
+    }
+    .gallery img {
+        width: 10vh;
+        height: 10vh;
+        border-radius: 10px;
     }
     .footer p {
         font-size: var(--text-size);

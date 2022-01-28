@@ -18,24 +18,26 @@
     </head>
     <body>
         <!-- The header section -->
-        <section class="menu">
-            <nav>
-                <a href="index.html"><img src="images/BeauMerle.png" alt=""></a>
-                <div class="nav-links" id="navLinks">
-                    <i class="fa fa-times" onclick="hideMenu()"></i>
-                    <ul>
-                        <li><a href="" onclick="hideMenu()">HOME</a></li>
-                        <li><a onclick="hideMenu('products')">MODELES</a></li>
-                        <li><a onclick="hideMenu('shops')">MAGASINS</a></li>
-                        <li><a onclick="hideMenu('contacts')">CONTACTS</a></li>
-                    </ul>
-                </div>
-                <i class="fa fa-bars" onclick="showMenu()"></i>
-            </nav>
-        </section>
+        <header class="menu">
+            <section >
+                <nav>
+                    <a href="index.html"><img src="images/BeauMerle.png" alt=""></a>
+                    <div class="nav-links" id="navLinks">
+                        <i class="fa fa-times" onclick="hideMenu()"></i>
+                        <ul>
+                            <li><a href="" onclick="hideMenu()">HOME</a></li>
+                            <li><a onclick="hideMenu('products')">MODELES</a></li>
+                            <li><a onclick="hideMenu('shops')">MAGASINS</a></li>
+                            <li><a onclick="hideMenu('contacts')">CONTACTS</a></li>
+                        </ul>
+                    </div>
+                    <i class="fa fa-bars" onclick="showMenu()"></i>
+                </nav>
+            </section>
+        </header>
         <section class="info">
                 <h1>Atelier Beau Merle</h1>
-                <h3>By Ratoon, 1.30 : Jan 28 2022</h3>
+                <h3>By Ratoon, 1.36 : Jan 28 2022</h3>
                 <p>Impliquée depuis 2 siècles dans la fabrication des meilleurs
                 couteaux, notre entreprise perpétue la tradition
                 de création de modèles mondialement reconnus pour leur qualité et leur esthétique.
@@ -115,9 +117,9 @@
                 </div>
             </div>
             <div class="row.centered">
-                <button onclick="showcatalog(true)">Voir le Catalogue</button>
+                <button id="buttonshow1" onclick="showcatalog()">Voir le Catalogue</button>
             </div>
-            <div class="row" >
+            <div class="col" >
                 <div id="thegallery" class="gallery" hidden>
                     <img src="gallery/knives/101.jpg" alt="">
                     <img src="gallery/knives/102.jpg" alt="">
@@ -137,8 +139,8 @@
                     <img src="gallery/knives/118.jpg" alt="">
                     <img src="gallery/knives/119.jpg" alt="">
                     <img src="gallery/knives/120.jpg" alt="">
-                    <div>
-                        <button onclick="showcatalog(false)">Fermer</button>
+                    <div class="row.centered">
+                        <button id="buttonshow2" onclick="showcatalog()">Fermer</button>
                     </div>
                 </div>
             </div>
@@ -170,26 +172,34 @@
     </body>
 
     <script>
-            var navlinks = document.getElementById("navLinks");
-            function showMenu() {
-                navlinks.style.right = "0";
+
+        let galleryshow = false;
+
+        var navlinks = document.getElementById("navLinks");
+        function showMenu() {
+            navlinks.style.right = "0";
+        }
+        function hideMenu(elementname) {
+            navlinks.style.right = "-200px";
+            if(elementname) {
+                console.log('Scroll element ' + elementname + " to top of scoll area");
+                let theelement = document.getElementById(elementname);
+                theelement.scrollIntoView(true);
             }
-            function hideMenu(elementname) {
-                navlinks.style.right = "-200px";
-                if(elementname) {
-                    console.log('Scroll element ' + elementname + " to top of scoll area");
-                    let theelement = document.getElementById(elementname);
-                    theelement.scrollIntoView(true);
-                }
+        }
+        function showcatalog() {
+            let thegallery = document.getElementById("thegallery");
+            let firstbutton = document.getElementById("buttonshow1");
+            if(galleryshow) {
+                firstbutton.innerText = "Voir le catalogue"
+                thegallery.hidden = true;
+                galleryshow = false;
             }
-            function showcatalog(show) {
-                let theelement = document.getElementById("thegallery");
-                if(show) {
-                    theelement.hidden = false;
-                }
-                else {
-                    theelement.hidden = true;
-                }
+            else {
+                firstbutton.innerText = "Fermer"
+                thegallery.hidden = false;
+                galleryshow = true;
             }
+        }
     </script>
 </html>
