@@ -84,14 +84,14 @@ button:hover {
     Menu 
 -------------------------------------------------- */
 .menu {
-    min-height: 3rem;
     width: 100%;
     background-position: center;
     background-size: cover;
     background-color: var(--menu-background-color);
-    position: sticky;
+    position: fixed;
     top: 0;
-    bottom: 3rem;
+    left: 0;
+    height: 10rem;
     z-index: 100;
 }
 nav {
@@ -336,6 +336,9 @@ nav .fa {
     change menu links presentation
 -------------------------------------------------- */
 @media(max-width: 500px) {
+    .menu {
+        height: 6rem;
+    }
     h1 {
         font-size: 2rem;
     }
