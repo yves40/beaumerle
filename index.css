@@ -3,6 +3,7 @@
  *  index.css
  *
  *  2022.01.27      Initial
+ *  2022.01.31      Horizontal scroll, lost of image animation
  *
  */
 :root {
@@ -42,11 +43,14 @@
 }
 
 body {
-    overflow-x: hidden;
+    overflow-x:hidden;
+    max-width: 100%;
+    height:auto!important;
 }
 
 html {
     font-size: 1rem;
+    max-width: 100%;
 }
 
 h1 { 
@@ -271,9 +275,6 @@ nav .fa {
     top: 0;
     left: 0;
 }
-.sitephoto:hover {
-    background:var(--site-hover-color);
-}
 .sitephoto h3 {
     width: 100%;
     font-weight: 500;
@@ -284,6 +285,10 @@ nav .fa {
     transform: translateX(-50%);
     position: absolute;
     opacity: 0;
+    transition: 1sec;
+}
+.sitephoto:hover {
+    background:var(--site-hover-color);
 }
 .sitephoto:hover h3 {
     bottom: 49%;
