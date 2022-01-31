@@ -91,7 +91,7 @@ button:hover {
     position: fixed;
     top: 0;
     left: 0;
-    height: 10rem;
+    height: 8rem;
     z-index: 100;
 }
 nav {
@@ -101,7 +101,7 @@ nav {
     align-items: center;
 }
 nav img {
-    width: 100px;
+    width: 90px;
 }
 .nav-links {
     flex: 1;
@@ -167,7 +167,7 @@ nav .fa {
     margin: auto;
     text-align: center;
     display: block;
-    top: 4rem;
+    margin-top: 4rem;
 }
 
 .info h3 {
@@ -189,7 +189,6 @@ nav .fa {
 }
 .shops-col {
     flex-basis: 32%;
-    height: 40vh;
     border-radius: 10px;
     margin-bottom: 30px;
     position: relative;
@@ -197,7 +196,39 @@ nav .fa {
 }
 .shops img {
     width: 100%;
+    display: block;
+}
+
+/* -------------------------------------------------
+    How to display shops photos
+------------------------------------------------- */
+.sitephoto {
+    background: transparent;
     height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: 1s;
+}
+.sitephoto h3 {
+    width: 100%;
+    font-weight: 500;
+    color: #fff;
+    font-size: 26px;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    position: absolute;
+    opacity: 0;
+    transition: 1s;
+}
+.sitephoto:hover {
+    background:var(--site-hover-color);
+}
+.sitephoto:hover h3 {
+    bottom: 49%;
+    opacity: 1;
 }
 
 /* -------------------------------------------------
@@ -205,7 +236,7 @@ nav .fa {
 ------------------------------------------------- */
 
 .products {
-    width: 70%;
+    width: 90%;
     margin: auto;
     text-align: center;
     padding-top: 1rem;
@@ -218,6 +249,9 @@ nav .fa {
     margin-right: 0.7rem;
     border-bottom:  1px solid var(--product-border);
     transition: 0.5s;
+}
+.product h3 {
+    margin: 1rem;
 }
 .product img {
     width: 200px;
@@ -264,36 +298,6 @@ nav .fa {
     border-radius: 10px;
 }
 
-/* -------------------------------------------------
-    How to display shops photos
-------------------------------------------------- */
-.sitephoto {
-    background: transparent;
-    height: 100%;
-    width: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-}
-.sitephoto h3 {
-    width: 100%;
-    font-weight: 500;
-    color: #fff;
-    font-size: 26px;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    position: absolute;
-    opacity: 0;
-    transition: 1sec;
-}
-.sitephoto:hover {
-    background:var(--site-hover-color);
-}
-.sitephoto:hover h3 {
-    bottom: 49%;
-    opacity: 1;
-}
 
 /* -------------------------------------------------
     The contacts section 
