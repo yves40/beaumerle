@@ -2,8 +2,9 @@
 /*!
  *  index.css
  *
- *  2022.01.27      Initial
- *  2022.01.31      Horizontal scroll, lost of image animation
+ *  Jan 27 2022     Initial
+ *  Jan 31 2022     Horizontal scroll, lost of image animation
+ *  Feb 01 2022     Adjustments for iphone
  *
  */
 :root {
@@ -345,6 +346,9 @@ nav .fa {
     }
     h1 {
         font-size: 2rem;
+    }
+    .info {
+        margin-top: 6rem;
     }
     .row {
         justify-content: center;
