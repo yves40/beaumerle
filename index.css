@@ -99,12 +99,12 @@ button:hover {
     Menu 
 -------------------------------------------------- */
 .menu {
+    position: fixed;
     height: 8rem;
     width: 100%;
     background-position: center;
     background-size: cover;
     background-color: var(--menu-background-color);
-    position: fixed;
     top: 0;
     left: 0;
     z-index: 100;
@@ -185,11 +185,12 @@ nav .fa {
   Informations display area 
 -------------------------------------------------- */
 .info {
+    margin-top: 8rem;
+    margin-left: 10%;
+    margin-right: 10%;
     width: 80%;
-    margin: auto;
     text-align: center;
     display: block;
-    margin-top: 4rem;
 }
 
 .info h3 {
@@ -204,6 +205,7 @@ nav .fa {
     The shops section 
 ------------------------------------------------- */
 .shops {
+    max-width: 1500px;
     width: 80%;
     margin: auto;
     text-align: center;
@@ -258,6 +260,7 @@ nav .fa {
      The products section 
 ------------------------------------------------- */
 .products {
+    max-width: 1500px;
     width: 90%;
     margin: auto;
     text-align: center;
