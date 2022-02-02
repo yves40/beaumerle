@@ -3,9 +3,8 @@
 
     Jan 27 2022     Initial
     Jan 31 2022     Loss of animation and some css debugging
-    Feb 01 2022     Loss of animation and some css debugging
-                    flex work
-
+    Feb 01 2022     Loss of animation and some css debugging flex work                    
+    Feb 02 2022     Start work on images selector
 -->
 <!DOCTYPE html>
 <html lang="en">
@@ -36,7 +35,7 @@
                 <i class="fa fa-bars" onclick="showMenu()"></i>
             </nav>
             <div class="copyright">
-                <h4>By Ratoon, 1.48 : Feb 01 2022</h4>
+                <h4>By Ratoon, 1.49 : Feb 02 2022</h4>
             </div>
         </section>
         <section class="info">
@@ -87,7 +86,7 @@
             </p>
             <div class="row">
                 <div class="product">
-                    <h3>Dernières céations</h3>
+                    <h3>Collection</h3>
                     <img src="gallery/knives/100.jpg" alt="">
                     <div class="product-desc">
                         <p>
@@ -108,7 +107,7 @@
                     </div>
                 </div>
                 <div class="product">
-                    <h3>Série personnalisée</h3>
+                    <h3>Série</h3>
                     <img src="gallery/knives/118.jpg" alt="">
                     <div class="product-desc">
                         <p>
@@ -122,27 +121,70 @@
             <div class="row.centered">
                 <button id="buttonshow1" onclick="showcatalog()">Voir le Catalogue</button>
             </div>
+            <div class="items" id="itemsmenu" hidden>
+                <span class="item active" data-name="all">All</span>
+                <span class="item " data-name="collection">Collection</span>
+                <span class="item " data-name="cuisine">Cuisine</span>
+                <span class="item " data-name="serie">Série</span>
+            </div>
             <div class="row" >
                 <div id="thegallery" class="gallery" hidden>
-                    <img src="gallery/knives/101.jpg" alt="">
-                    <img src="gallery/knives/102.jpg" alt="">
-                    <img src="gallery/knives/103.jpg" alt="">
-                    <img src="gallery/knives/104.jpg" alt="">
-                    <img src="gallery/knives/105.jpg" alt="">
-                    <img src="gallery/knives/106.jpg" alt="">
-                    <img src="gallery/knives/107.jpg" alt="">
-                    <img src="gallery/knives/108.jpg" alt="">
-                    <img src="gallery/knives/109.jpg" alt="">
-                    <img src="gallery/knives/110.jpg" alt="">
-                    <img src="gallery/knives/111.jpg" alt="">
-                    <img src="gallery/knives/112.jpg" alt="">
-                    <img src="gallery/knives/113.jpg" alt="">
-                    <img src="gallery/knives/115.jpg" alt="">
-                    <img src="gallery/knives/117.jpg" alt="">
-                    <img src="gallery/knives/118.jpg" alt="">
-                    <img src="gallery/knives/119.jpg" alt="">
-                    <img src="gallery/knives/120.jpg" alt="">
-                    <div class="row.centered">
+                    <div class="image" data-name="collection">
+                        <span><img src="gallery/knives/101.jpg" alt=""></span>
+                    </div>
+                    <div class="image" data-name="collection">
+                        <span><img src="gallery/knives/102.jpg" alt=""></span>
+                    </div>
+                    <div class="image" data-name="cuisine">
+                        <span><img src="gallery/knives/103.jpg" alt=""></span>
+                    </div>
+                    <div class="image" data-name="serie">
+                        <span><img src="gallery/knives/104.jpg" alt=""></span>
+                    </div>
+                    <div class="image" data-name="collection">
+                        <span><img src="gallery/knives/105.jpg" alt=""></span>
+                    </div>
+                    <div class="image" data-name="cuisine">
+                        <span><img src="gallery/knives/106.jpg" alt=""></span>
+                    </div>
+                    <div class="image" data-name="collection">
+                        <span><img src="gallery/knives/107.jpg" alt=""></span>
+                    </div>
+                    <div class="image" data-name="serie">
+                        <span><img src="gallery/knives/108.jpg" alt=""></span>
+                    </div>
+                    <div class="image" data-name="cuisine">
+                        <span><img src="gallery/knives/109.jpg" alt=""></span>
+                    </div>
+                    <div class="image" data-name="serie">
+                        <span><img src="gallery/knives/110.jpg" alt=""></span>
+                    </div>
+                    <div class="image" data-name="collecion">
+                        <span><img src="gallery/knives/111.jpg" alt=""></span>
+                    </div>
+                    <div class="image" data-name="serie">
+                        <span><img src="gallery/knives/112.jpg" alt=""></span>
+                    </div>
+                    <div class="image" data-name="cuisine">
+                        <span><img src="gallery/knives/113.jpg" alt=""></span>
+                    </div>
+                    <div class="image" data-name="cuisine">
+                        <span><img src="gallery/knives/115.jpg" alt=""></span>
+                    </div>
+                    <div class="image" data-name="cuisine">
+                        <span><img src="gallery/knives/117.jpg" alt=""></span>
+                    </div>
+                    <div class="image" data-name="serie">
+                        <span><img src="gallery/knives/118.jpg" alt=""></span>
+                    </div>
+                    <div class="image" data-name="collection">
+                        <span><img src="gallery/knives/119.jpg" alt=""></span>
+                    </div>
+                    <div class="image" data-name="collection">
+                        <span><img src="gallery/knives/120.jpg" alt=""></span>
+                    </div>
+
+                    <span><div class="row.centered">
                         <button id="buttonshow2" onclick="showcatalog()">Fermer</button>
                     </div>
                 </div>
@@ -192,41 +234,45 @@
         function showcatalog() {
             let thegallery = document.getElementById("thegallery");
             let firstbutton = document.getElementById("buttonshow1");
+            let itemsmenu = document.getElementById("itemsmenu");
             if(galleryshow) {
                 firstbutton.innerText = "Voir le catalogue"
                 thegallery.hidden = true;
+                itemsmenu.hidden = true;
                 galleryshow = false;
             }
             else {
                 firstbutton.innerText = "Fermer"
                 thegallery.hidden = false;
+                itemsmenu.hidden = false;
                 galleryshow = true;
             }
         }
     </script>
     <script>
+        /*
         //fullscreen image preview function
         //selecting all required elements
-        const previewBox = document.querySelector(".preview-box"),
-        categoryName = previewBox.querySelector(".title p"),
-        previewImg = previewBox.querySelector("img"),
-        closeIcon = previewBox.querySelector(".icon"),
-        shadow = document.querySelector(".shadow");
+        const previewBox = document.querySelector(".preview-box");
+        const categoryName = previewBox.querySelector(".title p");
+        const previewImg = previewBox.querySelector("img");
+        const closeIcon = previewBox.querySelector(".icon");
+        const shadow = document.querySelector(".shadow");
 
         function preview(element){
-        //once user click on any image then remove the scroll bar of the body, so user cant scroll up or down
-        document.querySelector("body").style.overflow = "hidden";
-        let selectedPrevImg = element.querySelector("img").src; //getting user clicked image source link and stored in a variable
-        let selectedImgCategory = element.getAttribute("data-name"); //getting user clicked image data-name value
-        previewImg.src = selectedPrevImg; //passing the user clicked image source in preview image source
-        categoryName.textContent = selectedImgCategory; //passing user clicked data-name value in category name
-        previewBox.classList.add("show"); //show the preview image box
-        shadow.classList.add("show"); //show the light grey background
-        closeIcon.onclick = ()=>{ //if user click on close icon of preview box
-            previewBox.classList.remove("show"); //hide the preview box
-            shadow.classList.remove("show"); //hide the light grey background
-            document.querySelector("body").style.overflow = "auto"; //show the scroll bar on body
-        }
-}        
+            //once user click on any image then remove the scroll bar of the body, so user cant scroll up or down
+            document.querySelector("body").style.overflow = "hidden";
+            let selectedPrevImg = element.querySelector("img").src; //getting user clicked image source link and stored in a variable
+            let selectedImgCategory = element.getAttribute("data-name"); //getting user clicked image data-name value
+            previewImg.src = selectedPrevImg; //passing the user clicked image source in preview image source
+            categoryName.textContent = selectedImgCategory; //passing user clicked data-name value in category name
+            previewBox.classList.add("show"); //show the preview image box
+            shadow.classList.add("show"); //show the light grey background
+            closeIcon.onclick = ()=>{ //if user click on close icon of preview box
+                previewBox.classList.remove("show"); //hide the preview box
+                shadow.classList.remove("show"); //hide the light grey background
+                document.querySelector("body").style.overflow = "auto"; //show the scroll bar on body
+            }
+        } */       
     </script>
 </html>
