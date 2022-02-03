@@ -5,6 +5,7 @@
     Jan 31 2022     Loss of animation and some css debugging
     Feb 01 2022     Loss of animation and some css debugging flex work                    
     Feb 02 2022     Start work on images selector
+    Feb 03 2022     Work on images selector
 -->
 <!DOCTYPE html>
 <html lang="en">
@@ -35,7 +36,7 @@
                 <i class="fa fa-bars" onclick="showMenu()"></i>
             </nav>
             <div class="copyright">
-                <h4>By Ratoon, 1.49 : Feb 02 2022</h4>
+                <h4>By Ratoon, 1.55 : Feb 03 2022</h4>
             </div>
         </section>
         <section class="info">
@@ -183,11 +184,10 @@
                     <div class="image" data-name="collection">
                         <span><img src="gallery/knives/120.jpg" alt=""></span>
                     </div>
-
-                    <span><div class="row.centered">
-                        <button id="buttonshow2" onclick="showcatalog()">Fermer</button>
-                    </div>
                 </div>
+            </div>
+            <div class="row.centered">
+                <button id="buttonshow2" onclick="showcatalog()">Fermer</button>
             </div>
         </section>
         <!-- The contacts -->
@@ -215,14 +215,26 @@
             <p>Made by Reco DEV International Corporation  <i class="fa fa-heart-o"></i> </p>
         </section>
     </body>
-
+    <!-- 
+        Some code to help my poor css competencies
+    -->
     <script>
         let galleryshow = false;
-
-        var navlinks = document.getElementById("navLinks");
+        const navlinks = document.getElementById("navLinks");
+        const thegallery = document.getElementById("thegallery");
+        const firstbutton = document.getElementById("buttonshow1");
+        const sndbutton = document.getElementById("buttonshow2");
+        const itemsmenu = document.getElementById("itemsmenu");
+        // --------------------------------------------------------------------------------------
+        window.onload = () => {
+            let sndbutton = document.getElementById("buttonshow2");
+            sndbutton.hidden = true;
+        }
+        // --------------------------------------------------------------------------------------
         function showMenu() {
             navlinks.style.right = "0";
         }
+        // --------------------------------------------------------------------------------------
         function hideMenu(elementname) {
             navlinks.style.right = "-200px";
             if(elementname) {
@@ -231,19 +243,19 @@
                 theelement.scrollIntoView(true);
             }
         }
+        // --------------------------------------------------------------------------------------
         function showcatalog() {
-            let thegallery = document.getElementById("thegallery");
-            let firstbutton = document.getElementById("buttonshow1");
-            let itemsmenu = document.getElementById("itemsmenu");
             if(galleryshow) {
                 firstbutton.innerText = "Voir le catalogue"
-                thegallery.hidden = true;
+                sndbutton.hidden = true;
+                thegallery.style.display = "none";
                 itemsmenu.hidden = true;
                 galleryshow = false;
             }
             else {
                 firstbutton.innerText = "Fermer"
-                thegallery.hidden = false;
+                thegallery.style.display = "flex";
+                sndbutton.hidden = false;
                 itemsmenu.hidden = false;
                 galleryshow = true;
             }

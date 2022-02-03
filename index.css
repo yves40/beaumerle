@@ -6,6 +6,7 @@
  *  Jan 31 2022     Horizontal scroll, lost of image animation
  *  Feb 01 2022     Adjustments for iphone : flex work
  *  Feb 02 2022     Work on images selector
+ *  Feb 03 2022     Work on images selector
  */
 :root {
     --menu-background-color: darkcyan;
@@ -19,7 +20,7 @@
     --button-text-color: black;
     --button-hover-color: #f44336;
     --button-hover-text-color: white;
-    --button-itemsmenu-color: darkcyan; 
+    --button-background-color: lightgray; 
 
 
     --product-background:lightgray;
@@ -68,6 +69,7 @@ p {
 }
 button {
     border: 1px solid var(--button-border-color);
+    background-color: var(--button-background-color);
     border-radius: 5px;
     padding: 12px 34px;
     font-size: 13px;
@@ -170,7 +172,7 @@ nav .fa {
     border-radius: 5px;
     padding: 12px 34px;
     font-size: 13px;
-    background: transparent;
+    background: var(--button-background-color);
     position: relative;
     cursor: pointer;
     margin-bottom: 1rem;
@@ -321,7 +323,6 @@ nav .fa {
      The Gallery section 
 ------------------------------------------------- */
 .gallery {
-    display: flex;
     flex-wrap: wrap;
     margin-top: 30px;
 }
@@ -340,9 +341,9 @@ nav .fa {
 .gallery .image img {
     width: 100%;
     vertical-align: middle;
-    transition: all 0.5s ease;
+    transition: all 1s ease;
     border-radius: 10px;
-}
+    }
 
 .gallery .image:hover img {
     transform: scale(1.1);
