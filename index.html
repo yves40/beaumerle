@@ -29,15 +29,15 @@
                     <i class="fa fa-times" onclick="hideMenu()"></i>
                     <ul>
                         <li><a href="" onclick="hideMenu()">HOME</a></li>
+                        <li><a onclick="hideMenu('shops')">ATELIERS</a></li>
                         <li><a onclick="hideMenu('products')">MODELES</a></li>
-                        <li><a onclick="hideMenu('shops')">MAGASINS</a></li>
                         <li><a onclick="hideMenu('contacts')">CONTACTS</a></li>
                     </ul>
                 </div>
                 <i class="fa fa-bars" onclick="showMenu()"></i>
             </nav>
             <div class="copyright">
-                <h4>By Ratoon, 1.63 : Feb 04 2022</h4>
+                <h4>By Ratoon, 1.65 : Feb 04 2022</h4>
             </div>
         </section>
         <section class="info">
@@ -205,7 +205,7 @@
             if(elementname) {
                 console.log('Scroll element ' + elementname + " to top of scoll area");
                 let theelement = document.getElementById(elementname);
-                theelement.scrollIntoView(true);
+                theelement.scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"});
             }
         }
         // --------------------------------------------------------------------------------------
