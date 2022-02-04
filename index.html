@@ -37,7 +37,7 @@
                 <i class="fa fa-bars" onclick="showMenu()"></i>
             </nav>
             <div class="copyright">
-                <h4>By Ratoon, 1.66 : Feb 04 2022</h4>
+                <h4>By Ratoon, 1.67 : Feb 04 2022</h4>
             </div>
         </section>
         <section class="info">
@@ -183,11 +183,10 @@
         <!-- fullscreen img preview box -->
         <div class="preview-box">
             <div class="details">
-            <span class="title"
-                >Image Category:
-                <p></p
-            ></span>
-            <span class="icon fas fa-times"></span>
+                <span class="title">
+                    <p></p
+                ></span>
+                <span class="icon fa fa-times"></span>
             </div>
             <div class="image-box"><img src="" alt="" /></div>
         </div>
@@ -285,7 +284,30 @@
         }
         // --------------------------------------------------------------------------------------
         function preview(element){
-            console.log(element);
+            // Once user click on any image then remove the scroll bar of the body, 
+            // so user cant scroll up or down
+            document.querySelector("body").style.overflow = "hidden";
+            // Get user clicked image source link
+            let selectedPrevImg = element.querySelector("img").src; 
+            // Get user clicked image data-name value
+            let selectedImgCategory = element.getAttribute("data-name");
+             // Pass the user clicked image source in preview image source
+            previewImg.src = selectedPrevImg;
+            // Pass user clicked data-name value in category name
+            // categoryName is initialized above during page load. 
+            // It selects the ".title p" of the preview box element
+            categoryName.textContent = selectedImgCategory;
+            // Now show the preview image box and the the light grey background
+            previewBox.classList.add("show");
+            shadow.classList.add("show");
+            // Now just have to wait for the user to close the box
+            // closeIcon is initialized above during page load.
+            // It selects the ".icon" class element of the preview box
+            closeIcon.onclick = () => {
+                previewBox.classList.remove("show"); //hide the preview box
+                shadow.classList.remove("show"); //hide the light grey background
+                document.querySelector("body").style.overflow = "auto"; //show the scroll bar on body
+            };            
         }
     </script>
 </html>
