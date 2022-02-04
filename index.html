@@ -37,7 +37,7 @@
                 <i class="fa fa-bars" onclick="showMenu()"></i>
             </nav>
             <div class="copyright">
-                <h4>By Ratoon, 1.68 : Feb 04 2022</h4>
+                <h4>By Ratoon, 1.71 : Feb 04 2022</h4>
             </div>
         </section>
         <section class="info">
@@ -127,7 +127,7 @@
                 <button id="buttonshow1" onclick="showcatalog()">Voir le Catalogue</button>
             </div>
             <div class="items hide" id="itemsmenu">
-                <span class="item active" data-name="toutes">Toutes</span>
+                <span class="item active" data-name="toutes">Tous</span>
                 <span class="item " data-name="collection">Collection</span>
                 <span class="item " data-name="cuisine">Cuisine</span>
                 <span class="item " data-name="serie">Série</span>
@@ -189,6 +189,12 @@
                 <span class="icon fa fa-times"></span>
             </div>
             <div class="image-box"><img src="" alt="" /></div>
+            <div class="details">
+                <span class="title">
+                    <p></p
+                ></span>
+                <span class="icon fa fa-times"></span>
+            </div>
         </div>
         <div class="shadow"></div>
       </body>
@@ -203,13 +209,6 @@
         const firstbutton = document.getElementById("buttonshow1");
         const secondbutton = document.getElementById("buttonshow2");
         const itemsmenu = document.getElementById("itemsmenu");
-
-        // Fullscreen image preview function selecting all required elements
-        const previewBox = document.querySelector(".preview-box");
-        const categoryName = previewBox.querySelector(".title p");
-        const previewImg = previewBox.querySelector("img");
-        const closeIcon = previewBox.querySelector(".icon");
-        const shadow = document.querySelector(".shadow");
 
         // --------------------------------------------------------------------------------------
         //  When loading the page, set a click event on all gallery images
@@ -283,6 +282,14 @@
             }
         }
         // --------------------------------------------------------------------------------------
+        // Fullscreen image preview function selecting all required elements
+        const previewBox = document.querySelector(".preview-box");
+        const categoryName = previewBox.querySelector(".title p");
+        const previewImg = previewBox.querySelector("img");
+        const closeIcon = previewBox.querySelectorAll(".icon");
+
+        const shadow = document.querySelector(".shadow");
+
         function preview(element){
             // Once user click on any image then remove the scroll bar of the body, 
             // so user cant scroll up or down
@@ -301,13 +308,18 @@
             previewBox.classList.add("show");
             shadow.classList.add("show");
             // Now just have to wait for the user to close the box
-            // closeIcon is initialized above during page load.
-            // It selects the ".icon" class element of the preview box
-            closeIcon.onclick = () => {
-                previewBox.classList.remove("show"); //hide the preview box
-                shadow.classList.remove("show"); //hide the light grey background
-                document.querySelector("body").style.overflow = "auto"; //show the scroll bar on body
-            };            
+            // closeIcon elements are loaded above during page load.
+            // It selects the ".icon" class elements of the preview box
+            // Two of them on the preview page ; One on top, one on botom
+            // Because depending on the window size, the upper one sometimes 
+            // disapears from the view
+            closeIcon.forEach( (icon) => {
+                icon.onclick = () => {
+                    previewBox.classList.remove("show"); //hide the preview box
+                    shadow.classList.remove("show"); //hide the light grey background
+                    document.querySelector("body").style.overflow = "auto"; //show the scroll bar on body
+                };            
+            })
         }
     </script>
 </html>

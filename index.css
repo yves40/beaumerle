@@ -434,7 +434,7 @@ nav .fa {
     opacity: 1;
     pointer-events: auto;
     transform: translate(-50%, -50%) scale(1);
-    transition: all 0.3s ease;
+    transition: all 2s ease;
   }
   .preview-box .details{
     padding: 13px 15px 13px 10px;
@@ -444,17 +444,18 @@ nav .fa {
   }
   .details .title{
     display: flex;
-    font-size: 18px;
     font-weight: 400;
   }
   .details .title p{
     font-weight: 500;
-    margin-left: 5px;
+    font-size: 24px;
+    margin-left: 10px;
   }
   .details .icon{
     color: #007bff;
-    font-style: 22px;
+    font-size: 24px;
     cursor: pointer;
+    margin-right: 40px;
   }
   .preview-box .image-box{
     width: 100%;
