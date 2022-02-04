@@ -7,6 +7,7 @@
  *  Feb 01 2022     Adjustments for iphone : flex work
  *  Feb 02 2022     Work on images selector
  *  Feb 03 2022     Work on images selector
+ *  Feb 04 2022     Work on images selector
  */
 :root {
     --menu-background-color: darkcyan;
@@ -303,8 +304,13 @@ nav .fa {
 -------------------------------------------------- */
 .items {
     padding-top: 1rem;
+    display: flex;
+    flex-basis: 25%;
+    flex-wrap: wrap;
+    justify-content: space-around
 }
-.items span{
+.items span {
+    margin: 3px;
     padding: 7px 25px;
     font-size: var(--text-color);
     font-weight: 500;
@@ -318,6 +324,9 @@ nav .fa {
   .items span:hover{
     color: #fff;
     background: var(--button-hover-color);
+  }
+  .hide {
+      display: none;
   }
 /* -------------------------------------------------
      The Gallery section 

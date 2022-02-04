@@ -6,6 +6,7 @@
     Feb 01 2022     Loss of animation and some css debugging flex work                    
     Feb 02 2022     Start work on images selector
     Feb 03 2022     Work on images selector
+    Feb 04 2022     Work on images selector
 -->
 <!DOCTYPE html>
 <html lang="en">
@@ -36,7 +37,7 @@
                 <i class="fa fa-bars" onclick="showMenu()"></i>
             </nav>
             <div class="copyright">
-                <h4>By Ratoon, 1.62 : Feb 03 2022</h4>
+                <h4>By Ratoon, 1.63 : Feb 04 2022</h4>
             </div>
         </section>
         <section class="info">
@@ -125,7 +126,7 @@
             <div class="row.centered">
                 <button id="buttonshow1" onclick="showcatalog()">Voir le Catalogue</button>
             </div>
-            <div class="items" id="itemsmenu" hidden>
+            <div class="items hide" id="itemsmenu">
                 <span class="item active" data-name="Toutes">Toutes</span>
                 <span class="item " data-name="collection">Collection</span>
                 <span class="item " data-name="cuisine">Cuisine</span>
@@ -188,12 +189,11 @@
         const navlinks = document.getElementById("navLinks");
         const thegallery = document.getElementById("thegallery");
         const firstbutton = document.getElementById("buttonshow1");
-        const sndbutton = document.getElementById("buttonshow2");
+        const secondbutton = document.getElementById("buttonshow2");
         const itemsmenu = document.getElementById("itemsmenu");
         // --------------------------------------------------------------------------------------
         window.onload = () => {
-            let sndbutton = document.getElementById("buttonshow2");
-            sndbutton.hidden = true;
+            secondbutton.hidden = true;
         }
         // --------------------------------------------------------------------------------------
         function showMenu() {
@@ -212,16 +212,16 @@
         function showcatalog() {
             if(galleryshow) {
                 firstbutton.innerText = "Voir le catalogue"
-                sndbutton.hidden = true;
+                secondbutton.hidden = true;
                 thegallery.style.display = "none";
-                itemsmenu.hidden = true;
+                itemsmenu.classList.add("hide");
                 galleryshow = false;
             }
             else {
                 firstbutton.innerText = "Fermer"
                 thegallery.style.display = "flex";
-                sndbutton.hidden = false;
-                itemsmenu.hidden = false;
+                secondbutton.hidden = false;
+                itemsmenu.classList.remove("hide");
                 galleryshow = true;
             }
         }
