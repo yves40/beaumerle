@@ -264,7 +264,7 @@ nav .fa {
     flex-wrap: wrap;
     margin-top: 30px;
     justify-content: center;
-    transition: all 2s ease;
+    animation: animate 2s ease;
 }
 
 .gmap iframe {
