@@ -94,7 +94,7 @@ function showcatalog() {
 // --------------------------------------------------------------------------------------
 function showmap() {
     if(mapshow) {
-        gomap.innerText = "Itinéraire"
+        gomap.innerText = "Où sommes nous ?"
         themap.style.display = "none";
         mapshow = false;
     }

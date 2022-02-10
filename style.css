@@ -257,6 +257,20 @@ nav .fa {
     bottom: 49%;
     opacity: 1;
 }
+/* -------------------------------------------------
+     The Google map section 
+------------------------------------------------- */
+.gmap {
+    flex-wrap: wrap;
+    margin-top: 30px;
+    justify-content: center;
+    transition: all 2s ease;
+}
+
+.gmap iframe {
+    width: 100%;
+    height: 40vh;
+}
 
 /* -------------------------------------------------
      The products section 
