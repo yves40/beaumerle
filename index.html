@@ -8,6 +8,7 @@
     Feb 03 2022     Work on images selector
     Feb 04 2022     Work on images selector
     Feb 06 2022     Separate JS file
+    Feb 10 2022     Play with google map
 -->
 <!DOCTYPE html>
 <html lang="en">
@@ -38,7 +39,7 @@
                 <i class="fa fa-bars" onclick="showMenu()"></i>
             </nav>
             <div class="copyright">
-                <h4>By Ratoon, 1.77 : Feb 06 2022</h4>
+                <h4>By Ratoon, 1.81 RC1 : Feb 10 2022</h4>
             </div>
         </section>
         <section class="info">
@@ -79,6 +80,12 @@
                         <h3>THIERS</h3>
                     </div>
                 </div>
+            </div>
+            <div class="row.centered">
+                <button id="gomap" onclick="showmap()">Itinéraire</button>
+            </div>
+            <div id="googlemap">
+                <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1bZbyGrDpcuoeFxpikCkUOhELXkE5VkG0&ehbc=2E312F" width="640" height="480"></iframe>            
             </div>
         </section>
         <!-- The products -->

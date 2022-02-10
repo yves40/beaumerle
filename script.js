@@ -3,13 +3,17 @@
     Some code to compensate my poor css competencies
 
     Feb 06 20202    Initial (from index.html)
+    Feb 10 20202    Play with google map (add a button to show google navigation page)
     
 */
 
 // Standard elements
 let galleryshow = false;
+let mapshow = false;
 const navlinks = document.getElementById("navLinks");
 const thegallery = document.getElementById("thegallery");
+const gomap = document.getElementById("gomap");
+const themap = document.getElementById("googlemap");
 const firstbutton = document.getElementById("buttonshow1");
 const secondbutton = document.getElementById("buttonshow2");
 const itemsmenu = document.getElementById("itemsmenu");
@@ -50,7 +54,8 @@ window.onload = () => {
             });
         }
     }
-
+    // Do not show map
+    themap.style.display = "none";
     // Adding onclick attribute in all available gallery images when page loads
     for (let i = 0; i < filterImg.length; i++) {
         filterImg[i].setAttribute("onclick", "preview(this)"); 
@@ -84,6 +89,19 @@ function showcatalog() {
         secondbutton.hidden = false;
         itemsmenu.classList.remove("hide");
         galleryshow = true;
+    }
+}
+// --------------------------------------------------------------------------------------
+function showmap() {
+    if(mapshow) {
+        gomap.innerText = "Itinéraire"
+        themap.style.display = "none";
+        mapshow = false;
+    }
+    else {
+        gomap.innerText = "Fermer"
+        themap.style.display = "flex";
+        mapshow = true;
     }
 }
 // --------------------------------------------------------------------------------------
