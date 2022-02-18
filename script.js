@@ -70,10 +70,13 @@ window.onload = () => {
             });
         }
     }
-    // Adding onclick attribute in all available gallery images when page loads
+    // Adding onclick attribute in all available gallery images
+    /* 
     for (let i = 0; i < filterImg.length; i++) {
         filterImg[i].setAttribute("onclick", "preview(this)"); 
     }
+    */
+
     // Load JSON file containing all knives   
     getJSON('/catalog.json', allKnives => {
         allKnives.forEach(element => {
@@ -81,10 +84,17 @@ window.onload = () => {
             let newspan = document.createElement("span");
             let newimage = document.createElement("img");
             newdiv.className = "image";
+            newdiv.setAttribute("data-name", element.model);
             newimage.src = element.url;
             newspan.appendChild(newimage);
             newdiv.appendChild(newspan);
             dynamicgallery.appendChild(newdiv);
+            // Adding onclick attribute in all dynamic gallery images
+            const dynamicimageslist = document.querySelectorAll(".gallery .image");
+            for (let i = 0; i < dynamicimageslist.length; i++) {
+                console.log(dynamicimageslist[i].src)
+                dynamicimageslist[i].setAttribute("onclick", "preview(this)"); 
+            }
         })
     });
 }
@@ -107,12 +117,14 @@ function showcatalog() {
         firstbutton.innerText = "Voir le catalogue"
         secondbutton.hidden = true;
         thegallery.style.display = "none";
+        dynamicgallery.style.display = "none";
         itemsmenu.classList.add("hide");
         galleryshow = false;
     }
     else {
         firstbutton.innerText = "Fermer"
         thegallery.style.display = "flex";
+        dynamicgallery.style.display = "flex";
         secondbutton.hidden = false;
         itemsmenu.classList.remove("hide");
         galleryshow = true;
@@ -132,11 +144,11 @@ function preview(element){
     // so user cant scroll up or down
     document.querySelector("body").style.overflow = "hidden";
     // Get user clicked image source link
-    let selectedPrevImg = element.querySelector("img").src; 
+    let selectedPrevImg = element.querySelector("img"); 
     // Get user clicked image data-name value
     let selectedImgCategory = element.getAttribute("data-name");
      // Pass the user clicked image source in preview image source
-    previewImg.src = selectedPrevImg;
+    previewImg.src = selectedPrevImg.src;
     // Pass user clicked data-name value in category name
     // categoryName is initialized above during page load. 
     // It selects the ".title p" of the preview box element
