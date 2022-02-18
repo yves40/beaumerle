@@ -2,21 +2,37 @@
 /*
     Some code to compensate my poor css competencies
 
-    Feb 06 20202    Initial (from index.html)
-    Feb 10 20202    Play with google map (add a button to show google navigation page)
+    Feb 06 2022     Initial (from index.html)
+    Feb 10 2022     Play with google map (add a button to show google navigation page)
+    Feb 18 2022     Remove Google map and shops ( as requested by B3 )
     
 */
 
 // Standard elements
 let galleryshow = false;
-let mapshow = false;
 const navlinks = document.getElementById("navLinks");
 const thegallery = document.getElementById("thegallery");
-const gomap = document.getElementById("gomap");
-const themap = document.getElementById("googlemap");
+const dynamicgallery = document.getElementById("dynamicgallery");
 const firstbutton = document.getElementById("buttonshow1");
 const secondbutton = document.getElementById("buttonshow2");
 const itemsmenu = document.getElementById("itemsmenu");
+
+// --------------------------------------------------------------------------------------
+// Utility function loading a json file and returning a json object
+// The file contains the knive list
+// --------------------------------------------------------------------------------------
+async function getJSON(path, callback) {
+    return callback(
+        await
+        fetch(path)
+        .then(function(response) {
+            return response.json();
+        })
+        .catch(function(error) {
+            console.log('Cannot load catalog.json: ' + error.message);
+            return [{ "id": "000", "url": "none", "model" :"none", "label": "none" }];
+        }));
+}
 
 // --------------------------------------------------------------------------------------
 //  When loading the page, set a click event on all gallery images
@@ -54,12 +70,23 @@ window.onload = () => {
             });
         }
     }
-    // Do not show map
-    themap.style.display = "none";
     // Adding onclick attribute in all available gallery images when page loads
     for (let i = 0; i < filterImg.length; i++) {
         filterImg[i].setAttribute("onclick", "preview(this)"); 
     }
+    // Load JSON file containing all knives   
+    getJSON('/catalog.json', allKnives => {
+        allKnives.forEach(element => {
+            let newdiv = document.createElement("div");
+            let newspan = document.createElement("span");
+            let newimage = document.createElement("img");
+            newdiv.className = "image";
+            newimage.src = element.url;
+            newspan.appendChild(newimage);
+            newdiv.appendChild(newspan);
+            dynamicgallery.appendChild(newdiv);
+        })
+    });
 }
 // --------------------------------------------------------------------------------------
 function showMenu() {
@@ -89,19 +116,6 @@ function showcatalog() {
         secondbutton.hidden = false;
         itemsmenu.classList.remove("hide");
         galleryshow = true;
-    }
-}
-// --------------------------------------------------------------------------------------
-function showmap() {
-    if(mapshow) {
-        gomap.innerText = "Où sommes nous ?"
-        themap.style.display = "none";
-        mapshow = false;
-    }
-    else {
-        gomap.innerText = "Fermer"
-        themap.style.display = "flex";
-        mapshow = true;
     }
 }
 // --------------------------------------------------------------------------------------

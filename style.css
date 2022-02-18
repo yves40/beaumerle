@@ -8,6 +8,7 @@
  *  Feb 02 2022     Work on images selector
  *  Feb 03 2022     Work on images selector
  *  Feb 04 2022     Work on images selector
+ *  Feb 18 2022     Start work on B3's requests
  */
 :root {
     --menu-background-color: darkcyan;
@@ -205,72 +206,6 @@ nav .fa {
     margin: 10px 0 20px;
 }
 
-/* -------------------------------------------------
-    The shops section 
-------------------------------------------------- */
-.shops {
-    width: 80%;
-    margin: auto;
-    text-align: center;
-    padding-top: 1rem;
-}
-.shops img {
-    width: 100%;
-    height: 100%;
-    border-radius: 10px;
-}
-.shops-gallery {
-    display: flex;
-}
-.shop {
-    flex-basis: 32%;
-    border-radius: 10px;
-    margin: 10px;
-    position: relative;
-    overflow: hidden;
-}
-.sitelabel {
-    background: transparent;
-    height: 100%;
-    width: 100%;
-    transition: 1s;
-    position: absolute;
-    top: 0;
-    left: 0;
-}
-.sitelabel h3 {
-    width: 100%;
-    font-weight: 500;
-    color: white;
-    font-size: 26px;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    position: absolute;
-    opacity: 0;
-    transition: 1s;
-}
-.sitelabel:hover {
-    background:var(--site-hover-color);
-}
-.sitelabel:hover h3 {
-    bottom: 49%;
-    opacity: 1;
-}
-/* -------------------------------------------------
-     The Google map section 
-------------------------------------------------- */
-.gmap {
-    flex-wrap: wrap;
-    margin-top: 30px;
-    justify-content: center;
-    animation: animate 2s ease;
-}
-
-.gmap iframe {
-    width: 100%;
-    height: 40vh;
-}
 
 /* -------------------------------------------------
      The products section 
@@ -391,6 +326,9 @@ nav .fa {
     }
 }
 
+#dynamicgallery {
+    display: flex;
+}
 /* -------------------------------------------------
     The contacts section 
 ------------------------------------------------- */

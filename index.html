@@ -10,6 +10,7 @@
     Feb 06 2022     Separate JS file
     Feb 10 2022     Play with google map
     Feb 17 2022     Fix a typo
+    Feb 18 2022     Start work on B3's requests
 -->
 <!DOCTYPE html>
 <html lang="en">
@@ -40,7 +41,7 @@
                 <i class="fa fa-bars" onclick="showMenu()"></i>
             </nav>
             <div class="copyright">
-                <h4>By Ratoon, 1.85 RC1 : Feb 17 2022</h4>
+                <h4>By Ratoon, 1.88 RC2 : Feb 17 2022</h4>
             </div>
         </section>
         <section class="info">
@@ -51,43 +52,6 @@
                 Leur solidité n'a d'égal que leur parfaite adéquation avec une utilisation  
                 quotidienne pour les besoins les plus variés.
                 </p>
-                <a href="#products" class="urlbutton">Que faisons nous ? </a>
-        </section>
-        <!-- The shops -->
-        <section class="shops" id="shops">
-            <div>
-                <h1>Nos ateliers</h1>
-                <p>Rendez nous une visite !
-                    Nos compagnons seront heureux de vous accueillir et fiers de vous 
-                    montrer leurs ateliers.
-                </p>
-            </div>
-            <div class="shops-gallery">
-                <div class="shop">
-                    <img src="images/cordelle.jpg">
-                    <div class="sitelabel">
-                        <h3>CORDELLE</h3>
-                    </div>
-                </div>
-                <div class="shop">
-                    <img src="images/cluny.jpg">
-                    <div class="sitelabel">
-                        <h3>CLUNY</h3>
-                    </div>
-                </div>
-                <div class="shop">
-                    <img src="images/thiers.jpg">
-                    <div class="sitelabel">
-                        <h3>THIERS</h3>
-                    </div>
-                </div>
-            </div>
-            <div class="row.centered">
-                <button id="gomap" onclick="showmap()">Où sommes nous ?</button>
-            </div>
-            <div id="googlemap" class="gmap">
-                <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1jKVHd8MHTJW0opl2Y44CMIqDXexQXfmw&ehbc=2E312F" ></iframe>
-            </div>
         </section>
         <!-- The products -->
         <section class="products" id="products">
@@ -160,6 +124,8 @@
                 <div class="image" data-name="serie"><span><img src="gallery/knives/118.jpg" alt=""></span></div>
                 <div class="image" data-name="serie"><span><img src="gallery/knives/119.jpg" alt=""></span></div>
                 <div class="image" data-name="collection"><span><img src="gallery/knives/120.jpg" alt=""></span></div>
+            </div>
+            <div id="dynamicgallery" class="gallery">
             </div>
             <div class="row.centered">
                 <button id="buttonshow2" onclick="showcatalog()">Fermer</button>
