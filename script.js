@@ -5,13 +5,13 @@
     Feb 06 2022     Initial (from index.html)
     Feb 10 2022     Play with google map (add a button to show google navigation page)
     Feb 18 2022     Remove Google map and shops ( as requested by B3 )
+    Feb 20 2022     Dynamic catalog: 1
     
 */
 
 // Standard elements
 let galleryshow = false;
 const navlinks = document.getElementById("navLinks");
-const thegallery = document.getElementById("thegallery");
 const dynamicgallery = document.getElementById("dynamicgallery");
 const firstbutton = document.getElementById("buttonshow1");
 const secondbutton = document.getElementById("buttonshow2");
@@ -116,14 +116,12 @@ function showcatalog() {
     if(galleryshow) {
         firstbutton.innerText = "Voir le catalogue"
         secondbutton.hidden = true;
-        thegallery.style.display = "none";
         dynamicgallery.style.display = "none";
         itemsmenu.classList.add("hide");
         galleryshow = false;
     }
     else {
         firstbutton.innerText = "Fermer"
-        thegallery.style.display = "flex";
         dynamicgallery.style.display = "flex";
         secondbutton.hidden = false;
         itemsmenu.classList.remove("hide");

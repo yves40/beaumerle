@@ -2,6 +2,29 @@
     { "id": "101", "url": "gallery/knives/101.jpg", "model" :"cuisine", "label": "Rahan", "status": "Vendu" },
     { "id": "102", "url": "gallery/knives/102.jpg", "model" :"serie", "label": "Tarzan", "status": "En boutique" },
     { "id": "103", "url": "gallery/knives/103.jpg", "model" :"cuisine", "label": "Rambo IV", "status": "Commandable" },
-    { "id": "104", "url": "gallery/knives/104.jpg", "model" :"collection", "label": "Predator", "status": "En boutique" }    
+    { "id": "104", "url": "gallery/knives/104.jpg", "model" :"serie", "label": "Predator", "status": "En boutique" },
+    { "id": "105", "url": "gallery/knives/105.jpg", "model" :"collection", "label": "Predator", "status": "En boutique" },   
+    { "id": "106", "url": "gallery/knives/106.jpg", "model" :"collection", "label": "Predator", "status": "En boutique" },    
+    { "id": "107", "url": "gallery/knives/107.jpg", "model" :"serie", "label": "Predator", "status": "En boutique" },    
+    { "id": "108", "url": "gallery/knives/108.jpg", "model" :"collection", "label": "Predator", "status": "En boutique" },    
+    { "id": "109", "url": "gallery/knives/109.jpg", "model" :"collection", "label": "Predator", "status": "En boutique" },    
+    { "id": "110", "url": "gallery/knives/110.jpg", "model" :"serie", "label": "Predator", "status": "En boutique" },    
+    { "id": "111", "url": "gallery/knives/111.jpg", "model" :"collection", "label": "Predator", "status": "En boutique" },    
+    { "id": "112", "url": "gallery/knives/112.jpg", "model" :"collection", "label": "Predator", "status": "En boutique" },    
+    { "id": "113", "url": "gallery/knives/113.jpg", "model" :"serie", "label": "Predator", "status": "En boutique" },    
+    { "id": "115", "url": "gallery/knives/115.jpg", "model" :"serie", "label": "Predator", "status": "En boutique" },    
+    { "id": "117", "url": "gallery/knives/117.jpg", "model" :"collection", "label": "Predator", "status": "En boutique" },    
+    { "id": "118", "url": "gallery/knives/118.jpg", "model" :"collection", "label": "Predator", "status": "En boutique" },    
+    { "id": "119", "url": "gallery/knives/119.jpg", "model" :"serie", "label": "Predator", "status": "En boutique" },    
+    { "id": "120", 
+            "url": "gallery/knives/120.jpg",
+            "model" :"collection",
+            "label": "Predator",
+            "status": "En boutique",
+            "price": "245.00", 
+            "desc": "Acier 14C28N",
+            "manche" : "Mitre en laiton et plaquette en ébène", 
+            "dimension": "longueur totale 300mm, longueur tranchant 170mm, poids 320gr",
+            "comment": "Cran forcé"
+    }    
 ]
-

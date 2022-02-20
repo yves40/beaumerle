@@ -11,6 +11,8 @@
     Feb 10 2022     Play with google map
     Feb 17 2022     Fix a typo
     Feb 18 2022     Start work on B3's requests
+    Feb 20 2022     Dynamic catalog
+    
 -->
 <!DOCTYPE html>
 <html lang="en">
@@ -34,14 +36,13 @@
                     <ul>
                         <li><a href="" onclick="hideMenu()">HOME</a></li>
                         <li><a onclick="hideMenu('shops')">ATELIERS</a></li>
-                        <li><a onclick="hideMenu('products')">MODELES</a></li>
                         <li><a onclick="hideMenu('contacts')">CONTACTS</a></li>
                     </ul>
                 </div>
                 <i class="fa fa-bars" onclick="showMenu()"></i>
             </nav>
             <div class="copyright">
-                <h4>By Ratoon, 1.93 RC2 : Feb 18 2022</h4>
+                <h4>By Ratoon, 1.96 RC2 : Feb 20 2022</h4>
             </div>
         </section>
         <section class="info">
@@ -55,46 +56,6 @@
         </section>
         <!-- The products -->
         <section class="products" id="products">
-            <h1>Nos modèles</h1>
-            <p>Présents dans tous les domaines d'application, nos couteaux sont 
-                plébiscités par leurs utilisateurs. Nous créons à peine 300 pièces par an 
-                car elles sont uniques et reconnues dans notre domaine comme l'équivalent 
-                de la joaillerie très haut de gamme.
-            </p>
-            <div class="products-gallery">
-                <div class="product">
-                    <h3>Collection</h3>
-                    <img src="gallery/knives/110.jpg" alt="">
-                    <div class="product-desc">
-                        <p>
-                            Découvrez nos dernières réalisations 2021
-                            pour les clients professionnels et particuliers.
-                        </p>
-                    </div>
-                </div>
-                <div class="product">
-                    <h3>Cuisine</h3>
-                    <img src="gallery/knives/101.jpg" alt="">
-                    <div class="product-desc">
-                        <p>
-                            Pas de grande cuisine sans grands couteaux. Les professionnels
-                            plébiscitent nos productions car ils y trouvent l'assurance d'une
-                            qualité et d'une précision sans égal.
-                        </p>
-                    </div>
-                </div>
-                <div class="product">
-                    <h3>Série</h3>
-                    <img src="gallery/knives/118.jpg" alt="">
-                    <div class="product-desc">
-                        <p>
-                            Nous réalisons également des séries limitées selon
-                            vos demandes de forme, de taille, de couleur. 
-                            Nos limites sont...votre imagination !
-                        </p>
-                    </div>
-                </div>
-            </div>
             <!-- Now the catalog section with dynamic images -->
             <div class="row.centered">
                 <button id="buttonshow1" onclick="showcatalog()">Voir le Catalogue</button>
@@ -104,26 +65,6 @@
                 <span class="item " data-name="collection">Collection</span>
                 <span class="item " data-name="cuisine">Cuisine</span>
                 <span class="item " data-name="serie">Série</span>
-            </div>
-            <div id="thegallery" class="gallery" hidden>
-                <div class="image" data-name="cuisine"><span><img src="gallery/knives/101.jpg" alt=""></span></div>
-                <div class="image" data-name="cuisine"><span><img src="gallery/knives/102.jpg" alt=""></span></div>
-                <div class="image" data-name="cuisine"><span><img src="gallery/knives/103.jpg" alt=""></span></div>
-                <div class="image" data-name="cuisine"><span><img src="gallery/knives/104.jpg" alt=""></span></div>
-                <div class="image" data-name="cuisine"><span><img src="gallery/knives/105.jpg" alt=""></span></div>
-                <div class="image" data-name="collection"><span><img src="gallery/knives/106.jpg" alt=""></span></div>
-                <div class="image" data-name="collection"><span><img src="gallery/knives/107.jpg" alt=""></span></div>
-                <div class="image" data-name="collection"><span><img src="gallery/knives/108.jpg" alt=""></span></div>
-                <div class="image" data-name="cuisine"><span><img src="gallery/knives/109.jpg" alt=""></span></div>
-                <div class="image" data-name="collection"><span><img src="gallery/knives/110.jpg" alt=""></span></div>
-                <div class="image" data-name="collection"><span><img src="gallery/knives/111.jpg" alt=""></span></div>
-                <div class="image" data-name="cuisine"><span><img src="gallery/knives/112.jpg" alt=""></span></div>
-                <div class="image" data-name="collection"><span><img src="gallery/knives/113.jpg" alt=""></span></div>
-                <div class="image" data-name="serie"><span><img src="gallery/knives/115.jpg" alt=""></span></div>
-                <div class="image" data-name="collection"><span><img src="gallery/knives/117.jpg" alt=""></span></div>
-                <div class="image" data-name="serie"><span><img src="gallery/knives/118.jpg" alt=""></span></div>
-                <div class="image" data-name="serie"><span><img src="gallery/knives/119.jpg" alt=""></span></div>
-                <div class="image" data-name="collection"><span><img src="gallery/knives/120.jpg" alt=""></span></div>
             </div>
             <div id="dynamicgallery" class="gallery" hidden>
             </div>
