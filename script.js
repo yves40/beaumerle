@@ -39,12 +39,13 @@ async function getJSON(path, callback) {
 //  Also install the event handler for products categories buttons selection
 // --------------------------------------------------------------------------------------
 window.onload = () => {
+    // Get the initial page language, depending ont he browser config
+    let lang = document.documentElement.getAttribute("lang");
 
     document.getElementById("buttonshow2").hidden = true;
 
     // Filter implementation
     const filterItem = document.querySelector(".items");
-    const filterImg = document.querySelectorAll(".gallery .image");
     // Manage buttons selection events
     filterItem.onclick = (selectedItem) => {
         if (selectedItem.target.classList.contains("item")) {
@@ -56,6 +57,8 @@ window.onload = () => {
             selectedItem.target.classList.add("active"); 
             // Get data-name value of user selected item and store in a filtername variable
             let filterName = selectedItem.target.getAttribute("data-name");
+            // Load the array used to activate / deactivate images in the gallery
+            let filterImg = document.querySelectorAll(".gallery .image")
             filterImg.forEach((image) => {
                 // If user selected item data-name value is equal to images data-name value
                 // or user selected item data-name value is equal to "all"
@@ -70,12 +73,6 @@ window.onload = () => {
             });
         }
     }
-    // Adding onclick attribute in all available gallery images
-    /* 
-    for (let i = 0; i < filterImg.length; i++) {
-        filterImg[i].setAttribute("onclick", "preview(this)"); 
-    }
-    */
 
     // Load JSON file containing all knives   
     getJSON('/catalog.json', allKnives => {
@@ -92,7 +89,6 @@ window.onload = () => {
             // Adding onclick attribute in all dynamic gallery images
             const dynamicimageslist = document.querySelectorAll(".gallery .image");
             for (let i = 0; i < dynamicimageslist.length; i++) {
-                console.log(dynamicimageslist[i].src)
                 dynamicimageslist[i].setAttribute("onclick", "preview(this)"); 
             }
         })
