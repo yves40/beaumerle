@@ -1,5 +1,7 @@
 
 /*
+    script.js
+
     Some code to compensate my poor css competencies
 
     Feb 06 2022     Initial (from index.html)
@@ -39,8 +41,9 @@ async function getJSON(path, callback) {
 //  Also install the event handler for products categories buttons selection
 // --------------------------------------------------------------------------------------
 window.onload = () => {
-    // Get the initial page language, depending ont he browser config
-    let lang = document.documentElement.getAttribute("lang");
+
+    // Load the string module to use the proper language for the page
+    loadVariableStrings();
 
     document.getElementById("buttonshow2").hidden = true;
 

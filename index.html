@@ -34,20 +34,20 @@
                 <div class="nav-links" id="navLinks">
                     <i class="fa fa-times" onclick="hideMenu()"></i>
                     <ul>
-                        <li><a href="" onclick="hideMenu()">HOME</a></li>
-                        <li><a onclick="hideMenu('shops')">ATELIERS</a></li>
-                        <li><a onclick="hideMenu('contacts')">CONTACTS</a></li>
+                        <li><a id="#hometext" href="" onclick="hideMenu()" textid="a-home" >HOME</a></li>
+                        <li><a id="#ateliers" onclick="hideMenu('shops')" textid="a-ateliers">ATELIERS</a></li>
+                        <li><a id="#contacts" onclick="hideMenu('contacts')" textid="a-contacts">CONTACTS</a></li>
                     </ul>
                 </div>
                 <i class="fa fa-bars" onclick="showMenu()"></i>
             </nav>
             <div class="copyright">
-                <h4>By Ratoon, 1.97 RC2 : Feb 20 2022</h4>
+                <h4>By Ratoon, 2.01 RC2 : Feb 20 2022</h4>
             </div>
         </section>
         <section class="info">
-                <h1>Atelier Beau Merle</h1>
-                <p>Impliquée depuis 2 siècles dans la fabrication des meilleurs
+                <h1 id="#sitetitle" textid="h1-sitetitle">Atelier Beau Merle</h1>
+                <p id="#ptitle" textid="p-title">Impliquée depuis 2 siècles dans la fabrication des meilleurs
                 couteaux, notre entreprise perpétue la tradition
                 de création de modèles mondialement reconnus pour leur qualité et leur esthétique.
                 Leur solidité n'a d'égal que leur parfaite adéquation avec une utilisation  
@@ -116,3 +116,4 @@
       </body>
 </html>
 <script src="script.js"></script>
+<script src="lang.js"></script>
