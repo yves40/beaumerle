@@ -11,6 +11,11 @@
     
 */
 
+const scriptVersion = () => {
+    return "script.js, Feb 21 2022; 1.30";
+}
+
+
 // Standard elements
 let galleryshow = false;
 const navlinks = document.getElementById("navLinks");
@@ -18,6 +23,8 @@ const dynamicgallery = document.getElementById("dynamicgallery");
 const firstbutton = document.getElementById("buttonshow1");
 const secondbutton = document.getElementById("buttonshow2");
 const itemsmenu = document.getElementById("itemsmenu");
+const english = document.getElementById("#a-english");
+const french = document.getElementById("#a-french");
 
 // --------------------------------------------------------------------------------------
 // Utility function loading a json file and returning a json object
@@ -43,7 +50,9 @@ async function getJSON(path, callback) {
 window.onload = () => {
 
     // Load the string module to use the proper language for the page
+    console.log(langVersion());
     loadVariableStrings();
+    switchLang(getLang());
 
     document.getElementById("buttonshow2").hidden = true;
 
@@ -96,6 +105,18 @@ window.onload = () => {
             }
         })
     });
+}
+// --------------------------------------------------------------------------------------
+function switchLang(lang) {
+    if(lang === 'fr') {
+        french.classList.add('hide');
+        english.classList.remove('hide');
+    }
+    else {  // Right now assume ony 2 languages
+        english.classList.add('hide');
+        french.classList.remove('hide');
+    }
+    changeLanguage(lang);
 }
 // --------------------------------------------------------------------------------------
 function showMenu() {
