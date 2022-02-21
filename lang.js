@@ -12,7 +12,7 @@
     Place here all messages in all languages
 */
 const langVersion = () => {
-    return "lang.js, Feb 21 2022; 1.05";
+    return "lang.js, Feb 21 2022; 1.10";
 }
 
 
@@ -49,32 +49,20 @@ const frdict = [
 // Hi Ratoon, you normally should not touch this part of code.
 // If you do, tell me.
 //------------------------------------------------------------------
-// Check current language
-//------------------------------------------------------------------
-let lang = document.documentElement.getAttribute("lang");
-//------------------------------------------------------------------
-// Assign the proper dictionary
-//------------------------------------------------------------------
-let dictionary =  lang === "en" ? endict : frdict;
-//------------------------------------------------------------------
 // Get language
 //------------------------------------------------------------------
-function getLang() { return lang; }
+function getLang() { return document.documentElement.getAttribute("lang"); }
 //------------------------------------------------------------------
 // Called by script.js during page load
 //------------------------------------------------------------------
 let element;
-function loadVariableStrings() {
-    dictionary.forEach( label => {
-        element = document.getElementById(label.id);
-        element.innerHTML = label.text;
-    })
-}
-//------------------------------------------------------------------
-// Change language
-//------------------------------------------------------------------
-function changeLanguage(chosenlang) {
-    console.log('Switching to ' + chosenlang);
-    document.documentElement.setAttribute('lang', chosenlang);
-    //location.reload();
+function loadVariableStrings(language) {
+    // Assign the proper dictionary
+    // document.documentElement.setAttribute('lang', language);
+    let dictionary =  language === "en" ? endict : frdict;
+    for(let i = 0; i < dictionary.length; i++) {
+        element = document.getElementById(dictionary[i].id);
+        element.innerHTML = dictionary[i].text;
+    }
+    console.log('Switching to ' + language);
 }

@@ -12,12 +12,13 @@
 */
 
 const scriptVersion = () => {
-    return "script.js, Feb 21 2022; 1.30";
+    return "script.js, Feb 21 2022; 1.35";
 }
 
 
 // Standard elements
 let galleryshow = false;
+let currentlang = document.documentElement.getAttribute("lang") ? document.documentElement.getAttribute("lang") : 'fr';
 const navlinks = document.getElementById("navLinks");
 const dynamicgallery = document.getElementById("dynamicgallery");
 const firstbutton = document.getElementById("buttonshow1");
@@ -49,10 +50,14 @@ async function getJSON(path, callback) {
 // --------------------------------------------------------------------------------------
 window.onload = () => {
 
-    // Load the string module to use the proper language for the page
-    console.log(langVersion());
-    loadVariableStrings();
-    switchLang(getLang());
+    // Set initial language
+    if(location.hash) {
+        currentlang = location.hash.substring(1);
+    }
+    else {
+        currentlang = 'fr';
+    }
+    loadVariableStrings(currentlang);
 
     document.getElementById("buttonshow2").hidden = true;
 
@@ -108,15 +113,20 @@ window.onload = () => {
 }
 // --------------------------------------------------------------------------------------
 function switchLang(lang) {
-    if(lang === 'fr') {
-        french.classList.add('hide');
-        english.classList.remove('hide');
+    if (lang) currentlang = lang;
+    switch(currentlang) {       // 1st manage menu entries
+        case "en":
+            english.classList.add('hide');
+            french.classList.remove('hide');
+            break;
+        case "fr":
+            french.classList.add('hide');
+            english.classList.remove('hide');
+            break;
     }
-    else {  // Right now assume ony 2 languages
-        english.classList.add('hide');
-        french.classList.remove('hide');
-    }
-    changeLanguage(lang);
+    // Reload the page
+    location.hash = lang;
+    location.reload();
 }
 // --------------------------------------------------------------------------------------
 function showMenu() {
