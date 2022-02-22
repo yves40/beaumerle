@@ -8,16 +8,16 @@
     Feb 10 2022     Play with google map (add a button to show google navigation page)
     Feb 18 2022     Remove Google map and shops ( as requested by B3 )
     Feb 20 2022     Dynamic catalog: 1
-    Feb 22 2022     Debug internationalization
+    Feb 22 2022     Debug internationalization. Change gallery images presentation
     
 */
 
 const scriptVersion = () => {
-    return "script.js, Feb 22 2022; 1.36";
+    return "script.js, Feb 22 2022; 1.38";
 }
 
 
-// Standard elements
+// Global variables
 let galleryshow = false;
 const navlinks = document.getElementById("navLinks");
 const dynamicgallery = document.getElementById("dynamicgallery");
@@ -26,6 +26,7 @@ const secondbutton = document.getElementById("buttonshow2");
 const itemsmenu = document.getElementById("itemsmenu");
 const english = document.getElementById("#a-english");
 const french = document.getElementById("#a-french");
+let knivescatalog = [];
 
 // --------------------------------------------------------------------------------------
 // Utility function loading a json file and returning a json object
@@ -99,12 +100,16 @@ window.onload = () => {
     // Load JSON file containing all knives   
     getJSON('/catalog.json', allKnives => {
         allKnives.forEach(element => {
+            knivescatalog = allKnives;
             let newdiv = document.createElement("div");
             let newspan = document.createElement("span");
             let newimage = document.createElement("img");
             newdiv.className = "image";
             newdiv.setAttribute("data-name", element.model);
             newimage.src = element.url;
+            newimage.setAttribute("id", element.id);
+            newimage.setAttribute("price", element.price);
+            newimage.setAttribute("label", element.label);
             newspan.appendChild(newimage);
             newdiv.appendChild(newspan);
             dynamicgallery.appendChild(newdiv);
@@ -172,6 +177,12 @@ const closeIcon = previewBox.querySelectorAll(".icon");
 const shadow = document.querySelector(".shadow");
 
 function preview(element){
+    // Get the knife ID from the image attribute
+    // Beware not to change attributes order ( see code above )
+    let knifeID = element.innerHTML.split(' ')[2].split('=')[1];
+    // Get all knife details
+    let selectedknife = getKnife(knifeID.replace(/\"/g, ''));
+    
     // Once user click on any image then remove the scroll bar of the body, 
     // so user cant scroll up or down
     document.querySelector("body").style.overflow = "hidden";
@@ -184,7 +195,17 @@ function preview(element){
     // Pass user clicked data-name value in category name
     // categoryName is initialized above during page load. 
     // It selects the ".title p" of the preview box element
-    categoryName.textContent = selectedImgCategory;
+    categoryName.textContent = selectedImgCategory + ' : ' 
+                            + " / " + selectedknife.label + " [ "
+                            + selectedknife.price + " € ]" ;
+    document.querySelector(".dimensions").textContent = 
+                getText("g-length") + " " +
+                selectedknife.longueur + " " +
+                getText("g-tranchant") + " " +
+                selectedknife.tranchant + " " + 
+                getText("g-weight") + " " +
+                selectedknife.poids ; 
+document.querySelector(".manche").textContent = selectedknife.manche;
     // Now show the preview image box and the the light grey background
     previewBox.classList.add("show");
     shadow.classList.add("show");
@@ -201,4 +222,10 @@ function preview(element){
             document.querySelector("body").style.overflow = "auto"; //show the scroll bar on body
         };            
     })
+}
+// --------------------------------------------------------------------------------------
+// Retrieve a knife details from catalog.json with its ID
+function getKnife(id) {
+    const oneknife = knivescatalog.find( kn => kn.id === id);
+    return oneknife;
 }

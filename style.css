@@ -414,6 +414,15 @@ nav .fa {
     width: 100%;
     border-radius: 0 0 3px 3px;
   }
+  .knifedetails {
+      margin-top: 1rem;
+      border: 1px solid black;
+  }
+  .dimensions, .manche {
+      text-align: center;
+      font-style: italic;
+      padding: .2rem;
+  }
   .shadow{
     position: fixed;
     left: 0;

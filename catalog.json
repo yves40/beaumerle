@@ -8,7 +8,10 @@
         "desc": "Acier 14C28N",
         "manche" : "Mitre en laiton et plaquette en ébène", 
         "dimension": "longueur totale 300mm, longueur tranchant 170mm, poids 320gr",
-        "comment": "Cran forcé"
+        "comment": "Cran forcé",
+        "longueur": "300mm",
+        "tranchant": "170mm",
+        "poids": "320gr"
     },
     { "id": "102", 
         "url": "gallery/knives/102.jpg", 
@@ -19,7 +22,10 @@
         "desc": "Acier 14C28N",
         "manche" : "Mitre en laiton et plaquette en ébène", 
         "dimension": "longueur totale 300mm, longueur tranchant 170mm, poids 320gr",
-        "comment": "Cran forcé"
+        "comment": "Cran forcé",
+        "longueur": "300mm",
+        "tranchant": "170mm",
+        "poids": "320gr"
 
     },
     { "id": "103", 
@@ -31,7 +37,10 @@
         "desc": "Acier 14C28N",
         "manche" : "Mitre en laiton et plaquette en ébène", 
         "dimension": "longueur totale 300mm, longueur tranchant 170mm, poids 320gr",
-        "comment": "Cran forcé"
+        "comment": "Cran forcé",
+        "longueur": "300mm",
+        "tranchant": "170mm",
+        "poids": "320gr"
 
     },
     { "id": "104", 
@@ -43,7 +52,10 @@
         "desc": "Acier 14C28N",
         "manche" : "Mitre en laiton et plaquette en ébène", 
         "dimension": "longueur totale 300mm, longueur tranchant 170mm, poids 320gr",
-        "comment": "Cran forcé"
+        "comment": "Cran forcé",
+        "longueur": "300mm",
+        "tranchant": "170mm",
+        "poids": "320gr"
 
     },
     { "id": "105", 
@@ -55,7 +67,10 @@
         "desc": "Acier 14C28N",
         "manche" : "Mitre en laiton et plaquette en ébène", 
         "dimension": "longueur totale 300mm, longueur tranchant 170mm, poids 320gr",
-        "comment": "Cran forcé"
+        "comment": "Cran forcé",
+        "longueur": "300mm",
+        "tranchant": "170mm",
+        "poids": "320gr"
 
     },   
     { "id": "106", 
@@ -67,8 +82,10 @@
         "desc": "Acier 14C28N",
         "manche" : "Mitre en laiton et plaquette en ébène", 
         "dimension": "longueur totale 300mm, longueur tranchant 170mm, poids 320gr",
-        "comment": "Cran forcé"
-
+        "comment": "Cran forcé",
+        "longueur": "300mm",
+        "tranchant": "170mm",
+        "poids": "320gr"
     },    
     { "id": "107", 
         "url": "gallery/knives/107.jpg", 
@@ -79,7 +96,10 @@
         "desc": "Acier 14C28N",
         "manche" : "Mitre en laiton et plaquette en ébène", 
         "dimension": "longueur totale 300mm, longueur tranchant 170mm, poids 320gr",
-        "comment": "Cran forcé"
+        "comment": "Cran forcé",
+        "longueur": "300mm",
+        "tranchant": "170mm",
+        "poids": "320gr"
 
     },    
     { "id": "108", 
@@ -91,7 +111,10 @@
         "desc": "Acier 14C28N",
         "manche" : "Mitre en laiton et plaquette en ébène", 
         "dimension": "longueur totale 300mm, longueur tranchant 170mm, poids 320gr",
-        "comment": "Cran forcé"
+        "comment": "Cran forcé",
+        "longueur": "300mm",
+        "tranchant": "170mm",
+        "poids": "320gr"
 
     },    
     { "id": "109", 
@@ -103,7 +126,10 @@
         "desc": "Acier 14C28N",
         "manche" : "Mitre en laiton et plaquette en ébène", 
         "dimension": "longueur totale 300mm, longueur tranchant 170mm, poids 320gr",
-        "comment": "Cran forcé"
+        "comment": "Cran forcé",
+        "longueur": "300mm",
+        "tranchant": "170mm",
+        "poids": "320gr"
 
     },    
     { "id": "110", 
@@ -115,7 +141,10 @@
         "desc": "Acier 14C28N",
         "manche" : "Mitre en laiton et plaquette en ébène", 
         "dimension": "longueur totale 300mm, longueur tranchant 170mm, poids 320gr",
-        "comment": "Cran forcé"
+        "comment": "Cran forcé",
+        "longueur": "300mm",
+        "tranchant": "170mm",
+        "poids": "320gr"
 
     },    
     { "id": "111", 
@@ -127,7 +156,10 @@
         "desc": "Acier 14C28N",
         "manche" : "Mitre en laiton et plaquette en ébène", 
         "dimension": "longueur totale 300mm, longueur tranchant 170mm, poids 320gr",
-        "comment": "Cran forcé"
+        "comment": "Cran forcé",
+        "longueur": "300mm",
+        "tranchant": "170mm",
+        "poids": "320gr"
 
     },    
     { "id": "112", 
@@ -139,7 +171,10 @@
         "desc": "Acier 14C28N",
         "manche" : "Mitre en laiton et plaquette en ébène", 
         "dimension": "longueur totale 300mm, longueur tranchant 170mm, poids 320gr",
-        "comment": "Cran forcé"
+        "comment": "Cran forcé",
+        "longueur": "300mm",
+        "tranchant": "170mm",
+        "poids": "320gr"
 
     },    
     { "id": "113", 
@@ -151,7 +186,10 @@
         "desc": "Acier 14C28N",
         "manche" : "Mitre en laiton et plaquette en ébène", 
         "dimension": "longueur totale 300mm, longueur tranchant 170mm, poids 320gr",
-        "comment": "Cran forcé"
+        "comment": "Cran forcé",
+        "longueur": "300mm",
+        "tranchant": "170mm",
+        "poids": "320gr"
 
     },    
     { "id": "115", 
@@ -163,8 +201,11 @@
          "desc": "Acier 14C28N",
          "manche" : "Mitre en laiton et plaquette en ébène", 
          "dimension": "longueur totale 300mm, longueur tranchant 170mm, poids 320gr",
-         "comment": "Cran forcé"
-
+         "comment": "Cran forcé",
+         "longueur": "300mm",
+         "tranchant": "170mm",
+         "poids": "320gr"
+ 
         },    
     { "id": "117", 
         "url": "gallery/knives/117.jpg", 
@@ -175,7 +216,10 @@
         "desc": "Acier 14C28N",
         "manche" : "Mitre en laiton et plaquette en ébène", 
         "dimension": "longueur totale 300mm, longueur tranchant 170mm, poids 320gr",
-        "comment": "Cran forcé"
+        "comment": "Cran forcé",
+        "longueur": "300mm",
+        "tranchant": "170mm",
+        "poids": "320gr"
 
     },    
     { "id": "118", 
@@ -187,7 +231,10 @@
         "desc": "Acier 14C28N",
         "manche" : "Mitre en laiton et plaquette en ébène", 
         "dimension": "longueur totale 300mm, longueur tranchant 170mm, poids 320gr",
-        "comment": "Cran forcé"
+        "comment": "Cran forcé",
+        "longueur": "300mm",
+        "tranchant": "170mm",
+        "poids": "320gr"
 
     },    
     { "id": "119", 
@@ -199,7 +246,10 @@
         "desc": "Acier 14C28N",
         "manche" : "Mitre en laiton et plaquette en ébène", 
         "dimension": "longueur totale 300mm, longueur tranchant 170mm, poids 320gr",
-        "comment": "Cran forcé"
+        "comment": "Cran forcé",
+        "longueur": "300mm",
+        "tranchant": "170mm",
+        "poids": "320gr"
 
     },    
     { "id": "120", 
@@ -211,6 +261,9 @@
             "desc": "Acier 14C28N",
             "manche" : "Mitre en laiton et plaquette en ébène", 
             "dimension": "longueur totale 300mm, longueur tranchant 170mm, poids 320gr",
-            "comment": "Cran forcé"
-    }    
+            "comment": "Cran forcé",
+            "longueur": "300mm",
+            "tranchant": "170mm",
+            "poids": "320gr"
+        }    
 ]

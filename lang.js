@@ -18,6 +18,7 @@ const langVersion = () => {
 
 
 const endict = [
+    // Interface 
     { "id": "#a-hometext", "text": "HOME"},
     { "id": "#a-ateliers", "text": "SHOPS"},
     { "id": "#a-contacts", "text": "CONTACTS"},
@@ -49,10 +50,15 @@ const endict = [
         transmitted by 8 generations of French, Italian, German, Peruvian, \
         Japanese and... Martian master cutlers!"},
      { "id": "#p-copyright", "text": "Made by Reco DEV International Corporation" },
-     { "id": "#h4-copyright", "text": "Ratoon, 2.17 RC2 : Feb 22 2022"},
+     { "id": "#h4-copyright", "text": "Ratoon, 2.18 RC2 : Feb 22 2022"},
+     // Global strings
+     { "id": "g-weight", "text": "Weight"},
+     { "id": "g-length", "text": "Length"},
+     { "id": "g-tranchant", "text": "Edge length"},
 ]
 
 const frdict = [
+    // Interface 
     { "id": "#a-hometext", "text": "HOME"},
     { "id": "#a-ateliers", "text": "ATELIERS"},
     { "id": "#a-contacts", "text": "CONTACTS"},
@@ -84,7 +90,11 @@ const frdict = [
         nous avons à coeur de perpétrer l'excellence transmise par 8 générations \
         de maitres couteliers Français, Italiens, Allemands, Péruviens, Japonais, et...Martiens ! "},
     { "id": "#p-copyright", "text": "Réalisé par Reco DEV International Corporation" },
-    { "id": "#h4-copyright", "text": "Le Rat, 2.17 RC2 : Feb 22 2022"},
+    { "id": "#h4-copyright", "text": "Le Rat, 2.18 RC2 : Feb 22 2022"},
+     // Global strings
+     { "id": "g-weight", "text": "Poids"},
+     { "id": "g-length", "text": "Longueur"},
+     { "id": "g-tranchant", "text": "Longueur tranchant"},
 ]
 
 //------------------------------------------------------------------
@@ -112,8 +122,11 @@ function loadVariableStrings(language) {
     // Assign the proper dictionary
     let dictionary =  language === "en" ? endict : frdict;
     for(let i = 0; i < dictionary.length; i++) {
-        element = document.getElementById(dictionary[i].id);
-        element.innerHTML = dictionary[i].text;
+        // Check this is an interface element
+        if(dictionary[i].id.startsWith('#')) {
+            element = document.getElementById(dictionary[i].id);
+            element.innerHTML = dictionary[i].text;
+        }
     }
     sessionStorage.setItem('pagelang', language);
 }
