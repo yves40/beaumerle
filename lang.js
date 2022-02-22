@@ -66,7 +66,7 @@ const frdict = [
         quotidienne pour les besoins les plus variés."},
     { "id": "#s-tous", "text": "Tous    "},
     { "id": "#s-collection", "text": "Collection"},
-    { "id": "#s-cuisine", "text": "Cusine"},
+    { "id": "#s-cuisine", "text": "Cuisine"},
     { "id": "#s-serie", "text": "Série"},
     { "id": "buttonshow1", "text": "Voir le catalogue"},
     { "id": "buttonshow2", "text": "Fermer"},
@@ -84,7 +84,7 @@ const frdict = [
         nous avons à coeur de perpétrer l'excellence transmise par 8 générations \
         de maitres couteliers Français, Italiens, Allemands, Péruviens, Japonais, et...Martiens ! "},
     { "id": "#p-copyright", "text": "Réalisé par Reco DEV International Corporation" },
-    { "id": "#h4-copyright", "text": "Ratoon, 2.17 RC2 : Feb 22 2022"},
+    { "id": "#h4-copyright", "text": "Le Rat, 2.17 RC2 : Feb 22 2022"},
 ]
 
 //------------------------------------------------------------------
