@@ -8,17 +8,17 @@
     Feb 10 2022     Play with google map (add a button to show google navigation page)
     Feb 18 2022     Remove Google map and shops ( as requested by B3 )
     Feb 20 2022     Dynamic catalog: 1
+    Feb 22 2022     Debug internationalization
     
 */
 
 const scriptVersion = () => {
-    return "script.js, Feb 21 2022; 1.35";
+    return "script.js, Feb 22 2022; 1.36";
 }
 
 
 // Standard elements
 let galleryshow = false;
-let currentlang = document.documentElement.getAttribute("lang") ? document.documentElement.getAttribute("lang") : 'fr';
 const navlinks = document.getElementById("navLinks");
 const dynamicgallery = document.getElementById("dynamicgallery");
 const firstbutton = document.getElementById("buttonshow1");
@@ -50,14 +50,19 @@ async function getJSON(path, callback) {
 // --------------------------------------------------------------------------------------
 window.onload = () => {
 
-    // Set initial language
-    if(location.hash) {
-        currentlang = location.hash.substring(1);
+    // Some questions about language. The initial page lang will be the 
+    // navigator's one. Then language user choice will be stored in a local
+    // session. It means any other session (different tab, new window,...) will
+    // not inherit from the user preference.
+    let navlang = navigator.language || navigator.userLanguage;
+    if(!sessionStorage.getItem("pagelang")) {
+        sessionStorage.setItem('pagelang', navlang);
     }
-    else {
-        currentlang = 'fr';
-    }
-    loadVariableStrings(currentlang);
+
+    console.log('Navigator language ' + navlang);
+    console.log('Site page language ' + sessionStorage.getItem("pagelang"));
+
+    switchLang(sessionStorage.getItem("pagelang"));
 
     document.getElementById("buttonshow2").hidden = true;
 
@@ -125,8 +130,7 @@ function switchLang(lang) {
             break;
     }
     // Reload the page
-    location.hash = lang;
-    location.reload();
+    loadVariableStrings(lang);
 }
 // --------------------------------------------------------------------------------------
 function showMenu() {

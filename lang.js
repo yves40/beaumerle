@@ -5,6 +5,7 @@
 
     Feb 20 2022     Initial
     Feb 21 2022     Modify initial load function
+    Feb 22 2022     Debug
     
 */
 
@@ -12,7 +13,7 @@
     Place here all messages in all languages
 */
 const langVersion = () => {
-    return "lang.js, Feb 21 2022; 1.10";
+    return "lang.js, Feb 22 2022; 1.11";
 }
 
 
@@ -58,11 +59,10 @@ function getLang() { return document.documentElement.getAttribute("lang"); }
 let element;
 function loadVariableStrings(language) {
     // Assign the proper dictionary
-    // document.documentElement.setAttribute('lang', language);
     let dictionary =  language === "en" ? endict : frdict;
     for(let i = 0; i < dictionary.length; i++) {
         element = document.getElementById(dictionary[i].id);
         element.innerHTML = dictionary[i].text;
     }
-    console.log('Switching to ' + language);
+    sessionStorage.setItem('pagelang', language);
 }
