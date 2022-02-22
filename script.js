@@ -161,6 +161,7 @@ function showcatalog() {
     }
     else {
         firstbutton.innerText = getText("buttonshow2");
+        secondbutton.innerText = getText("buttonshow2");
         dynamicgallery.style.display = "flex";
         secondbutton.hidden = false;
         itemsmenu.classList.remove("hide");

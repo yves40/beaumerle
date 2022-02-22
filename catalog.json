@@ -134,7 +134,7 @@
     },    
     { "id": "110", 
         "url": "gallery/knives/110.jpg", 
-        "model" :"cuisine", 
+        "model" :"collection", 
         "label": "Tarzan 110", 
         "status": "En boutique" ,
         "price": "233.00", 
