@@ -148,14 +148,14 @@ function hideMenu(elementname) {
 // --------------------------------------------------------------------------------------
 function showcatalog() {
     if(galleryshow) {
-        firstbutton.innerText = "Voir le catalogue"
+        firstbutton.innerText = getText("buttonshow1");
         secondbutton.hidden = true;
         dynamicgallery.style.display = "none";
         itemsmenu.classList.add("hide");
         galleryshow = false;
     }
     else {
-        firstbutton.innerText = "Fermer"
+        firstbutton.innerText = getText("buttonshow2");
         dynamicgallery.style.display = "flex";
         secondbutton.hidden = false;
         itemsmenu.classList.remove("hide");

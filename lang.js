@@ -94,7 +94,16 @@ const frdict = [
 //------------------------------------------------------------------
 function getLang() { return document.documentElement.getAttribute("lang"); }
 //------------------------------------------------------------------
-// Called by script.js during page load
+// Retrieve a specific string
+//------------------------------------------------------------------
+function getText(id, language = sessionStorage.getItem("pagelang")) {
+    // Assign the proper dictionary
+    let dictionary =  language === "en" ? endict : frdict;
+    const result = dictionary.find( (label) =>  label.id === id );
+    return result.text;
+}
+//------------------------------------------------------------------
+// Called by script.js during page load and user language switching
 //------------------------------------------------------------------
 let element;
 function loadVariableStrings(language) {
