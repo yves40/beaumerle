@@ -64,7 +64,8 @@ window.onload = () => {
     console.log('Site page language ' + sessionStorage.getItem("pagelang"));
 
     switchLang(sessionStorage.getItem("pagelang"));
-
+    // Gallery buttons, a few adjustments
+    document.getElementById("buttonshow1").innerText = getText("buttonshow1");
     document.getElementById("buttonshow2").hidden = true;
 
     // Filter implementation
