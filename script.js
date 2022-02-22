@@ -98,21 +98,29 @@ window.onload = () => {
         }
     }
 
-    // Load JSON file containing all knives   
+    // Load JSON file containing all knives
+    // Prepare to display the catalog on demand
     getJSON('/catalog.json', allKnives => {
         allKnives.forEach(element => {
             knivescatalog = allKnives;
             let newdiv = document.createElement("div");
-            let newspan = document.createElement("span");
+            let newdiv2 = document.createElement("div");
             let newimage = document.createElement("img");
+            let newdiv3 = document.createElement("div");
+            let h3 = document.createElement("h3");
+            newdiv3.appendChild(h3);
+            h3.textContent = element.label;
+            newdiv3.className = "knifelabel";
+
             newdiv.className = "image";
             newdiv.setAttribute("data-name", element.model);
             newimage.src = element.url;
             newimage.setAttribute("id", element.id);
             newimage.setAttribute("price", element.price);
             newimage.setAttribute("label", element.label);
-            newspan.appendChild(newimage);
-            newdiv.appendChild(newspan);
+            newdiv2.appendChild(newimage);
+            newdiv2.appendChild(newdiv3);
+            newdiv.appendChild(newdiv2);
             dynamicgallery.appendChild(newdiv);
             // Adding onclick attribute in all dynamic gallery images
             const dynamicimageslist = document.querySelectorAll(".gallery .image");
