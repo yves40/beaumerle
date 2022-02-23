@@ -103,25 +103,23 @@ window.onload = () => {
     getJSON('/catalog.json', allKnives => {
         allKnives.forEach(element => {
             knivescatalog = allKnives;
-            let newdiv = document.createElement("div");
-            let newdiv2 = document.createElement("div");
-            let newimage = document.createElement("img");
-            let newdiv3 = document.createElement("div");
+            let outerdiv = document.createElement("div");   // image + label
+            let newimage = document.createElement("img");   // image
+            let p = document.createElement("p");            // Label
             let h3 = document.createElement("h3");
-            newdiv3.appendChild(h3);
+            p.appendChild(h3);
             h3.textContent = element.label;
-            newdiv3.className = "knifelabel";
+            p.className = "knifelabel";
 
-            newdiv.className = "image";
-            newdiv.setAttribute("data-name", element.model);
+            outerdiv.className = "image";
+            outerdiv.setAttribute("data-name", element.model);
             newimage.src = element.url;
             newimage.setAttribute("id", element.id);
             newimage.setAttribute("price", element.price);
             newimage.setAttribute("label", element.label);
-            newdiv2.appendChild(newimage);
-            newdiv2.appendChild(newdiv3);
-            newdiv.appendChild(newdiv2);
-            dynamicgallery.appendChild(newdiv);
+            outerdiv.appendChild(newimage);
+            outerdiv.appendChild(p);
+            dynamicgallery.appendChild(outerdiv);
             // Adding onclick attribute in all dynamic gallery images
             const dynamicimageslist = document.querySelectorAll(".gallery .image");
             for (let i = 0; i < dynamicimageslist.length; i++) {
