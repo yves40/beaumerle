@@ -295,13 +295,13 @@ nav .fa {
     position: relative;
     width: calc(100% /4);
     padding: 7px;
-    border: #f44336 1px solid;
 }
 
 .gallery .image img {
     vertical-align: middle;
     transition: all 1s ease;
     border-radius: 10px;
+    padding-top: 0.8rem;
 }
 
 .gallery .image:hover img {
