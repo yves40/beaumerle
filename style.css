@@ -10,6 +10,7 @@
  *  Feb 04 2022     Work on images selector
  *  Feb 18 2022     Start work on B3's requests
  *  Feb 22 2022     WIP on internationalization and knife detail box
+ *  Feb 24 2022     WIP for gallery images presentation
  */
 :root {
     --menu-background-color: darkcyan;
@@ -29,6 +30,7 @@
     --product-background:lightgray;
     --product-border: black;
     --product-shadow: rgba(0, 0, 0,  0.4);
+    --product-image-text-overlay: darkcyan;
 
     --site-hover-color: rgba(226, 0, 0 ,0.7);
 
@@ -302,15 +304,18 @@ nav .fa {
 }
 
 .gallery .image:hover img {
-    transform: scale(1.1);
+    transform: scale(1.2);
 }
 
 .gallery .image:hover img ~ .knifelabel {
     display: block;
-    opacity: 1;
-    background-color: var(--site-hover-color);
+    opacity: 60%;
+    background-color: var(--product-image-text-overlay);
 }
 
+.gallery .image p {
+    font-size: 1.5vw;
+}
 .gallery .image .hide {
     display: none;
 }
@@ -324,25 +329,13 @@ nav .fa {
     display: none;
     font-weight: 500;
     color: white;
-    font-size: 1rem;
     top: 30%;
-    left: 10%;
-    width: 60%;
+    left: 20%;
+    width: auto;
     background: transparent;
     border-radius: 10px;
-    transition: 1s;
 }
 
-/*
-.knifelabel:hover {
-    background-color: var(--site-hover-color);
-}
-.knifelabel:hover h3 {
-    display:block;
-    bottom: 49%;
-    opacity: 1;
-}
-*/
 @keyframes animate {
     0% {
         transform: scale(0.5);

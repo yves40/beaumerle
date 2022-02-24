@@ -9,11 +9,12 @@
     Feb 18 2022     Remove Google map and shops ( as requested by B3 )
     Feb 20 2022     Dynamic catalog: 1
     Feb 22 2022     Debug internationalization. Change gallery images presentation
+    Feb 24 2022     Gallery images presentation
     
 */
 
 const scriptVersion = () => {
-    return "script.js, Feb 22 2022; 1.38";
+    return "script.js, Feb 24 2022; 1.39";
 }
 
 
