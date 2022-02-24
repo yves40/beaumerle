@@ -92,7 +92,7 @@ window.onload = () => {
     const limit = Number.parseInt(getComputedStyle(document.documentElement)
                 .getPropertyValue("--initial-photos-number"));
     let index = 0;
-    getJSON('/catalog.json', allKnives => {
+    getJSON('./catalog.json', allKnives => {
         knivescatalog = Object.values(allKnives);  // Save the entire catalog into an array
         knivescatalog.forEach(element => {
             ++index;
