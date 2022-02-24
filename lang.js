@@ -47,7 +47,7 @@ const endict = [
         transmitted by 8 generations of French, Italian, German, Peruvian, \
         Japanese and... Martian master cutlers!"},
      { "id": "#p-copyright", "text": "Made by Reco DEV International Corporation" },
-     { "id": "#h4-copyright", "text": "Ratoon, 2.18 RC2 : Feb 22 2022"},
+     { "id": "#h4-copyright", "text": "Ratoon, 2.21 RC2 : Feb 24 2022"},
      // Global strings
      { "id": "g-weight", "text": "Weight"},
      { "id": "g-length", "text": "Length"},
@@ -87,7 +87,7 @@ const frdict = [
         nous avons à coeur de perpétrer l'excellence transmise par 8 générations \
         de maitres couteliers Français, Italiens, Allemands, Péruviens, Japonais, et...Martiens ! "},
     { "id": "#p-copyright", "text": "Réalisé par Reco DEV International Corporation" },
-    { "id": "#h4-copyright", "text": "Le Rat, 2.18 RC2 : Feb 22 2022"},
+    { "id": "#h4-copyright", "text": "Le Rat, 2.21 RC2 : Feb 24 2022"},
      // Global strings
      { "id": "g-weight", "text": "Poids"},
      { "id": "g-length", "text": "Longueur"},

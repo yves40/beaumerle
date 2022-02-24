@@ -24,6 +24,7 @@ const itemsmenu = document.getElementById("itemsmenu");
 const english = document.getElementById("#a-english");
 const french = document.getElementById("#a-french");
 let knivescatalog = [];
+let totalknives = 0;
 let collection = 0;         // Used to count each knife model number
 let cuisine = 0;
 let serie = 0;
@@ -117,8 +118,8 @@ window.onload = () => {
             dynamicgallery.appendChild(outerdiv);
         });
         // Adding onclick attribute in all dynamic gallery images
+        // And count the number of knives for each model
         const dynamicimageslist = document.querySelectorAll(".gallery .image");
-        // Finally count the number of knives for each model
         for (let i = 0; i < dynamicimageslist.length; i++) {
             switch(dynamicimageslist[i].getAttribute("model") ) {
                 case "cuisine":
@@ -133,6 +134,16 @@ window.onload = () => {
             }
             dynamicimageslist[i].setAttribute("onclick", "preview(this)");
         }
+        totalknives = cuisine + collection + serie;
+        // Manage buttons selection text
+        document.getElementById("#s-tous").innerText =
+            getText("#s-tous") + " (" + totalknives + ")";
+        document.getElementById("#s-collection").innerText =
+            getText("#s-collection") + " (" + collection + ")";
+        document.getElementById("#s-serie").innerText =
+            getText("#s-serie") + " (" + serie + ")";
+        document.getElementById("#s-cuisine").innerText =
+            getText("#s-cuisine") + " (" + cuisine + ")";
     });
 }
 // --------------------------------------------------------------------------------------
@@ -140,29 +151,19 @@ window.onload = () => {
 function selectPhotos(model) {
     const dynamicimageslist = document.querySelectorAll(".gallery .image");
     for (let i = 0; i < dynamicimageslist.length; i++) {
-        console.log(dynamicimageslist[i].getAttribute("model"));
-        if(dynamicimageslist[i].getAttribute("model") === model) {
+        if(model === "tous") {
             dynamicimageslist[i].classList.add("show");
             dynamicimageslist[i].classList.remove("hide");
         }
-        else {
-            dynamicimageslist[i].classList.add("hide");
-            dynamicimageslist[i].classList.remove("show");
-        }
-        const infoknives = document.getElementById("knivesnumber");
-        switch(model) {
-            case "cuisine":
-                infoknives.innerText = cuisine;
-                break;
-            case "collection":
-                infoknives.innerText = collection;
-                break;
-            case "serie":
-                infoknives.innerText = serie;
-                break;
-            case "tous":
-                infoknives.innerText = cuisine + collection + serie;
-                break;
+        else {      // User selected a specific model
+            if(dynamicimageslist[i].getAttribute("model") === model) {
+                dynamicimageslist[i].classList.add("show");
+                dynamicimageslist[i].classList.remove("hide");
+            }
+            else {
+                dynamicimageslist[i].classList.add("hide");
+                dynamicimageslist[i].classList.remove("show");
+            }
         }
     }
 }
