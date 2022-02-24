@@ -93,8 +93,8 @@ window.onload = () => {
                 .getPropertyValue("--initial-photos-number"));
     let index = 0;
     getJSON('/catalog.json', allKnives => {
-        knivescatalog = allKnives;  // Save the entire catalog
-        allKnives.forEach(element => {
+        knivescatalog = Object.values(allKnives);  // Save the entire catalog into an array
+        knivescatalog.forEach(element => {
             ++index;
             let outerdiv = document.createElement("div");   // image + label
             let newimage = document.createElement("img");   // image
