@@ -236,13 +236,13 @@ function preview(element){
     // Get user clicked image source link
     let selectedPrevImg = element.querySelector("img"); 
     // Get user clicked image data-name value
-    let selectedImgCategory = element.getAttribute("data-name");
+    let selectedImgCategory = element.getAttribute("model");
      // Pass the user clicked image source in preview image source
     previewImg.src = selectedPrevImg.src;
     // Pass user clicked data-name value in category name
     // categoryName is initialized above during page load. 
     // It selects the ".title p" of the preview box element
-    categoryName.textContent = selectedImgCategory + ' : ' 
+    categoryName.textContent = selectedknife.model + ' : ' 
                             + " / " + selectedknife.label + " [ "
                             + selectedknife.price + " € ]" ;
     document.querySelector(".dimensions").textContent = 
@@ -252,7 +252,7 @@ function preview(element){
                 selectedknife.tranchant + " " + 
                 getText("g-weight") + " " +
                 selectedknife.poids ; 
-document.querySelector(".manche").textContent = selectedknife.manche;
+    document.querySelector(".manche").textContent = selectedknife.manche;
     // Now show the preview image box and the the light grey background
     previewBox.classList.add("show");
     shadow.classList.add("show");
