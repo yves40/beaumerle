@@ -44,7 +44,7 @@
                 <i class="fa fa-bars" onclick="showMenu()"></i>
             </nav>
             <div class="copyright">
-                <h4 id="#h4-copyright">By Ratoon, 2.18 RC2 : Feb 24 2022</h4>
+                <h4 id="#h4-copyright">By Ratoon, 2.20 RC2 : Feb 24 2022</h4>
             </div>
         </section>
         <section class="info">
@@ -63,11 +63,12 @@
                 <button id="buttonshow1" onclick="showcatalog()">Voir le Catalogue</button>
             </div>
             <div class="items hide" id="itemsmenu">
-                <span id="#s-tous" class="item active" data-name="toutes">Tous</span>
-                <span id="#s-collection"class="item " data-name="collection">Collection</span>
-                <span id="#s-cuisine"class="item " data-name="cuisine">Cuisine</span>
-                <span id="#s-serie"class="item " data-name="serie">Série</span>
+                <span onclick="selectPhotos('tous')" id="#s-tous" class="item active">Tous</span>
+                <span onclick="selectPhotos('collection')" id="#s-collection"class="item ">Collection</span>
+                <span onclick="selectPhotos('cuisine')" id="#s-cuisine"class="item ">Cuisine</span>
+                <span onclick="selectPhotos('serie')" id="#s-serie"class="item " >Série</span>
             </div>
+            <div class="row centered" id="knivesnumber"></div>
             <div id="dynamicgallery" class="gallery" hidden>
             </div>
             <div class="row.centered">

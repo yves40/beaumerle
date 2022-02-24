@@ -12,9 +12,6 @@
 /*
     Place here all messages in all languages
 */
-const langVersion = () => {
-    return "lang.js, Feb 22 2022; 1.11";
-}
 
 
 const endict = [
@@ -34,7 +31,7 @@ const endict = [
     { "id": "#s-collection", "text": "Collection"},
     { "id": "#s-cuisine", "text": "Cooking"},
     { "id": "#s-serie", "text": "Series"},
-    { "id": "buttonshow1", "text": "Show catalog"},
+    { "id": "buttonshow1", "text": "Show more"},
     { "id": "buttonshow2", "text": "Close"},
     { "id": "#h1-contacts", "text": "Contacts"},
     { "id": "#p-contactslist", "text": "Engineer Designer Producer : ratoon@free.fr <br\>\
@@ -74,7 +71,7 @@ const frdict = [
     { "id": "#s-collection", "text": "Collection"},
     { "id": "#s-cuisine", "text": "Cuisine"},
     { "id": "#s-serie", "text": "Série"},
-    { "id": "buttonshow1", "text": "Voir le catalogue"},
+    { "id": "buttonshow1", "text": "Plus de photos"},
     { "id": "buttonshow2", "text": "Fermer"},
     { "id": "#h1-contacts", "text": "Contacts"},
     { "id": "#p-contactslist", "text": "Ingénieur Concepteur Réalisateur : ratoon@free.fr <br\>\

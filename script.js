@@ -13,10 +13,6 @@
     
 */
 
-const scriptVersion = () => {
-    return "script.js, Feb 24 2022; 1.39";
-}
-
 
 // Global variables
 let galleryshow = false;
@@ -28,6 +24,9 @@ const itemsmenu = document.getElementById("itemsmenu");
 const english = document.getElementById("#a-english");
 const french = document.getElementById("#a-french");
 let knivescatalog = [];
+let collection = 0;         // Used to count each knife model number
+let cuisine = 0;
+let serie = 0;
 
 // --------------------------------------------------------------------------------------
 // Utility function loading a json file and returning a json object
@@ -79,31 +78,23 @@ window.onload = () => {
             // on an already active element
             filterItem.querySelector(".active").classList.remove("active");
             // Add that active class on user selected item
-            selectedItem.target.classList.add("active"); 
-            // Get data-name value of user selected item and store in a filtername variable
-            let filterName = selectedItem.target.getAttribute("data-name");
-            // Load the array used to activate / deactivate images in the gallery
-            let filterImg = document.querySelectorAll(".gallery .image")
-            filterImg.forEach((image) => {
-                // If user selected item data-name value is equal to images data-name value
-                // or user selected item data-name value is equal to "all"
-                let filterImges = image.getAttribute("data-name");
-                if (filterImges == filterName || filterName == "toutes") {
-                    image.classList.remove("hide"); 
-                    image.classList.add("show");
-                } else {
-                    image.classList.add("hide");
-                    image.classList.remove("show"); 
-                }
-            });
+            selectedItem.target.classList.add("active");
         }
     }
 
     // Load JSON file containing all knives
     // Prepare to display the catalog on demand
+    // Display only a few knives when page loads
+    // The number of initially displayed photos is specified in the style.css
+    // file with a variable
+
+    const limit = Number.parseInt(getComputedStyle(document.documentElement)
+                .getPropertyValue("--initial-photos-number"));
+    let index = 0;
     getJSON('/catalog.json', allKnives => {
+        knivescatalog = allKnives;  // Save the entire catalog
         allKnives.forEach(element => {
-            knivescatalog = allKnives;
+            ++index;
             let outerdiv = document.createElement("div");   // image + label
             let newimage = document.createElement("img");   // image
             let p = document.createElement("p");            // Label
@@ -113,21 +104,67 @@ window.onload = () => {
             p.className = "knifelabel";
 
             outerdiv.className = "image";
-            outerdiv.setAttribute("data-name", element.model);
+            if(index > limit)
+                outerdiv.classList.add("hide");
+            else
+                outerdiv.classList.add("show");
             newimage.src = element.url;
             newimage.setAttribute("id", element.id);
-            newimage.setAttribute("price", element.price);
             newimage.setAttribute("label", element.label);
             outerdiv.appendChild(newimage);
+            outerdiv.setAttribute("model", element.model);
             outerdiv.appendChild(p);
             dynamicgallery.appendChild(outerdiv);
-            // Adding onclick attribute in all dynamic gallery images
-            const dynamicimageslist = document.querySelectorAll(".gallery .image");
-            for (let i = 0; i < dynamicimageslist.length; i++) {
-                dynamicimageslist[i].setAttribute("onclick", "preview(this)"); 
+        });
+        // Adding onclick attribute in all dynamic gallery images
+        const dynamicimageslist = document.querySelectorAll(".gallery .image");
+        // Finally count the number of knives for each model
+        for (let i = 0; i < dynamicimageslist.length; i++) {
+            switch(dynamicimageslist[i].getAttribute("model") ) {
+                case "cuisine":
+                    ++cuisine;
+                    break;
+                case "collection":
+                    ++collection
+                    break;
+                case "serie":
+                    ++serie;
+                    break;
             }
-        })
+            dynamicimageslist[i].setAttribute("onclick", "preview(this)");
+        }
     });
+}
+// --------------------------------------------------------------------------------------
+// 4 models right now. tous, collection, cuisine, serie
+function selectPhotos(model) {
+    const dynamicimageslist = document.querySelectorAll(".gallery .image");
+    for (let i = 0; i < dynamicimageslist.length; i++) {
+        console.log(dynamicimageslist[i].getAttribute("model"));
+        if(dynamicimageslist[i].getAttribute("model") === model) {
+            dynamicimageslist[i].classList.add("show");
+            dynamicimageslist[i].classList.remove("hide");
+        }
+        else {
+            dynamicimageslist[i].classList.add("hide");
+            dynamicimageslist[i].classList.remove("show");
+        }
+        const infoknives = document.getElementById("knivesnumber");
+        switch(model) {
+            case "cuisine":
+                infoknives.innerText = cuisine;
+                break;
+            case "collection":
+                infoknives.innerText = collection;
+                break;
+            case "serie":
+                infoknives.innerText = serie;
+                break;
+            case "tous":
+                infoknives.innerText = cuisine + collection + serie;
+                break;
+        }
+    }
 }
 // --------------------------------------------------------------------------------------
 function switchLang(lang) {
@@ -161,14 +198,14 @@ function hideMenu(elementname) {
 // --------------------------------------------------------------------------------------
 function showcatalog() {
     if(galleryshow) {
-        firstbutton.innerText = getText("buttonshow1");
+        firstbutton.innerText = getText("buttonshow1"); // "Show catalog"
         secondbutton.hidden = true;
         dynamicgallery.style.display = "none";
         itemsmenu.classList.add("hide");
         galleryshow = false;
     }
     else {
-        firstbutton.innerText = getText("buttonshow2");
+        firstbutton.innerText = getText("buttonshow2"); // "Close"
         secondbutton.innerText = getText("buttonshow2");
         dynamicgallery.style.display = "flex";
         secondbutton.hidden = false;
