@@ -12,6 +12,7 @@
     Feb 17 2022     Fix a typo
     Feb 18 2022     Start work on B3's requests
     Feb 20 2022     Dynamic catalog
+    Feb 25 2022     Work on preview box
     
 -->
 <!DOCTYPE html>
@@ -44,7 +45,7 @@
                 <i class="fa fa-bars" onclick="showMenu()"></i>
             </nav>
             <div class="copyright">
-                <h4 id="#h4-copyright">By Ratoon, 2.22 RC2 : Feb 24 2022</h4>
+                <h4 id="#h4-copyright">By Ratoon, 2.23 RC2 : Feb 25 2022</h4>
             </div>
         </section>
         <section class="info">
@@ -102,22 +103,20 @@
         <!-- fullscreen img preview box -->
         <div class="preview-box">
             <div class="details">
-                <span class="title">
-                    <p></p
-                ></span>
-                <span class="icon fa fa-times"></span>
+                <div class="section1">
+                    <span id="model"></span>
+                    <span id="label"></span>
+                    <span id="price"></span>
+                </div>
+                <div class="section2">
+                    <span id="dimensions"></span>
+                    <span id="manche"></span>
+                </div>
+                <div class="section3">
+                    <span class="icon fa fa-times"></span>
+                </div>
             </div>
             <div class="image-box"><img src="" alt="" /></div>
-            <div class="knifedetails">
-                <p class="dimensions"></p>  
-                <p class="manche"></p>        
-            </div>
-            <div class="details">
-                <span class="title">
-                    <p></p
-                ></span>
-                <span class="icon fa fa-times"></span>
-            </div>
         </div>
         <div class="shadow"></div>
       </body>

@@ -11,6 +11,7 @@
  *  Feb 18 2022     Start work on B3's requests
  *  Feb 22 2022     WIP on internationalization and knife detail box
  *  Feb 24 2022     WIP for gallery images presentation
+ *  Feb 25 2022     Work on preview box
  */
 :root {
     --menu-background-color: darkcyan;
@@ -272,15 +273,15 @@ nav .fa {
     border-radius: 50px;
     border: 1px solid var(--button-border-color);
     transition: all 0.3s ease;
-  }
-  .items span.active,
-  .items span:hover{
-    color: #fff;
-    background: var(--button-hover-color);
-  }
-  .hide {
-      display: none;
-  }
+}
+.items span.active,
+.items span:hover{
+color: #fff;
+background: var(--button-hover-color);
+}
+.hide {
+    display: none;
+}
 /* -------------------------------------------------
      The Gallery section 
 ------------------------------------------------- */
@@ -395,55 +396,65 @@ nav .fa {
     z-index: 120;
     opacity: 0;
     pointer-events: none;
-    border-radius: 3px;
+    border-radius: 10px;
     padding: 0 5px 5px 5px;
     box-shadow: 0px 0px 15px rgba(0,0,0,0.2);
-  }
-  .preview-box.show{
-    opacity: 1;
-    pointer-events: auto;
-    transform: translate(-50%, -50%) scale(1);
-    transition: all 2s ease;
-  }
-  .preview-box .details{
-    padding: 13px 15px 13px 10px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-  .details .title{
+}
+.preview-box.show {
+opacity: 1;
+pointer-events: auto;
+transition: all 2s ease;
+}
+.preview-box .details{
+position: relative;
+display: flex;
+flex-basis: 20vw;
+padding: 13px 15px 13px 10px;
+align-items: left;
+justify-content: space-between;
+}
+.details .section1 {
+display: flex;
+flex-direction: column;
+}
+.details .section2 {
+display: flex;
+flex-direction: column;
+}
+.preview-box .section3 {
+    color: var(--menu-background-color);
+    font-size: 48px;
+    cursor: pointer;
+}
+    
+.details .title{
     display: flex;
     font-weight: 400;
-  }
-  .details .title p{
+}
+.details .title p {
     font-weight: 500;
     font-size: 24px;
     margin-left: 10px;
-  }
-  .details .icon{
-    color: #007bff;
-    font-size: 24px;
-    cursor: pointer;
-    margin-right: 40px;
-  }
-  .preview-box .image-box{
+}
+
+.preview-box .image-box{
     width: 100%;
     display: flex;
-  }
-  .image-box img{
+}
+.image-box img{
     width: 100%;
     border-radius: 0 0 3px 3px;
-  }
-  .knifedetails {
-      margin-top: 1rem;
-      border: 1px solid black;
-  }
-  .dimensions, .manche {
-      text-align: center;
-      font-style: italic;
-      padding: .2rem;
-  }
-  .shadow{
+}
+.knifedetails {
+        margin-top: 1rem;
+        border: 1px solid black;
+}
+.dimensions, .manche {
+    text-align: center;
+    font-style: italic;
+    padding: .2rem;
+}
+.shadow {
     position: fixed;
     left: 0;
     top: 0;
@@ -452,10 +463,10 @@ nav .fa {
     z-index: 110;
     display: none;
     background: rgba(0,0,0,0.4);
-  }
-  .shadow.show{
+}
+.shadow.show{
     display: block;
-  }
+}
   
 
 

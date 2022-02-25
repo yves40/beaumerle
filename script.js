@@ -217,7 +217,9 @@ function showcatalog() {
 // --------------------------------------------------------------------------------------
 // Fullscreen image preview function selecting all required elements
 const previewBox = document.querySelector(".preview-box");
-const categoryName = previewBox.querySelector(".title p");
+const model = previewBox.querySelector("#model");
+const label = previewBox.querySelector("#label");
+const price = previewBox.querySelector("#price");
 const previewImg = previewBox.querySelector("img");
 const closeIcon = previewBox.querySelectorAll(".icon");
 
@@ -235,24 +237,22 @@ function preview(element){
     document.querySelector("body").style.overflow = "hidden";
     // Get user clicked image source link
     let selectedPrevImg = element.querySelector("img"); 
-    // Get user clicked image data-name value
-    let selectedImgCategory = element.getAttribute("model");
      // Pass the user clicked image source in preview image source
     previewImg.src = selectedPrevImg.src;
     // Pass user clicked data-name value in category name
     // categoryName is initialized above during page load. 
     // It selects the ".title p" of the preview box element
-    categoryName.textContent = selectedknife.model + ' : ' 
-                            + " / " + selectedknife.label + " [ "
-                            + selectedknife.price + " € ]" ;
-    document.querySelector(".dimensions").textContent = 
+    model.textContent = selectedknife.model;
+    label.textContent = selectedknife.label;
+    price.textContent = selectedknife.price + " €";
+    document.querySelector("#dimensions").textContent = 
                 getText("g-length") + " " +
                 selectedknife.longueur + " " +
                 getText("g-tranchant") + " " +
                 selectedknife.tranchant + " " + 
                 getText("g-weight") + " " +
                 selectedknife.poids ; 
-    document.querySelector(".manche").textContent = selectedknife.manche;
+    document.querySelector("#manche").textContent = selectedknife.manche;
     // Now show the preview image box and the the light grey background
     previewBox.classList.add("show");
     shadow.classList.add("show");
