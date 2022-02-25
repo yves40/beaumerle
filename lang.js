@@ -6,13 +6,17 @@
     Feb 20 2022     Initial
     Feb 21 2022     Modify initial load function
     Feb 22 2022     Debug. Add translations
+    Feb 25 2022     Untranslated copyright ( former #h4-copyright )
+                    is now u-copyright
     
 */
 
 /*
     Place here all messages in all languages
 */
-
+const anylang = [
+    { "id": "u-copyright", "text": "Ratoon, 2.24 RC2 : Feb 25 2022"},
+]
 
 const endict = [
     // Interface 
@@ -47,7 +51,6 @@ const endict = [
         transmitted by 8 generations of French, Italian, German, Peruvian, \
         Japanese and... Martian master cutlers!"},
      { "id": "#p-copyright", "text": "Made by Reco DEV International Corporation" },
-     { "id": "#h4-copyright", "text": "Ratoon, 2.21 RC2 : Feb 24 2022"},
      // Global strings
      { "id": "g-weight", "text": "Weight"},
      { "id": "g-length", "text": "Length"},
@@ -87,7 +90,6 @@ const frdict = [
         nous avons à coeur de perpétrer l'excellence transmise par 8 générations \
         de maitres couteliers Français, Italiens, Allemands, Péruviens, Japonais, et...Martiens ! "},
     { "id": "#p-copyright", "text": "Réalisé par Reco DEV International Corporation" },
-    { "id": "#h4-copyright", "text": "Le Rat, 2.21 RC2 : Feb 24 2022"},
      // Global strings
      { "id": "g-weight", "text": "Poids"},
      { "id": "g-length", "text": "Longueur"},
@@ -126,4 +128,12 @@ function loadVariableStrings(language) {
         }
     }
     sessionStorage.setItem('pagelang', language);
+    // Also assign untranslated symbols
+    for(let i = 0; i < anylang.length; i++) {
+        // Check this is an interface element
+        if(anylang[i].id.startsWith('u-')) {
+            element = document.getElementById(anylang[i].id);
+            element.innerHTML = anylang[i].text;
+        }
+    }
 }

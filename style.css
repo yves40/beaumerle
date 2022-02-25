@@ -40,7 +40,7 @@
 
     --footer-heart-color: #f44336; 
     
-    --initial-photos-number:6;
+    --initial-photos-number:3;
 }
 
 /* -------------------------------------------------
@@ -407,34 +407,30 @@ background: var(--button-hover-color);
 }
 .preview-box .details {
     display: flex;
-    padding: 13px 15px 13px 10px;
+    flex-wrap: wrap;
+}
+.details > * {
+    padding: 1rem;
+}
+
+.details :first-child {
+    width: 80%;
+}
+.details #price {
+    text-decoration: underline;
+}
+.details #label {
+    font-size:1.5rem;
 }
 .details .section1 {
     display: flex;
     flex-direction: column;
 }
 .details .section2 {
-    display: flex;
-    flex-direction: column;
-    padding-left: 10px;
-}
-.details .section3 {
     color: var(--menu-background-color);
     font-size: 48px;
     cursor: pointer;
-    padding-left: 10px;
 }
-    
-.details .title{
-    display: flex;
-    font-weight: 400;
-}
-.details .title p {
-    font-weight: 500;
-    font-size: 24px;
-    margin-left: 10px;
-}
-
 .preview-box .image-box{
     width: 100%;
     display: flex;
@@ -443,15 +439,7 @@ background: var(--button-hover-color);
     width: 100%;
     border-radius: 0 0 3px 3px;
 }
-.knifedetails {
-        margin-top: 1rem;
-        border: 1px solid black;
-}
-.dimensions, .manche {
-    text-align: center;
-    font-style: italic;
-    padding: .2rem;
-}
+
 .shadow {
     position: fixed;
     left: 0;
