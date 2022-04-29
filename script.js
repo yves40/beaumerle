@@ -10,6 +10,7 @@
     Feb 20 2022     Dynamic catalog: 1
     Feb 22 2022     Debug internationalization. Change gallery images presentation
     Feb 24 2022     Gallery images presentation
+    Apr 29 2022     menu and language selection
     
 */
 
@@ -172,12 +173,16 @@ function switchLang(lang) {
     if (lang) currentlang = lang;
     switch(currentlang) {       // 1st manage menu entries
         case "en":
-            english.classList.add('hide');
-            french.classList.remove('hide');
+            english.classList.add('selected');
+            english.classList.remove('notselected');
+            french.classList.add('notselected');
+            french.classList.remove('selected');
             break;
         case "fr":
-            french.classList.add('hide');
-            english.classList.remove('hide');
+            english.classList.add('notselected');
+            english.classList.remove('selected');
+            french.classList.add('selected');
+            french.classList.remove('notselected');
             break;
     }
     // Reload the page

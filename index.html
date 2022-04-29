@@ -38,8 +38,9 @@
                         <li><a id="#a-hometext" href="" onclick="hideMenu()" >HOME</a></li>
                         <li><a id="#a-ateliers" onclick="hideMenu()" >ATELIERS</a></li>
                         <li><a id="#a-contacts" onclick="hideMenu('contacts')" >CONTACTS</a></li>
-                        <li><a href="" id="#a-english" onclick="switchLang('en')"></a></li>
-                        <li><a href="" id="#a-french" onclick="switchLang('fr')"></a></li>
+                        <li>
+                            <span onclick="switchLang('fr')" id="#a-french"></span> | <span onclick="switchLang('en')" id="#a-english"></span>
+                        </li>
                     </ul>
                 </div>
                 <i class="fa fa-bars" onclick="showMenu()"></i>

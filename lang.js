@@ -15,7 +15,7 @@
     Place here all messages in all languages
 */
 const anylang = [
-    { "id": "u-copyright", "text": "Ratoon, 2.24 RC2 : Feb 25 2022"},
+    { "id": "u-copyright", "text": "Ratoon, 2.25 RC2 : Apr 29 2022"},
 ]
 
 const endict = [
@@ -23,8 +23,8 @@ const endict = [
     { "id": "#a-hometext", "text": "HOME"},
     { "id": "#a-ateliers", "text": "SHOPS"},
     { "id": "#a-contacts", "text": "CONTACTS"},
-    { "id": "#a-english", "text": "ENGLISH"},
-    { "id": "#a-french", "text": "FRENCH"},
+    { "id": "#a-english", "text": "UK"},
+    { "id": "#a-french", "text": "FR"},
     { "id": "#h1-sitetitle", "text": "Beau Merle's workshop"},
     { "id": "#p-title", "text": "Involved for 2 centuries in the manufacture of the best\
         knives, our company carries on the tradition\
@@ -62,8 +62,8 @@ const frdict = [
     { "id": "#a-hometext", "text": "HOME"},
     { "id": "#a-ateliers", "text": "ATELIERS"},
     { "id": "#a-contacts", "text": "CONTACTS"},
-    { "id": "#a-english", "text": "ANGLAIS"},
-    { "id": "#a-french", "text": "FRANCAIS"},
+    { "id": "#a-english", "text": "UK"},
+    { "id": "#a-french", "text": "FR"},
     { "id": "#h1-sitetitle", "text": "Atelier Beau Merle"},
     { "id": "#p-title", "text": "Impliquée depuis 2 siècles dans la fabrication des meilleurs\
         couteaux, notre entreprise perpétue la tradition\

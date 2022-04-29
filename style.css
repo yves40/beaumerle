@@ -12,6 +12,7 @@
  *  Feb 22 2022     WIP on internationalization and knife detail box
  *  Feb 24 2022     WIP for gallery images presentation
  *  Feb 25 2022     Work on preview box
+ *  Apr 29 2022     Menu and language selection
  */
 :root {
     --menu-background-color: darkcyan;
@@ -166,6 +167,12 @@ nav .fa {
     color: #fff;
     font-size: 0.7rem;
     font-style: italic;
+}
+.selected {
+    color:#f44336
+}
+.notselected {
+    color: #fff;
 }
 
 /* -------------------------------------------------
