@@ -13,6 +13,7 @@
     Feb 18 2022     Start work on B3's requests
     Feb 20 2022     Dynamic catalog
     Feb 25 2022     Work on preview box
+    Apr 30 2022     JQuery
     
 -->
 <!DOCTYPE html>
@@ -24,7 +25,7 @@
         <link rel="stylesheet" href="style.css">
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;600;700&display=swap" >
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
         <title>Atelier du beau Merle</title>
     </head>
     <body>
@@ -33,17 +34,15 @@
             <nav>
                 <a href="index.html"><img src="images/BeauMerle.png" alt=""></a>
                 <div class="nav-links" id="navLinks">
-                    <i class="fa fa-times" onclick="hideMenu()"></i>
+                    <i class="fa fa-times" ></i>
                     <ul id="menuentries">
-                        <li><a id="#a-hometext" href="" onclick="hideMenu()" >HOME</a></li>
-                        <li><a id="#a-ateliers" onclick="hideMenu()" >ATELIERS</a></li>
-                        <li><a id="#a-contacts" onclick="hideMenu('contacts')" >CONTACTS</a></li>
-                        <li>
-                            <span onclick="switchLang('fr')" id="#a-french"></span> | <span onclick="switchLang('en')" id="#a-english"></span>
-                        </li>
+                        <li><a id="#a-hometext" >HOME</a></li>
+                        <li><a id="#a-ateliers" >ATELIERS</a></li>
+                        <li><a id="#a-contacts" >CONTACTS</a></li>
+                        <li><span id="#a-french"></span> | <span id="#a-english"></span></li>
                     </ul>
                 </div>
-                <i class="fa fa-bars" onclick="showMenu()"></i>
+                <i class="fa fa-bars"></i>
             </nav>
             <div class="copyright">
                 <h4 id="u-copyright"></h4>
@@ -62,18 +61,18 @@
         <section class="products" id="products">
             <!-- Now the catalog section with dynamic images -->
             <div class="row.centered">
-                <button id="buttonshow1" onclick="showcatalog()">Voir le Catalogue</button>
+                <button id="buttonshow1">Voir le Catalogue</button>
             </div>
             <div class="items hide" id="itemsmenu">
-                <span id="#s-tous" onclick="selectPhotos('tous')" class="item active">Tous</span>
-                <span id="#s-collection" onclick="selectPhotos('collection')" class="item ">Collection</span>
-                <span id="#s-cuisine" onclick="selectPhotos('cuisine')" class="item ">Cuisine</span>
-                <span id="#s-serie" onclick="selectPhotos('serie')" class="item " >Série</span>
+                <span id="#s-tous" class="item active">Tous</span>
+                <span id="#s-collection"  class="item ">Collection</span>
+                <span id="#s-cuisine" class="item ">Cuisine</span>
+                <span id="#s-serie"  class="item " >Série</span>
             </div>
             <div id="dynamicgallery" class="gallery" hidden>
             </div>
             <div class="row.centered">
-                <button id="buttonshow2" onclick="showcatalog()">Fermer</button>
+                <button id="buttonshow2">Fermer</button>
             </div>
         </section>
         <!-- The contacts -->
