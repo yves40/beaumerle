@@ -11,7 +11,8 @@
     Feb 22 2022     Debug internationalization. Change gallery images presentation
     Feb 24 2022     Gallery images presentation
     Apr 29 2022     Menu and language selection
-    Apr 30 2022     JQuery
+    Apr 30 2022     JQuery.
+    May 08 2022     JQuery..
     
 */
 
@@ -29,8 +30,8 @@ $(document).ready( () => {
     $("#a-french").click( () => { switchLang('fr');})
     $("#a-english").click( () => {switchLang('en');})
     $("#a-hometext").click( () => {hideMenu()});
-    $("#a-ateliers").click( () => {hideMenu()});
-    $("#a-contacts").click( () => {hideMenu()});
+    $("#a-contacts").click( () => {hideMenu("contacts")});
+    $("#a-models").click( () => {hideMenu("info")});
     $(".fa-times").click( () => {hideMenu()});
     $(".fa-bars").click( () => {hideMenu()});
 
@@ -210,9 +211,16 @@ $(document).ready( () => {
     function hideMenu(elementname) {
         navlinks.style.right = "-200px";
         if(elementname) {
-            console.log('Scroll element ' + elementname + " to top of scoll area");
-            let theelement = document.getElementById(elementname);
-            theelement.scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"});
+            let offset = $("#" + elementname).offset();
+            console.log(offset)
+            $('html, body').animate({
+                scrollTop: $("#" + elementname).offset().top
+            }, 1000);
+        }
+        else {
+            $('html, body').animate({
+                scrollTop: 0,
+            }, 1000);
         }
     }
     // --------------------------------------------------------------------------------------

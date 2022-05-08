@@ -15,13 +15,13 @@
     Place here all messages in all languages
 */
 const anylang = [
-    { "id": "u-copyright", "text": "Ratoon, 2.27 RC2 : May 06 2022"},
+    { "id": "u-copyright", "text": "Ratoon, 2.29 RC2 : May 08 2022"},
 ]
 
 const endict = [
     // Interface 
     { "id": "a-hometext", "text": "HOME"},
-    { "id": "a-ateliers", "text": "SHOPS"},
+    { "id": "a-models", "text": "MODELS"},
     { "id": "a-contacts", "text": "CONTACTS"},
     { "id": "a-english", "text": "UK"},
     { "id": "a-french", "text": "FR"},
@@ -60,7 +60,7 @@ const endict = [
 const frdict = [
     // Interface 
     { "id": "a-hometext", "text": "HOME"},
-    { "id": "a-ateliers", "text": "ATELIERS"},
+    { "id": "a-models", "text": "MODELES"},
     { "id": "a-contacts", "text": "CONTACTS"},
     { "id": "a-english", "text": "UK"},
     { "id": "a-french", "text": "FR"},
