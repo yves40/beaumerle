@@ -155,14 +155,14 @@ $(document).ready( () => {
             }
             totalknives = cuisine + collection + serie;
             // Manage buttons selection text
-            document.getElementById("#s-tous").innerText =
-                getText("#s-tous") + " (" + totalknives + ")";
-            document.getElementById("#s-collection").innerText =
-                getText("#s-collection") + " (" + collection + ")";
-            document.getElementById("#s-serie").innerText =
-                getText("#s-serie") + " (" + serie + ")";
-            document.getElementById("#s-cuisine").innerText =
-                getText("#s-cuisine") + " (" + cuisine + ")";
+            document.getElementById("s-tous").innerText =
+                getText("s-tous") + " (" + totalknives + ")";
+            document.getElementById("s-collection").innerText =
+                getText("s-collection") + " (" + collection + ")";
+            document.getElementById("s-serie").innerText =
+                getText("s-serie") + " (" + serie + ")";
+            document.getElementById("s-cuisine").innerText =
+                getText("s-cuisine") + " (" + cuisine + ")";
         });
     }
     // --------------------------------------------------------------------------------------
