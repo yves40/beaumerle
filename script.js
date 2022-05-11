@@ -13,6 +13,7 @@
     Apr 29 2022     Menu and language selection
     Apr 30 2022     JQuery.
     May 08 2022     JQuery..
+    May 11 2022     JQuery...
     
 */
 
@@ -32,8 +33,8 @@ $(document).ready( () => {
     $("#a-hometext").click( () => {hideMenu()});
     $("#a-contacts").click( () => {hideMenu("contacts")});
     $("#a-models").click( () => {hideMenu("info")});
-    $(".fa-times").click( () => {hideMenu()});
-    $(".fa-bars").click( () => {hideMenu()});
+    $(".fa, .fa-times").click( () => {showMenu()});
+    $(".fa, .fa-bars").click( () => {hideMenu()});
 
     $("#buttonshow1").click( () => {showcatalog()});
     $("#buttonshow2").click( () => {showcatalog()});
@@ -71,6 +72,8 @@ $(document).ready( () => {
     //  Also install the event handler for products categories buttons selection
     // --------------------------------------------------------------------------------------
     window.onload = () => {
+
+        checkFontAwesome();
 
         // Some questions about language. The initial page lang will be the 
         // navigator's one. Then language user choice will be stored in a local
@@ -200,16 +203,16 @@ $(document).ready( () => {
                 $("#a-french").addClass('selected').removeClass("notselected");
                 break;
         }
-        // Reload the page
+        // Reload variable text
         loadVariableStrings(lang);
     }
     // --------------------------------------------------------------------------------------
     function showMenu() {
-        navlinks.style.right = "0";
+        $("navlinks").css('right', '0');
     }
     // --------------------------------------------------------------------------------------
     function hideMenu(elementname) {
-        navlinks.style.right = "-200px";
+        $("navlinks").css('right', '-200px');
         if(elementname) {
             let offset = $("#" + elementname).offset();
             console.log(offset)
@@ -302,5 +305,15 @@ $(document).ready( () => {
     function getKnife(id) {
         const oneknife = knivescatalog.find( kn => kn.id === id);
         return oneknife;
+    }
+
+    function checkFontAwesome() {
+        var span = document.createElement('span');
+        span.className = 'fas';
+        span.style.display = 'none';
+        document.body.insertBefore(span, document.body.firstChild);
+        let thestyle = window.getComputedStyle(span, null).getPropertyValue('font-family');
+        console.log(`fontAwesome detected version : ${thestyle}`);
+        document.body.removeChild(span);
     }
 });

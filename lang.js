@@ -8,6 +8,8 @@
     Feb 22 2022     Debug. Add translations
     Feb 25 2022     Untranslated copyright ( former #h4-copyright )
                     is now u-copyright
+    May 08 2022     JQuery.
+    May 11 2022     JQuery..
     
 */
 
@@ -15,7 +17,7 @@
     Place here all messages in all languages
 */
 const anylang = [
-    { "id": "u-copyright", "text": "Ratoon, 2.29 RC2 : May 08 2022"},
+    { "id": "u-copyright", "text": "Ratoon, 2.30 RC2 : May 11 2022"},
 ]
 
 const endict = [
