@@ -511,9 +511,7 @@ background: var(--button-hover-color);
         font-size: 22px;
         cursor: pointer;
     }
-    nav img {
-        width: 70px;
-    }
+
     .nav-links ul {
         padding: 30px;
     }
