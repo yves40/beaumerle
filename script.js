@@ -33,8 +33,8 @@ $(document).ready( () => {
     $("#a-hometext").click( () => {hideMenu()});
     $("#a-contacts").click( () => {hideMenu("contacts")});
     $("#a-models").click( () => {hideMenu("info")});
-    $(".fa, .fa-times").click( () => {showMenu()});
-    $(".fa, .fa-bars").click( () => {hideMenu()});
+    $(".fa-times").click( () => {hideMenu()});
+    $(".fa-bars").click( () => {showMenu()});
 
     $("#buttonshow1").click( () => {showcatalog()});
     $("#buttonshow2").click( () => {showcatalog()});
@@ -208,10 +208,12 @@ $(document).ready( () => {
     }
     // --------------------------------------------------------------------------------------
     function showMenu() {
+        console.log('Show menu now')
         $("navlinks").css('right', '0');
     }
     // --------------------------------------------------------------------------------------
     function hideMenu(elementname) {
+        console.log('Hide menu now')
         $("navlinks").css('right', '-200px');
         if(elementname) {
             let offset = $("#" + elementname).offset();
