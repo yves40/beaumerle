@@ -22,8 +22,6 @@ $(document).ready( () => {
 
     // Global variables
     let galleryshow = false;
-    const navlinks = document.getElementById("navLinks");
-    const dynamicgallery = document.getElementById("dynamicgallery");
     const firstbutton = document.getElementById("buttonshow1");
     const secondbutton = document.getElementById("buttonshow2");
     const itemsmenu = document.getElementById("itemsmenu");
@@ -138,7 +136,7 @@ $(document).ready( () => {
                 outerdiv.appendChild(newimage);
                 outerdiv.setAttribute("model", element.model);
                 outerdiv.appendChild(p);
-                dynamicgallery.appendChild(outerdiv);
+                $("#dynamicgallery").append(outerdiv);
             });
             // Adding onclick attribute in all dynamic gallery images
             // And count the number of knives for each model
@@ -208,13 +206,11 @@ $(document).ready( () => {
     }
     // --------------------------------------------------------------------------------------
     function showMenu() {
-        console.log('Show menu now')
-        $("navlinks").css('right', '0');
+        $(".nav-links").css('right', '0');
     }
     // --------------------------------------------------------------------------------------
     function hideMenu(elementname) {
-        console.log('Hide menu now')
-        $("navlinks").css('right', '-200px');
+        $(".nav-links").css('right', '-200px');
         if(elementname) {
             let offset = $("#" + elementname).offset();
             console.log(offset)
@@ -231,17 +227,17 @@ $(document).ready( () => {
     // --------------------------------------------------------------------------------------
     function showcatalog() {
         if(galleryshow) {
-            firstbutton.innerText = getText("buttonshow1"); // "Show catalog"
-            secondbutton.hidden = true;
-            dynamicgallery.style.display = "none";
+            $("#buttonshow1").text(getText("buttonshow1")); // "Show catalog"
+            $("#buttonshow2").hide();
+            $("#dynamicgallery").display = "none";
             itemsmenu.classList.add("hide");
             galleryshow = false;
         }
         else {
-            firstbutton.innerText = getText("buttonshow2"); // "Close"
-            secondbutton.innerText = getText("buttonshow2");
-            dynamicgallery.style.display = "flex";
-            secondbutton.hidden = false;
+            $("#buttonshow1").text(getText("buttonshow2")); // "Close"
+            $("#buttonshow2").text(getText("buttonshow2"));
+            $("#dynamicgallery").display = "flex";
+            $("#buttonshow2").show();
             itemsmenu.classList.remove("hide");
             galleryshow = true;
         }
