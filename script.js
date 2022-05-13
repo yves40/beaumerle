@@ -14,6 +14,7 @@
     Apr 30 2022     JQuery.
     May 08 2022     JQuery..
     May 11 2022     JQuery...
+    May 13 2022     JQuery....
     
 */
 
@@ -22,9 +23,6 @@ $(document).ready( () => {
 
     // Global variables
     let galleryshow = false;
-    const firstbutton = document.getElementById("buttonshow1");
-    const secondbutton = document.getElementById("buttonshow2");
-    const itemsmenu = document.getElementById("itemsmenu");
 
     $("#a-french").click( () => { switchLang('fr');})
     $("#a-english").click( () => {switchLang('en');})
@@ -41,6 +39,8 @@ $(document).ready( () => {
     $("#s-collection").click( () => {selectPhotos('collection')});
     $("#s-cuisine").click( () => {selectPhotos('cuisine')});
     $("#s-serie").click( () => {selectPhotos('serie')});
+
+    $("#logo").click(  () => {hideMenu()});
 
     let knivescatalog = [];
     let totalknives = 0;
@@ -157,14 +157,10 @@ $(document).ready( () => {
             }
             totalknives = cuisine + collection + serie;
             // Manage buttons selection text
-            document.getElementById("s-tous").innerText =
-                getText("s-tous") + " (" + totalknives + ")";
-            document.getElementById("s-collection").innerText =
-                getText("s-collection") + " (" + collection + ")";
-            document.getElementById("s-serie").innerText =
-                getText("s-serie") + " (" + serie + ")";
-            document.getElementById("s-cuisine").innerText =
-                getText("s-cuisine") + " (" + cuisine + ")";
+            $('#s-tous').text(getText("s-tous") + " (" + totalknives + ")");
+            $('#s-collection').text(getText("s-collection") + " (" + collection + ")");
+            $('#s-serie').text(getText("s-serie") + " (" + serie + ")");
+            $('#s-cuisine').text(getText("s-cuisine") + " (" + cuisine + ")");
         });
     }
     // --------------------------------------------------------------------------------------
@@ -230,7 +226,7 @@ $(document).ready( () => {
             $("#buttonshow1").text(getText("buttonshow1")); // "Show catalog"
             $("#buttonshow2").hide();
             $("#dynamicgallery").display = "none";
-            itemsmenu.classList.add("hide");
+            $('#itemsmenu').addClass("hide");
             galleryshow = false;
         }
         else {
@@ -238,7 +234,7 @@ $(document).ready( () => {
             $("#buttonshow2").text(getText("buttonshow2"));
             $("#dynamicgallery").display = "flex";
             $("#buttonshow2").show();
-            itemsmenu.classList.remove("hide");
+            $('#itemsmenu').removeClass("hide");
             galleryshow = true;
         }
     }
