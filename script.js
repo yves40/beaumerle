@@ -140,9 +140,10 @@ $(document).ready( () => {
             });
             // Adding onclick attribute in all dynamic gallery images
             // And count the number of knives for each model
-            const dynamicimageslist = document.querySelectorAll(".gallery .image");
-            for (let i = 0; i < dynamicimageslist.length; i++) {
-                switch(dynamicimageslist[i].getAttribute("model") ) {
+            $("[model]").each( (i, element) => {
+                console.log(element)
+                let themodel = $(element).attr('model');
+                switch(themodel ) {
                     case "cuisine":
                         ++cuisine;
                         break;
@@ -153,9 +154,13 @@ $(document).ready( () => {
                         ++serie;
                         break;
                 }
-                dynamicimageslist[i].setAttribute("onclick", "preview(this)");
-            }
+            });
             totalknives = cuisine + collection + serie;
+            $(".image > img").each( (i, element) => {
+                console.log(element)
+                $(element).click( () => { preview(element); });
+            });
+
             // Manage buttons selection text
             $('#s-tous').text(getText("s-tous") + " (" + totalknives + ")");
             $('#s-collection').text(getText("s-collection") + " (" + collection + ")");
@@ -240,6 +245,7 @@ $(document).ready( () => {
     }
     // --------------------------------------------------------------------------------------
     // Fullscreen image preview function selecting all required elements
+    // --------------------------------------------------------------------------------------
     const previewBox = document.querySelector(".preview-box");
     const model = previewBox.querySelector("#model");
     const label = previewBox.querySelector("#label");
@@ -249,20 +255,16 @@ $(document).ready( () => {
 
     const shadow = document.querySelector(".shadow");
 
-    function preview(element){
-        // Get the knife ID from the image attribute
-        // Beware not to change attributes order ( see code above )
-        let knifeID = element.innerHTML.split(' ')[2].split('=')[1];
+    // Zoom on knife image; 
+    function preview(knifeimage){
+        // Get the knife ID
         // Get all knife details
-        let selectedknife = getKnife(knifeID.replace(/\"/g, ''));
-        
+        let selectedknife = getKnife(knifeimage.id);
         // Once user click on any image then remove the scroll bar of the body, 
         // so user cant scroll up or down
         document.querySelector("body").style.overflow = "hidden";
-        // Get user clicked image source link
-        let selectedPrevImg = element.querySelector("img"); 
         // Pass the user clicked image source in preview image source
-        previewImg.src = selectedPrevImg.src;
+        previewImg.src = knifeimage.src;
         // Pass user clicked data-name value in category name
         // categoryName is initialized above during page load. 
         // It selects the ".title p" of the preview box element
