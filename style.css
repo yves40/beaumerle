@@ -13,6 +13,7 @@
  *  Feb 24 2022     WIP for gallery images presentation
  *  Feb 25 2022     Work on preview box
  *  Apr 29 2022     Menu and language selection
+ *  May 22 2022     WIP on top bar and logo sizing
  */
 :root {
     --menu-background-color: darkcyan;
@@ -111,8 +112,8 @@ button:hover {
 -------------------------------------------------- */
 .menu {
     position: fixed;
-    height: 8rem;
     width: 100%;
+    padding-bottom: .5rem;
     background-position: center;
     background-size: cover;
     background-color: var(--menu-background-color);
@@ -124,13 +125,16 @@ nav {
     display: flex;
     padding: 0.4rem 1rem 0 1rem;
     justify-content: space-between;
-    /*align-items: center;*/
 }
 #thelogo {
-    width: 12vw;
-    height: 10vh;
+    position: relative;
+    width: 10%;
+    padding-top: 10%; /* 1:1 Aspect Ratio */
 }
 #thelogo img {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
 }
@@ -138,7 +142,7 @@ nav {
     color: #fff;
     font-size: 0.7rem;
     font-style: italic;
-    padding-left: 1rem;
+    opacity: 20%;
 }
 .nav-links {
     text-align: right;
@@ -213,11 +217,6 @@ nav .fas {
     width: 80%;
     text-align: center;
     display: block;
-}
-
-.info h3 {
-    font-size: 1rem;
-    font-style: italic;
 }
 .info p {
     margin: 10px 0 20px;
@@ -474,30 +473,11 @@ background: var(--button-hover-color);
     change menu links presentation
 ---------------------------------------------------------------------------------------- */
 @media(max-width: 660px) {
-    .menu {
-        height: 6rem;
-    }
-    .copyright {
-        position: absolute;
-        top: .5rem;
-        left: 6rem;
-    }
-    #thelogo {
-        width: 12vw;
-        height: 8vh;
-    }
     h1 {
         font-size: 2rem;
     }
     .info {
         margin-top: 6rem;
-    }
-    .info h3 {
-        font-size: .8rem;
-        font-style: italic;
-    }
-    .info a {
-        display: none;
     }
     .nav-links ul li {
         display: block;

@@ -205,6 +205,7 @@ $(document).ready( () => {
         }
         // Reload variable text
         loadVariableStrings(lang);
+        hideMenu();
     }
     // --------------------------------------------------------------------------------------
     function showMenu() {
