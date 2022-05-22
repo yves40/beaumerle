@@ -140,7 +140,11 @@ $(document).ready( () => {
                 $("#dynamicgallery").append(outerdiv);
             });
             // Adding onclick attribute in all dynamic gallery images
-            // And count the number of knives for each model
+            $(".gallery > .image").each( (i, element) => {
+                console.log($(element).find("img"));
+                $(element).click( () => { preview($(element).find("img")) });
+            });
+            // Count the number of knives for each model
             $("[model]").each( (i, element) => {
                 console.log(element)
                 let themodel = $(element).attr('model');
@@ -157,10 +161,6 @@ $(document).ready( () => {
                 }
             });
             totalknives = cuisine + collection + serie;
-            $(".image > img").each( (i, element) => {
-                console.log(element)
-                $(element).click( () => { preview(element); });
-            });
 
             // Manage buttons selection text
             $('#s-tous').text(getText("s-tous") + " (" + totalknives + ")");
@@ -251,13 +251,12 @@ $(document).ready( () => {
     function preview(knifeimage){
         // Get the knife ID
         // Get all knife details
-        let selectedknife = getKnife(knifeimage.id);
+        let selectedknife = getKnife($(knifeimage).attr("id"));
         // Once user click on any image then remove the scroll bar of the body, 
         // so user cant scroll up or down
         $("body").css("overflow", "hidden");
-        //document.querySelector("body").style.overflow = "hidden";
         // Pass the user clicked image source in preview image source
-        $(".preview-box").find("img").attr("src", knifeimage.src);
+        $(".preview-box").find("img").attr("src", $(knifeimage).attr("src"));
         // Pass user clicked data-name value in category name
         // categoryName is initialized above during page load. 
         // It selects the ".title p" of the preview box element
@@ -285,7 +284,6 @@ $(document).ready( () => {
             $(".preview-box").removeClass("show"); //hide the preview box
             $(".shadow").removeClass("show"); //hide the light grey background
             $("body").css("overflow", "auto");
-            //document.querySelector("body").style.overflow = "auto"; //show the scroll bar on body
         });
     }
     // --------------------------------------------------------------------------------------
