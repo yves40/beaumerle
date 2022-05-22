@@ -15,6 +15,7 @@
     May 08 2022     JQuery..
     May 11 2022     JQuery...
     May 13 2022     JQuery....
+    May 22 2022     JQuery.....
     
 */
 
@@ -246,55 +247,45 @@ $(document).ready( () => {
     // --------------------------------------------------------------------------------------
     // Fullscreen image preview function selecting all required elements
     // --------------------------------------------------------------------------------------
-    const previewBox = document.querySelector(".preview-box");
-    const model = previewBox.querySelector("#model");
-    const label = previewBox.querySelector("#label");
-    const price = previewBox.querySelector("#price");
-    const previewImg = previewBox.querySelector("img");
-    const closeIcon = previewBox.querySelectorAll(".icon");
-
-    const shadow = document.querySelector(".shadow");
-
-    // Zoom on knife image; 
     function preview(knifeimage){
         // Get the knife ID
         // Get all knife details
         let selectedknife = getKnife(knifeimage.id);
         // Once user click on any image then remove the scroll bar of the body, 
         // so user cant scroll up or down
-        document.querySelector("body").style.overflow = "hidden";
+        $("body").css("overflow", "hidden");
+        //document.querySelector("body").style.overflow = "hidden";
         // Pass the user clicked image source in preview image source
-        previewImg.src = knifeimage.src;
+        $(".preview-box").find("img").attr("src", knifeimage.src);
         // Pass user clicked data-name value in category name
         // categoryName is initialized above during page load. 
         // It selects the ".title p" of the preview box element
-        model.textContent = selectedknife.model;
-        label.textContent = selectedknife.label;
-        price.textContent = selectedknife.price + " €";
-        document.querySelector("#dimensions").textContent = 
+        $("#model").text(selectedknife.model);
+        $("#label").text(selectedknife.label);
+        $("#price").text(selectedknife.price + " €");
+        $("#dimensions").text( 
                     getText("g-length") + " " +
                     selectedknife.longueur + " " +
                     getText("g-tranchant") + " " +
                     selectedknife.tranchant + " " + 
                     getText("g-weight") + " " +
-                    selectedknife.poids ; 
-        document.querySelector("#manche").textContent = selectedknife.manche;
+                    selectedknife.poids ); 
+        $("#manche").text(selectedknife.manche);
         // Now show the preview image box and the the light grey background
-        previewBox.classList.add("show");
-        shadow.classList.add("show");
+        $(".preview-box").addClass("show");
+        $(".shadow").addClass("show");
         // Now just have to wait for the user to close the box
         // closeIcon elements are loaded above during page load.
         // It selects the ".icon" class elements of the preview box
         // Two of them on the preview page ; One on top, one on botom
         // Because depending on the window size, the upper one sometimes 
         // disapears from the view
-        closeIcon.forEach( (icon) => {
-            icon.onclick = () => {
-                previewBox.classList.remove("show"); //hide the preview box
-                shadow.classList.remove("show"); //hide the light grey background
-                document.querySelector("body").style.overflow = "auto"; //show the scroll bar on body
-            };            
-        })
+        $(".section2, .icon").click( () => { 
+            $(".preview-box").removeClass("show"); //hide the preview box
+            $(".shadow").removeClass("show"); //hide the light grey background
+            $("body").css("overflow", "auto");
+            //document.querySelector("body").style.overflow = "auto"; //show the scroll bar on body
+        });
     }
     // --------------------------------------------------------------------------------------
     // Retrieve a knife details from catalog.json with its ID
