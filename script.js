@@ -36,7 +36,7 @@ $(document).ready( () => {
     $(".fa-bars").click( () => {showMenu()});
 
     $("#opengallery").click( () => {showcatalog()});
-    $("#closegallery").click( () => {showcatalog()});
+    $("#closegallery").hide().click( () => {showcatalog()});
 
     $("#s-tous").click( () => { selectPhotos('tous')});
     $("#s-collection").click( () => {selectPhotos('collection')});
@@ -119,10 +119,6 @@ $(document).ready( () => {
                 p.className = "knifelabel";
 
                 outerdiv.className = "image";
-                if(index > defaultimagenumber)
-                    outerdiv.classList.add("hide");
-                else
-                    outerdiv.classList.add("show");
                 newimage.src = element.url;
                 newimage.setAttribute("id", element.id);
                 newimage.setAttribute("label", element.label);
@@ -131,6 +127,7 @@ $(document).ready( () => {
                 outerdiv.appendChild(p);
                 $("#dynamicgallery").append(outerdiv);
             });
+            displayRandom();
             // Adding onclick attribute in all dynamic gallery images
             $(".gallery > .image").each( (i, element) => {
                 $(element).click( () => { preview($(element).find("img")) });
