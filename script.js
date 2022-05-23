@@ -25,6 +25,7 @@ $(document).ready( () => {
 
     // Global variables
     let galleryshow = false;
+    let defaultimagenumber = 0;
 
     $("#a-french").click( () => { switchLang('fr');})
     $("#a-english").click( () => {switchLang('en');})
@@ -34,8 +35,8 @@ $(document).ready( () => {
     $(".fa-times").click( () => {hideMenu()});
     $(".fa-bars").click( () => {showMenu()});
 
-    $("#buttonshow1").click( () => {showcatalog()});
-    $("#buttonshow2").click( () => {showcatalog()});
+    $("#opengallery").click( () => {showcatalog()});
+    $("#closegallery").click( () => {showcatalog()});
 
     $("#s-tous").click( () => { selectPhotos('tous')});
     $("#s-collection").click( () => {selectPhotos('collection')});
@@ -89,8 +90,8 @@ $(document).ready( () => {
 
         switchLang(sessionStorage.getItem("pagelang"));
         // Gallery buttons, a few adjustments
-        $("buttonshow1").text(getText("buttonshow1"));
-        $("buttonshow2").hide();
+        $("#opengallery").text(getText("opengallery"));
+        $("#closegallery").hide();
 
         // Manage filter buttons selection events
         $(".item").click( (selectedItem) => {
@@ -99,11 +100,10 @@ $(document).ready( () => {
 
         // Load JSON file containing all knives
         // Prepare to display the catalog on demand
-        // Display only a few knives when page loads
-        // The number of initially displayed photos is specified in the style.css
-        // file with a variable
-
-        const limit = Number.parseInt(getComputedStyle(document.documentElement)
+        // Display only a few knives when page loads. 
+        // The number of displayed knives is defined by the defaultimagenumber constant 
+        // defined globally and read from the style.css file with a variable
+        defaultimagenumber = Number.parseInt(getComputedStyle(document.documentElement)
                     .getPropertyValue("--initial-photos-number"));
         let index = 0;
         getJSON('./catalog.json', allKnives => {
@@ -119,7 +119,7 @@ $(document).ready( () => {
                 p.className = "knifelabel";
 
                 outerdiv.className = "image";
-                if(index > limit)
+                if(index > defaultimagenumber)
                     outerdiv.classList.add("hide");
                 else
                     outerdiv.classList.add("show");
@@ -228,21 +228,36 @@ $(document).ready( () => {
     // This is a flip flop routine which displays or hide the gallery
     function showcatalog() {    
         if(galleryshow) {   // Close catalog
-            $("#buttonshow1").text(getText("buttonshow1")); // "Show catalog"
-            $("#buttonshow2").hide();
-            $("#dynamicgallery").display = "none";
+            $("#opengallery").text(getText("opengallery")); // "Show catalog"
+            $("#closegallery").hide();
+            //$("#dynamicgallery").hide();
             $('#itemsmenu').addClass("hide");
             galleryshow = false;
+            displayRandom();
         }
-        else {  // Opne catalog
-            $("#buttonshow1").text(getText("buttonshow2")); // "Close"
-            $("#buttonshow2").text(getText("buttonshow2"));
-            $("#dynamicgallery").display = "flex";
-            $("#buttonshow2").show();
+        else {  // Open catalog
+            $("#opengallery").text(getText("closegallery")); // "Close"
+            //$("#dynamicgallery").show();
+            $("#closegallery").show();
             $('#itemsmenu').removeClass("hide");
             galleryshow = true;
             selectPhotos('cuisine');
         }
+    }
+    // This function displays a limited number of random photos
+    function displayRandom() {
+        console.log(`Randomly display ${defaultimagenumber} images`);
+        let startindex = randomIntFromInterval(0, knivescatalog.length - defaultimagenumber - 1);
+        let endindex = startindex + defaultimagenumber;
+        console.log(`Start @ ${startindex}`);
+        $("[model]").each( (i, theimage) => {
+            if ( i >= startindex && i < endindex ) {
+                $(theimage).addClass("show").removeClass("hide");
+            }
+            else {
+                $(theimage).addClass("hide").removeClass("show");
+            }
+        })
     }
     // --------------------------------------------------------------------------------------
     // Fullscreen image preview function selecting all required elements
@@ -291,7 +306,11 @@ $(document).ready( () => {
         const oneknife = knivescatalog.find( kn => kn.id === id);
         return oneknife;
     }
-
+    // --------------------------------------------------------------------------------------
+    // Some Utilities
+    function randomIntFromInterval(min, max) { // min and max included 
+        return Math.floor(Math.random() * (max - min + 1) + min)
+    }
     function checkFontAwesome() {
         var span = document.createElement('span');
         span.className = 'fas';

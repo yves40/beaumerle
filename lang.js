@@ -37,8 +37,8 @@ const endict = [
     { "id": "s-collection", "text": "Collection"},
     { "id": "s-cuisine", "text": "Cooking"},
     { "id": "s-serie", "text": "Series"},
-    { "id": "buttonshow1", "text": "Show more"},
-    { "id": "buttonshow2", "text": "Close"},
+    { "id": "opengallery", "text": "Show more"},
+    { "id": "closegallery", "text": "Close"},
     { "id": "h1-contacts", "text": "Contacts"},
     { "id": "p-contactslist", "text": "Engineer Designer Producer : ratoon@free.fr <br\>\
         Marketing Strategy Director : labaronne@free.fr <br\>\
@@ -76,8 +76,8 @@ const frdict = [
     { "id": "s-collection", "text": "Collection"},
     { "id": "s-cuisine", "text": "Cuisine"},
     { "id": "s-serie", "text": "Série"},
-    { "id": "buttonshow1", "text": "Plus de photos"},
-    { "id": "buttonshow2", "text": "Fermer"},
+    { "id": "opengallery", "text": "Plus de photos"},
+    { "id": "closegallery", "text": "Fermer"},
     { "id": "h1-contacts", "text": "Contacts"},
     { "id": "p-contactslist", "text": "Ingénieur Concepteur Réalisateur : ratoon@free.fr <br\>\
         Directrice Stratégie Marketing : labaronne@free.fr <br\>\
