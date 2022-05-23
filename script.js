@@ -16,6 +16,7 @@
     May 11 2022     JQuery...
     May 13 2022     JQuery....
     May 22 2022     JQuery.....
+    May 22 2022     JQuery.....and some management of gallery selection buttons
     
 */
 
@@ -88,22 +89,13 @@ $(document).ready( () => {
 
         switchLang(sessionStorage.getItem("pagelang"));
         // Gallery buttons, a few adjustments
-        document.getElementById("buttonshow1").innerText = getText("buttonshow1");
-        document.getElementById("buttonshow2").hidden = true;
+        $("buttonshow1").text(getText("buttonshow1"));
+        $("buttonshow2").hide();
 
-        // Filter implementation
-        const filterItem = document.querySelector(".items");
-        // Manage buttons selection events
-        filterItem.onclick = (selectedItem) => {
-            if (selectedItem.target.classList.contains("item")) {
-                // If button is already the active one, remove the active status
-                // Guess this is to avoid piling up the class  when multiple clicks occurs 
-                // on an already active element
-                filterItem.querySelector(".active").classList.remove("active");
-                // Add that active class on user selected item
-                selectedItem.target.classList.add("active");
-            }
-        }
+        // Manage filter buttons selection events
+        $(".item").click( (selectedItem) => {
+            $(selectedItem).addClass("active");
+        })
 
         // Load JSON file containing all knives
         // Prepare to display the catalog on demand
@@ -141,12 +133,10 @@ $(document).ready( () => {
             });
             // Adding onclick attribute in all dynamic gallery images
             $(".gallery > .image").each( (i, element) => {
-                console.log($(element).find("img"));
                 $(element).click( () => { preview($(element).find("img")) });
             });
             // Count the number of knives for each model
             $("[model]").each( (i, element) => {
-                console.log(element)
                 let themodel = $(element).attr('model');
                 switch(themodel ) {
                     case "cuisine":
@@ -170,25 +160,32 @@ $(document).ready( () => {
         });
     }
     // --------------------------------------------------------------------------------------
-    // 4 models right now. tous, collection, cuisine, serie
+    // 4 models right now. "tous", "collection", "cuisine", "serie"
     function selectPhotos(model) {
-        const dynamicimageslist = document.querySelectorAll(".gallery .image");
-        for (let i = 0; i < dynamicimageslist.length; i++) {
+        $("[model]").each( (i, element) => {
+            let themodel = $(element).attr('model');
             if(model === "tous") {
-                dynamicimageslist[i].classList.add("show");
-                dynamicimageslist[i].classList.remove("hide");
+                $(element).addClass("show").removeClass("hide");
             }
-            else {      // User selected a specific model
-                if(dynamicimageslist[i].getAttribute("model") === model) {
-                    dynamicimageslist[i].classList.add("show");
-                    dynamicimageslist[i].classList.remove("hide");
+            else {
+                if($(element).attr('model') === model) {
+                    $(element).addClass("show").removeClass("hide");
                 }
                 else {
-                    dynamicimageslist[i].classList.add("hide");
-                    dynamicimageslist[i].classList.remove("show");
+                    $(element).addClass("hide").removeClass("show");
                 }
             }
-        }
+        })
+        // Manage buttons
+        // In the HTML, each button carries an action attribute
+        $("[action").each( (i, menuitem) => {
+            if($(menuitem).attr('action') === model) {
+                $(menuitem).addClass('active');
+            }
+            else {
+                $(menuitem).removeClass('active');
+            }
+        } )
     }
     // --------------------------------------------------------------------------------------
     function switchLang(lang) {
@@ -228,21 +225,23 @@ $(document).ready( () => {
         }
     }
     // --------------------------------------------------------------------------------------
-    function showcatalog() {
-        if(galleryshow) {
+    // This is a flip flop routine which displays or hide the gallery
+    function showcatalog() {    
+        if(galleryshow) {   // Close catalog
             $("#buttonshow1").text(getText("buttonshow1")); // "Show catalog"
             $("#buttonshow2").hide();
             $("#dynamicgallery").display = "none";
             $('#itemsmenu').addClass("hide");
             galleryshow = false;
         }
-        else {
+        else {  // Opne catalog
             $("#buttonshow1").text(getText("buttonshow2")); // "Close"
             $("#buttonshow2").text(getText("buttonshow2"));
             $("#dynamicgallery").display = "flex";
             $("#buttonshow2").show();
             $('#itemsmenu').removeClass("hide");
             galleryshow = true;
+            selectPhotos('cuisine');
         }
     }
     // --------------------------------------------------------------------------------------
