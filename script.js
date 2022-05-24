@@ -29,7 +29,7 @@ $(document).ready( () => {
     let defaultimagenumber = 0;
     const fadeInDelay = 1000;
     const fadeOutDelay = 1000;
-    const imagesRefreshDelay = 5000;
+    const imagesRefreshDelay = 10000;
 
     let chronowatch = setInterval(displayRandom, imagesRefreshDelay);
 
