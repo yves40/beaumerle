@@ -17,7 +17,7 @@
     Place here all messages in all languages
 */
 const anylang = [
-    { "id": "u-copyright", "text": "Ratoon, 2.38 RC3 : May 24 2022"},
+    { "id": "u-copyright", "text": "Ratoon, 2.39 RC3 : May 24 2022"},
 ]
 
 const endict = [
@@ -40,12 +40,12 @@ const endict = [
     { "id": "opengallery", "text": "Show more"},
     { "id": "closegallery", "text": "Close"},
     { "id": "h1-contacts", "text": "Contacts"},
-    { "id": "p-contactslist", "text": "Engineer Designer Producer : ratoon@free.fr <br\>\
-        Marketing Strategy Director : labaronne@free.fr <br\>\
-        Export director : barbilec@free.fr <br\>\
-        Financial director : letono@free.fr <br\>\
-        Public sector relations director: bintoule@free.fr <br\>\
-        Delivery dispatch driver : yves@free.fr <br>"},
+    { "id": "p-contactslist", "text": "Engineer Designer Producer : ratoon@free.fr , \
+        Marketing Strategy Director : labaronne@free.fr , \
+        Export director : barbilec@free.fr , \
+        Financial director : letono@free.fr , \
+        Public sector relations director: bintoule@free.fr , \
+        Delivery dispatch driver : yves@free.fr"},
     { "id": "h4-qui", "text": "Who are we ?"},
     { "id": "p-qui", "text": "Our team of 11 craftsmen have a total of 162 years \
         of experience in creating unique and original models. Holders of numerous prizes \
@@ -79,12 +79,12 @@ const frdict = [
     { "id": "opengallery", "text": "Plus de photos"},
     { "id": "closegallery", "text": "Fermer"},
     { "id": "h1-contacts", "text": "Contacts"},
-    { "id": "p-contactslist", "text": "Ingénieur Concepteur Réalisateur : ratoon@free.fr <br\>\
-        Directrice Stratégie Marketing : labaronne@free.fr <br\>\
-        Directeur export : barbilec@free.fr <br\>\
-        Directeur financier : letono@free.fr <br\>\
-        Directeur relations secteur public: bintoule@free.fr <br\>\
-        Chauffeur d'estafette livraison : yves@free.fr <br>"},
+    { "id": "p-contactslist", "text": "Ingénieur Concepteur Réalisateur : ratoon@free.fr , \
+        Directrice Stratégie Marketing : labaronne@free.fr , \
+        Directeur export : barbilec@free.fr , \
+        Directeur financier : letono@free.fr , \
+        Directeur relations secteur public: bintoule@free.fr , \
+        Chauffeur d'estafette livraison : yves@free.fr "},
     { "id": "h4-qui", "text": "Qui sommes nous ?"},
     { "id": "p-qui", "text": "Notre équipe de 11 artisans compagnons totalise 162 années \
         d'expérience ans la création de modèles uniques et originaux. \

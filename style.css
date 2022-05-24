@@ -130,6 +130,7 @@ nav {
     position: relative;
     width: 10%;
     padding-top: 10%; /* 1:1 Aspect Ratio */
+    cursor: pointer;
 }
 #thelogo img {
     position: absolute;
@@ -287,8 +288,8 @@ nav .fas {
 }
 .items span.active,
 .items span:hover{
-color: #fff;
-background: var(--button-hover-color);
+    color: #fff;
+    background: var(--button-hover-color);
 }
 .hide {
     display: none;
@@ -304,20 +305,21 @@ background: var(--button-hover-color);
 }
 
 .gallery .image {
-    position: relative;
     width: calc(100% /4);
     padding: 7px;
 }
 
 .gallery .image img {
     vertical-align: middle;
-    transition: all 1s ease;
     border-radius: 10px;
     padding-top: 0.8rem;
+    z-index: 10;
 }
 
 .gallery .image:hover img {
-    transform: scale(1.2);
+    transform: scale(1.8);
+    transition: 1s;
+    z-index: 12;
 }
 
 .gallery .image:hover img ~ .knifelabel {

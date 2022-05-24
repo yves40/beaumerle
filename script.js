@@ -273,7 +273,6 @@ $(document).ready( () => {
     // Fullscreen image preview function selecting all required elements
     // --------------------------------------------------------------------------------------
     function preview(knifeimage){
-        clearInterval(chronowatch);
         // Get the knife ID
         // Get all knife details
         let selectedknife = getKnife($(knifeimage).attr("id"));
@@ -309,7 +308,6 @@ $(document).ready( () => {
             $(".preview-box").removeClass("show"); //hide the preview box
             $(".shadow").removeClass("show"); //hide the light grey background
             $("body").css("overflow", "auto");
-            chronowatch = setInterval(displayRandom, imagesRefreshDelay);
         });
     }
     // --------------------------------------------------------------------------------------
