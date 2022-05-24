@@ -17,6 +17,7 @@
     May 13 2022     JQuery....
     May 22 2022     JQuery.....
     May 22 2022     JQuery.....and some management of gallery selection buttons
+    May 24 2022     JQuery, fade effects, and timer
     
 */
 
@@ -26,7 +27,13 @@ $(document).ready( () => {
     // Global variables
     let galleryshow = false;
     let defaultimagenumber = 0;
+    const fadeInDelay = 1000;
+    const fadeOutDelay = 1000;
+    const imagesRefreshDelay = 5000;
 
+    let chronowatch = setInterval(displayRandom, imagesRefreshDelay);
+
+    // Set up the click machinery ;-)
     $("#a-french").click( () => { switchLang('fr');})
     $("#a-english").click( () => {switchLang('en');})
     $("#a-hometext").click( () => {hideMenu()});
@@ -94,9 +101,10 @@ $(document).ready( () => {
         $("#closegallery").hide();
 
         // Manage filter buttons selection events
+        /*
         $(".item").click( (selectedItem) => {
             $(selectedItem).addClass("active");
-        })
+        })*/
 
         // Load JSON file containing all knives
         // Prepare to display the catalog on demand
@@ -105,6 +113,7 @@ $(document).ready( () => {
         // defined globally and read from the style.css file with a variable
         defaultimagenumber = Number.parseInt(getComputedStyle(document.documentElement)
                     .getPropertyValue("--initial-photos-number"));
+        $('#dynamicgallery').hide();
         let index = 0;
         getJSON('./catalog.json', allKnives => {
             knivescatalog = Object.values(allKnives);  // Save the entire catalog into an array
@@ -159,30 +168,33 @@ $(document).ready( () => {
     // --------------------------------------------------------------------------------------
     // 4 models right now. "tous", "collection", "cuisine", "serie"
     function selectPhotos(model) {
-        $("[model]").each( (i, element) => {
-            let themodel = $(element).attr('model');
-            if(model === "tous") {
-                $(element).addClass("show").removeClass("hide");
-            }
-            else {
-                if($(element).attr('model') === model) {
+        $("#dynamicgallery").fadeOut(fadeOutDelay, () => {
+            $("[model]").each( (i, element) => {
+                let themodel = $(element).attr('model');
+                if(model === "tous") {
                     $(element).addClass("show").removeClass("hide");
                 }
                 else {
-                    $(element).addClass("hide").removeClass("show");
+                    if($(element).attr('model') === model) {
+                        $(element).addClass("show").removeClass("hide");
+                    }
+                    else {
+                        $(element).addClass("hide").removeClass("show");
+                    }
                 }
-            }
-        })
-        // Manage buttons
-        // In the HTML, each button carries an action attribute
-        $("[action").each( (i, menuitem) => {
-            if($(menuitem).attr('action') === model) {
-                $(menuitem).addClass('active');
-            }
-            else {
-                $(menuitem).removeClass('active');
-            }
-        } )
+            })
+            // Manage buttons
+            // In the HTML, each button carries an action attribute
+            $("[action").each( (i, menuitem) => {
+                if($(menuitem).attr('action') === model) {
+                    $(menuitem).addClass('active');
+                }
+                else {
+                    $(menuitem).removeClass('active');
+                }
+            } )
+        });
+        $("#dynamicgallery").fadeIn(fadeInDelay);
     }
     // --------------------------------------------------------------------------------------
     function switchLang(lang) {
@@ -227,34 +239,35 @@ $(document).ready( () => {
         if(galleryshow) {   // Close catalog
             $("#opengallery").text(getText("opengallery")); // "Show catalog"
             $("#closegallery").hide();
-            //$("#dynamicgallery").hide();
             $('#itemsmenu').addClass("hide");
             galleryshow = false;
             displayRandom();
+            chronowatch = setInterval(displayRandom, imagesRefreshDelay);
         }
         else {  // Open catalog
+            clearInterval(chronowatch);
             $("#opengallery").text(getText("closegallery")); // "Close"
-            //$("#dynamicgallery").show();
             $("#closegallery").show();
             $('#itemsmenu').removeClass("hide");
             galleryshow = true;
-            selectPhotos('cuisine');
+            selectPhotos('serie');    // Choose a small gallery to start
         }
     }
     // This function displays a limited number of random photos
     function displayRandom() {
-        console.log(`Randomly display ${defaultimagenumber} images`);
-        let startindex = randomIntFromInterval(0, knivescatalog.length - defaultimagenumber - 1);
-        let endindex = startindex + defaultimagenumber;
-        console.log(`Start @ ${startindex}`);
-        $("[model]").each( (i, theimage) => {
-            if ( i >= startindex && i < endindex ) {
-                $(theimage).addClass("show").removeClass("hide");
-            }
-            else {
-                $(theimage).addClass("hide").removeClass("show");
-            }
-        })
+        $("#dynamicgallery").fadeOut(fadeOutDelay, () => {
+            let startindex = randomIntFromInterval(0, knivescatalog.length - defaultimagenumber - 1);
+            let endindex = startindex + defaultimagenumber;
+            $("[model]").each( (i, theimage) => {
+                if ( i >= startindex && i < endindex ) {
+                    $(theimage).addClass("show").removeClass("hide");
+                }
+                else {
+                    $(theimage).addClass("hide").removeClass("show");
+                }
+            })
+        });
+        $("#dynamicgallery").fadeIn(fadeInDelay);
     }
     // --------------------------------------------------------------------------------------
     // Fullscreen image preview function selecting all required elements

@@ -9,7 +9,7 @@
     Feb 25 2022     Untranslated copyright ( former #h4-copyright )
                     is now u-copyright
     May 08 2022     JQuery.
-    May 11 2022     JQuery..
+    May 11 2022     JQuery..must change ids : conflict with '#' sign...
     
 */
 
@@ -17,7 +17,7 @@
     Place here all messages in all languages
 */
 const anylang = [
-    { "id": "u-copyright", "text": "Ratoon, 2.35 RC3 : May 23 2022"},
+    { "id": "u-copyright", "text": "Ratoon, 2.36 RC3 : May 24 2022"},
 ]
 
 const endict = [
@@ -129,10 +129,9 @@ function loadVariableStrings(language) {
     // Assign the proper dictionary
     let dictionary =  language === "en" ? endict : frdict;
     for(let i = 0; i < dictionary.length; i++) {
-        element = document.getElementById(dictionary[i].id);
-        if(element) {
-            console.log(`element ID : ${dictionary[i].id} ${element}`)
-            element.innerHTML = dictionary[i].text;
+        let jqelement = $('#' + dictionary[i].id);
+        if($(jqelement).attr('id') !== undefined) {
+            $(jqelement).text(dictionary[i].text);
         }
         else {
             console.log('loadVariableStrings : Element not found for ID ' + dictionary[i].id);
