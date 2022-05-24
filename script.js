@@ -30,8 +30,7 @@ $(document).ready( () => {
     const fadeInDelay = 1000;
     const fadeOutDelay = 1000;
     const imagesRefreshDelay = 10000;
-
-    let chronowatch = setInterval(displayRandom, imagesRefreshDelay);
+    let chronowatch;                    // Interval ID to manage image auto refresh
 
     // Set up the click machinery ;-)
     $("#a-french").click( () => { switchLang('fr');})
@@ -136,7 +135,6 @@ $(document).ready( () => {
                 outerdiv.appendChild(p);
                 $("#dynamicgallery").append(outerdiv);
             });
-            displayRandom();
             // Adding onclick attribute in all dynamic gallery images
             $(".gallery > .image").each( (i, element) => {
                 $(element).click( () => { preview($(element).find("img")) });
@@ -157,12 +155,13 @@ $(document).ready( () => {
                 }
             });
             totalknives = cuisine + collection + serie;
-
             // Manage buttons selection text
             $('#s-tous').text(getText("s-tous") + " (" + totalknives + ")");
             $('#s-collection').text(getText("s-collection") + " (" + collection + ")");
             $('#s-serie').text(getText("s-serie") + " (" + serie + ")");
             $('#s-cuisine').text(getText("s-cuisine") + " (" + cuisine + ")");
+            displayRandom();
+            chronowatch = setInterval(displayRandom, imagesRefreshDelay);
         });
     }
     // --------------------------------------------------------------------------------------
@@ -273,6 +272,7 @@ $(document).ready( () => {
     // Fullscreen image preview function selecting all required elements
     // --------------------------------------------------------------------------------------
     function preview(knifeimage){
+        clearInterval(chronowatch);
         // Get the knife ID
         // Get all knife details
         let selectedknife = getKnife($(knifeimage).attr("id"));
@@ -308,6 +308,7 @@ $(document).ready( () => {
             $(".preview-box").removeClass("show"); //hide the preview box
             $(".shadow").removeClass("show"); //hide the light grey background
             $("body").css("overflow", "auto");
+            chronowatch = setInterval(displayRandom, imagesRefreshDelay);
         });
     }
     // --------------------------------------------------------------------------------------
