@@ -18,6 +18,7 @@
     May 22 2022     JQuery.....
     May 22 2022     JQuery.....and some management of gallery selection buttons
     May 24 2022     JQuery, fade effects, and timer
+                    Local jquery lib. Solve initialization problems ?
     
 */
 
