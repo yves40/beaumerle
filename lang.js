@@ -17,7 +17,7 @@
     Place here all messages in all languages
 */
 const anylang = [
-    { "id": "u-copyright", "text": "Ratoon, 2.36 RC3 : May 24 2022"},
+    { "id": "u-copyright", "text": "Ratoon, 2.37 RC3 : May 24 2022"},
 ]
 
 const endict = [
