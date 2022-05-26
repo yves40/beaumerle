@@ -41,7 +41,7 @@ const hideShowArrows = (slides, prevButton, nextButton, targetIndex) => {
   }
 }
 
-// Left click
+// Left click  <-
 prevButton.addEventListener('click', e => {
   const currentSlide = document.querySelector('.current-slide');
   const prevSlide = currentSlide.previousElementSibling;
@@ -52,7 +52,7 @@ prevButton.addEventListener('click', e => {
   updateDots(currentDot, prevDot);
   hideShowArrows(slides, prevButton, nextButton, prevIndex);
 })
-// Right click
+// Right click ->
 nextButton.addEventListener('click', e => {
   const currentSlide = document.querySelector('.current-slide');
   const nextSlide = currentSlide.nextElementSibling;
@@ -64,7 +64,7 @@ nextButton.addEventListener('click', e => {
   hideShowArrows(slides, prevButton, nextButton, nextIndex);
 })
 
-// Nav indicator click, move to the selected slide
+// Nav selector click, move to the selected slide
 dotsNav.addEventListener('click', e => {
   // What indicator was clicked on ? 
   const targetDot = e.target;
@@ -84,6 +84,7 @@ dotsNav.addEventListener('click', e => {
 
 // Track window resize
 window.onresize =  () =>  {
+  slides = document.querySelector('.carousel__track').Array.from(track.children);
   slideWidth = slides[0].getBoundingClientRect().width; 
   console.log(slideWidth);
 };

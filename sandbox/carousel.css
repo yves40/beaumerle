@@ -1,19 +1,17 @@
 .carousel {
   position: relative;
-  height: 600px;
-  width: 80%;
+  width: 70%;
+  padding-top: 70%;
   margin: 0 auto;
 }
-.carousel__image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
 .carousel__track-container {
-  background-color: lightgreen;
+  background-color: transparent;
   height: 100%;
-  position: relative;
+  width: 100%;
+  position: absolute;
+  top: 0; left: 0;
   overflow: hidden;
+  border: 2px red solid;
 }
 
 .carousel__track {
@@ -25,6 +23,10 @@
   transition: transform 250ms ease-in;
 }
 
+.carousel__image {
+  width: 100%;
+  height: 100%;
+}
 .carousel__slide {
   position: absolute;
   top: 0;
@@ -41,16 +43,19 @@
   cursor: pointer;
 }
 .carousel__button--left {
-  left: -40px;
+  left: -50px;
 }
 .carousel__button--right {
-  right: -40px;
+  right: -50px;
 }
 .carousel__button i {
   width: 40px;
 }
 .carousel__nav {
   background: pink;
+  position: absolute;
+  bottom: 3%;
+  left: 40%;
   display: flex;
   justify-content: center;
   padding: 10px 0;
