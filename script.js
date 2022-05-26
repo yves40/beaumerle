@@ -30,7 +30,7 @@ $(document).ready( () => {
     let defaultimagenumber = 0;
     const fadeInDelay = 1000;
     const fadeOutDelay = 1000;
-    const imagesRefreshDelay = 10000;
+    const imagesRefreshDelay = 20000;
     let chronowatch;                    // Interval ID to manage image auto refresh
 
     // Set up the click machinery ;-)

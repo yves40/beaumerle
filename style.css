@@ -306,6 +306,7 @@ nav .fas {
 
 .gallery .image {
     width: calc(100% /4);
+    position: relative;
     padding: 7px;
 }
 
@@ -313,19 +314,24 @@ nav .fas {
     vertical-align: middle;
     border-radius: 10px;
     padding-top: 0.8rem;
-    z-index: 10;
 }
 
 .gallery .image:hover img {
-    transform: scale(1.8);
+    transform: scale(2);
     transition: 1s;
-    z-index: 12;
+    transition-delay: 1s;
+    position: relative; /* For z-index to work */
+    z-index: 10;
 }
 
 .gallery .image:hover img ~ .knifelabel {
     display: block;
+    position: relative; /* For z-index to work */
+    top: 0;
+    left: 0;
     opacity: 60%;
     background-color: var(--product-image-text-overlay);
+    z-index: 12;
 }
 
 .gallery .image p {
