@@ -1,8 +1,8 @@
-const track = document.querySelector('.carousel__track');
-const slides = Array.from(track.children);
-const nextButton = document.querySelector('.carousel__button--right');
-const prevButton = document.querySelector('.carousel__button--left');
-const dotsNav = document.querySelector('.carousel__nav');
+let track = document.querySelector('.carousel-slides');
+let slides = Array.from(track.children);
+const nextButton = document.querySelector('.carousel-button--right');
+const prevButton = document.querySelector('.carousel-button--left');
+const dotsNav = document.querySelector('.carousel-nav');
 const dots = Array.from(dotsNav.children);
 
 let slideWidth = slides[0].getBoundingClientRect().width;
@@ -69,7 +69,7 @@ dotsNav.addEventListener('click', e => {
   // What indicator was clicked on ? 
   const targetDot = e.target;
   // Check an indicator has been clicked (not elsewhere in the parent)
-  if(!targetDot.classList.contains('carousel__indicator')) {
+  if(!targetDot.classList.contains('carousel-indicator')) {
     return;
   }
   const currentSlide = track.querySelector('.current-slide');
@@ -84,7 +84,8 @@ dotsNav.addEventListener('click', e => {
 
 // Track window resize
 window.onresize =  () =>  {
-  slides = document.querySelector('.carousel__track').Array.from(track.children);
+  track = document.querySelector('.carousel-slides');
+  slides = Array.from(track.children);
   slideWidth = slides[0].getBoundingClientRect().width; 
   console.log(slideWidth);
 };
