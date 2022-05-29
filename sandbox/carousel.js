@@ -84,8 +84,8 @@ dotsNav.addEventListener('click', e => {
 
 // Track window resize
 window.onresize =  () =>  {
-  track = document.querySelector('.carousel-slides');
-  slides = Array.from(track.children);
-  slideWidth = slides[0].getBoundingClientRect().width; 
+  slideWidth = slides[0].getBoundingClientRect().width;
+  slides.forEach( setSlidePosition );   // Window size changed so have to 
+                                        // put images back into position
   console.log(slideWidth);
 };
