@@ -5,6 +5,19 @@ const prevButton = document.querySelector('.carousel-button--left');
 const dotsNav = document.querySelector('.carousel-nav');
 const dots = Array.from(dotsNav.children);
 
+setInterval(() => {
+  let currentSlideWidth = slides[0].getBoundingClientRect().width;
+  if(currentSlideWidth !== slideWidth) {
+    slideWidth = currentSlideWidth;
+    // Place photos with the new window size
+    slides.forEach( setSlidePosition );
+    let currentslide = document.getElementsByClassName('current-slide carousel-slide')[0];
+    let theimg = currentslide.firstElementChild.getAttribute('src');
+    console.log(`Resized : Current image : ${theimg}`);
+    moveToSlide(track, currentslide, currentslide);
+  }
+}, 500);
+
 let slideWidth = slides[0].getBoundingClientRect().width;
 
 
@@ -83,9 +96,15 @@ dotsNav.addEventListener('click', e => {
 })
 
 // Track window resize
+/*
 window.onresize =  () =>  {
+  let theimg = document.getElementsByClassName("current-slide")[0].firstElementChild;
+  let thesrc = theimg.getAttribute('src');
+  let rand = Math.floor(Math.random() * 10000)
+  theimg.src=thesrc + '?' + rand;    
   slideWidth = slides[0].getBoundingClientRect().width;
   slides.forEach( setSlidePosition );   // Window size changed so have to 
                                         // put images back into position
-  console.log(slideWidth);
+  console.log('Resized' + rand);
 };
+*/
