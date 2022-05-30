@@ -1,6 +1,6 @@
 .carousel {
   position: relative;
-  width: 70%;
+  width: 60%;
   aspect-ratio: 1/1;
   margin: 0 auto;
 }
@@ -38,18 +38,18 @@
 .carousel-button {
   position: absolute;
   top: 50%;
-  font-size:2rem;
-  font-weight: bold;
+  font-size:4rem;
+  font-weight:normal;
   transform: translateY(-50%);
   background: transparent;
-  border: 0;
+  border: none;
   cursor: pointer;
 }
 .carousel-button--left {
-  left: -50px;
+  left: -60px;
 }
 .carousel-button--right {
-  right: -50px;
+  right: -60px;
 }
 .carousel-button i {
   width: 40px;
@@ -80,4 +80,13 @@
 }
 .is-hidden {
   display: none;
+}
+
+@media(min-width: 1024px) {
+  .carousel {
+    position: relative;
+    width: 50%;
+    aspect-ratio: 1/1;
+    margin: 0 auto;
+  }  
 }
