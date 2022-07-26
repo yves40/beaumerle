@@ -19,3 +19,6 @@ RewriteRule ^(.*)$ index.php
       Deny from all
       allow from 127.0.0.1 ::1
 </Files>
+
+
+
