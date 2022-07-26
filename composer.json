@@ -1,0 +1,15 @@
+{
+    "name": "ytoubhan/beaumerle",
+    "authors": [
+        {
+            "name": "yves40",
+            "email": "yves.toubhans@free.fr"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "app\\": "./"
+        }
+     },
+    "require": {}
+}

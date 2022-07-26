@@ -280,6 +280,7 @@ $(document).ready( () => {
         // Once user click on any image then remove the scroll bar of the body, 
         // so user cant scroll up or down
         $("body").css("overflow", "hidden");
+        console.log("***************************");
         // Pass the user clicked image source in preview image source
         $(".preview-box").find("img").attr("src", $(knifeimage).attr("src"));
         // Pass user clicked data-name value in category name
