@@ -1,0 +1,17 @@
+#
+# Yves : 2022 07 09     Some tests
+#
+#     Exclude files with a 2, 3 or 4 file extension alpha char
+#
+RewriteEngine On
+# This condition test if the file physically exists
+# If yes serve it
+RewriteCond %{REQUEST_FILENAME} !-f
+# This condition tests if the file has a .css extension
+RewriteCond %{REQUEST_URI} !\.css$ [NC]
+RewriteRule ^(.*)$ index.php
+
+<Files *.json>					# Prevent client to upload your json files
+      Order allow,deny
+      Deny from all
+</Files>
