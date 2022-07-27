@@ -17,7 +17,7 @@
     Place here all messages in all languages
 */
 const anylang = [
-    { "id": "u-copyright", "text": "Ratoon, 2.40 RC3 : May 26 2022"},
+//    { "id": "u-deletedcopyright", "text": "Ratoon, 2.41 RC4-MVC : Jul 27 2022"},
 ]
 
 const endict = [
@@ -138,7 +138,7 @@ function loadVariableStrings(language) {
         }
     }
     sessionStorage.setItem('pagelang', language);
-        // Also assign untranslated symbols
+    // Also assign untranslated symbols
     for(let i = 0; i < anylang.length; i++) {
         // Check this is an interface element
         if(anylang[i].id.startsWith('u-')) {

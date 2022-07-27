@@ -19,19 +19,27 @@
     public ?Controller $controller = null;
     public Database $db;
     public ?DbModel $user;    // The ? signifies the variable might be null
-    public $copyright = '';
+    public $copyright = COPYRIGHT;
+
+    private $config = [
+      'userClass' => UserModel::class,
+      'db' => [
+        'dsn' => 'mysql:localhost;port=3306;dbname=mvcfr',
+        'user' => 'root',
+        'password' => 'root'      
+      ],
+    ];
 
     //-----------------------------------------------------------------------------
-    public function __construct($rootPath, array $config) {
-      $this->userClass = $config['userClass'];  // What's the user class name ?
+    public function __construct($rootPath) {
+      $this->userClass = $this->config['userClass'];  // What's the user class name ?
       self::$ROOT_DIR = $rootPath;
       self::$app = $this;
       $this->request = new Request(); 
       $this->response = new Response();
       $this->session = new Session();
       $this->router = new Router($this->request, $this->response);
-      $this->db = new Database($config['db']);
-      $this->copyright = $config['copyright'];
+      $this->db = new Database($this->config['db']);
 
       // Now manage the user session
       // First find what is the user class name. This must be configurable because the application 
