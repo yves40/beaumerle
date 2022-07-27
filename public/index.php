@@ -14,7 +14,6 @@
 
   use app\core\Application;
   use app\controllers\SiteController;
-  use app\models\UserModel;
   use app\core\Logger;
 
 
@@ -32,6 +31,8 @@
   
   // Register a class and a method for the controller to call it
   $app->router->get('/', [siteController::class, 'home']);
+  $app->router->get('/phptest', [siteController::class, 'phptest']);
+  
 
   $app->run();
 ?>

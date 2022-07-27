@@ -7,11 +7,12 @@ RewriteEngine On
 # This condition test if the file physically exists
 # If yes serve it
 RewriteCond %{REQUEST_FILENAME} !-f
-# This condition tests if the file has a .css extension
+# These onditions tests authorized file extensions
 RewriteCond %{REQUEST_URI} !\.css$ [NC]
 RewriteCond %{REQUEST_URI} !\.png$ [NC]
 RewriteCond %{REQUEST_URI} !\.jpg$ [NC]
 RewriteCond %{REQUEST_URI} !\.json$ [NC]
+RewriteCond %{REQUEST_URI} !\.js$ [NC]
 RewriteRule ^(.*)$ index.php
 
 <Files *.json>					# Prevent client to upload your json files

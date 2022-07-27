@@ -2,18 +2,25 @@
   use app\core\Application;
 ?>
 
+
+<!-- 
+
+<script src="<?php echo ROOT.'/public/lang.js' ?>"></script>
+
+-->
+
 <html>
   <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="style.css">
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;600;700&display=swap" >
+        <script src="https://kit.fontawesome.com/a33a97f757.js" crossorigin="anonymous"></script>        
         <script src="jquery.min.js"></script>
         <script src="script.js"></script>
         <script src="lang.js"></script>
-        <script src="https://kit.fontawesome.com/a33a97f757.js" crossorigin="anonymous"></script>        
+        <link rel="stylesheet" href="css/style.css">
         <title><?php echo APPTITLE ?></title>
   </head>
   <body>
@@ -29,6 +36,7 @@
                     <li><a id="a-hometext" >HOME</a></li>
                     <li><a id="a-models" >PRODUCTS</a></li>
                     <li><a id="a-contacts" >CONTACTS</a></li>
+                    <li><a href="/phptest">Php Test</a></li>
                     <li><span id="a-french"></span> | <span id="a-english"></span></li>
                 </ul>
               </div>
