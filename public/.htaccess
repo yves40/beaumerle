@@ -12,7 +12,6 @@ RewriteCond %{REQUEST_URI} !\.css$ [NC]
 RewriteCond %{REQUEST_URI} !\.png$ [NC]
 RewriteCond %{REQUEST_URI} !\.jpg$ [NC]
 RewriteCond %{REQUEST_URI} !\.json$ [NC]
-RewriteCond %{REQUEST_URI} !\.js$ [NC]
 RewriteRule ^(.*)$ index.php
 
 <Files *.json>					# Prevent client to upload your json files

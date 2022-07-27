@@ -12,8 +12,8 @@ class SiteController extends Controller {
   # --------------------------------------------------------------------
   public function phptest() {
     $logger = new Logger(__CLASS__);
-    $logger->console('Hello Mr PHP');
-    return $this->render('home');
+    return 'Hello Mr PHP';
+    //return $this->render('home');
   }
 }
 
