@@ -21,7 +21,7 @@
   define('ROOT', dirname(__DIR__));
   define('IMAGEROOT', '/images/profile_pictures/');
   define('DEFAULTIMAGE', 'defaultuserpicture.png');
-  define('COPYRIGHT', '© Beaumerle by ratoon : Jul 27 2022, 1.16');
+  define('COPYRIGHT', '© Beaumerle by ratoon : Jul 27 2022, 1.17');
   define('APPTITLE', 'BoMerle-MVC');
 
   require_once __DIR__.'/../vendor/autoload.php';
