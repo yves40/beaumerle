@@ -4,7 +4,7 @@
 
 <html>
   <head>
-  <meta charset="UTF-8">
+        <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="style.css">
@@ -24,24 +24,25 @@
                   <a id="logo"><img src="/images/BeauMerle.png" alt=""></a>
               </div>
               <div class="nav-links" id="navLinks">   
-              <i class="fas fa-times" ></i>
-              <ul id="menuentries">
-                  <li><a id="a-hometext" >HOME</a></li>
-                  <li><a id="a-models" >PRODUCTS</a></li>
-                  <li><a id="a-contacts" >CONTACTS</a></li>
-                  <li><span id="a-french"></span> | <span id="a-english"></span></li>
-              </ul>
-          </div>
+                <i class="fas fa-times" ></i>
+                <ul id="menuentries">
+                    <li><a id="a-hometext" >HOME</a></li>
+                    <li><a id="a-models" >PRODUCTS</a></li>
+                    <li><a id="a-contacts" >CONTACTS</a></li>
+                    <li><span id="a-french"></span> | <span id="a-english"></span></li>
+                </ul>
+              </div>
               <i class="fas fa-bars"></i>
           </nav>
       </section>
 
+      <!---------------------------- The core section ---------------------------->
       {{content}}
 
       <!-- Footer -->
       <footer class="page-footer font-small blue">
         <div class="footer-copyright text-center py-3">
-        <p class="version"><?php echo COPYRIGHT ?></p>
+            <p class="version"><?php echo COPYRIGHT ?></p>
         </div>
       </footer>
   </body>
