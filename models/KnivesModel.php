@@ -29,7 +29,13 @@ class KnivesModel
         $kndb = new KnivesDB();
         return $kndb->getKnivesList();
     }
- 
+    // --------------------------------------------------------------------
+    public function getKniveByID($id)
+    {
+        $kndb = new KnivesDB();
+        $knive = $kndb->getKniveByID($id);
+        return $knive;
+    }
 }
 
 ?>

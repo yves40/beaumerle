@@ -26,7 +26,7 @@ class KnivesDB extends DbModel
         try
         {
             $this->db = DbModel::getInstance();
-            $statement = $this->db->prepare('SELECT knvlabel, knvprice, knvdesc FROM bomerle.knives');
+            $statement = $this->db->prepare('SELECT knvid, knvcollectionid, knvlabel, knvprice, knvdesc, knvimage FROM bomerle.knives');
             $statement->execute();
             $result = $statement->fetchAll(PDO::FETCH_ASSOC);
             return $result;  // Data array 
@@ -37,6 +37,28 @@ class KnivesDB extends DbModel
             return array();
         }       
     }
+    // --------------------------------------------------------------------
+    public function getKniveByID($id) {
+        try
+        {
+            $this->db = DbModel::getInstance();
+            $statement = $this->db->prepare('SELECT knvid, knvcollectionid, knvlabel, knvprice, knvdesc, knvimage 
+                        FROM bomerle.knives WHERE knvid = :1' );
+            $statement->bindValue(':1', $id);
+            $statement->execute();
+            $result = $statement->fetch(PDO::FETCH_ASSOC);
+            return $result;  // Data array 
+        }
+        catch(PDOException $e)
+        {
+            $this->logger->console($e->getMessage());
+            return array();
+        }       
+    }
+    // --------------------------------------------------------------------
+    public function getKniveByLabel($label) {
+    
+}
 }
 
 ?>

@@ -31,6 +31,15 @@ class KnivesController extends Controller {
       return json_encode(array());
     }
   }
+  // --------------------------------------------------------------------
+  public function getKniveByID($id) {
+    $knvmodel = new KnivesModel();
+    $knvmodel->getKniveByID($id);
+  }
+  // --------------------------------------------------------------------
+  public function getKniveByLabel($label) {
+    
+  }
 }
 
 ?>
