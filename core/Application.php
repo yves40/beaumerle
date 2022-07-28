@@ -2,7 +2,7 @@
 
   namespace app\core;
   use app\controllers\Controller;
-
+  use app\core\DbModel;
   use Exception;
 
   class Application 
@@ -17,8 +17,7 @@
     public Session $session;
     public static Application $app;
     public ?Controller $controller = null;
-    public Database $db;
-    public ?DbModel $user;    // The ? signifies the variable might be null
+    public DbModel $db;
     public $copyright = COPYRIGHT;
 
     private $config = [
@@ -39,7 +38,7 @@
       $this->response = new Response();
       $this->session = new Session();
       $this->router = new Router($this->request, $this->response);
-      $this->db = new Database($this->config['db']);
+      $this->db = new DbModel($this->config['db']);
 
       // Now manage the user session
       // First find what is the user class name. This must be configurable because the application 
@@ -72,34 +71,6 @@
     //-----------------------------------------------------------------------------
     public function setController(Controller $cont) {
       $this->controller = $cont;
-    }
-    //-----------------------------------------------------------------------------
-    public function trace($var, $module = '', $mess = '' ) {
-      echo "<pre>";
-      // echo '['.$module.']['.$mess.']'; 
-      var_dump($var);
-      echo "</pre>";    
-    }
-    //-----------------------------------------------------------------------------
-    public function console($mess) {
-      echo "<script>console.log('DBG : " . $mess . "' )</script>";
-    }
-    //-----------------------------------------------------------------------------
-    public function login(DbModel $user) {
-      $this->user = $user;
-      $primaryKey = $user->primaryKey();
-      $primaryValue = $user->{$primaryKey};   // Get user ID
-      $this->session->set('user', $primaryValue);
-      return true;
-    }
-    //-----------------------------------------------------------------------------
-    public function logout() {
-      $this->user = null;
-      $this->session->remove('user');
-    }
-    //-----------------------------------------------------------------------------
-    public static function isGuest() {
-      return !self::$app->user;
     }
   }
 ?>

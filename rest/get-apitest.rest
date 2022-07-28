@@ -1,0 +1,4 @@
+GET http://beaumerle.fr:/knives/getall
+Content-Type: application/json
+
+

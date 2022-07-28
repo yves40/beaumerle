@@ -1,48 +1,39 @@
 <?php
 
-namespace app\core;
+namespace App\Core;
 
-use app\models\GenericModel;
+use PDO;
+use PDOException;
 
-abstract class DbModel extends GenericModel {
-
-  // -------------------------------------------------------------------------
-  abstract public static function tableName(): string;
-
-  abstract public function attributes(): array;
-
-  abstract public static function primaryKey(): string;
-
-  // -------------------------------------------------------------------------
-  public function save() {
-    $tablename = $this->tableName();
-    $attributes = $this->attributes();
-    $params = array_map(fn($attr) => ":$attr", $attributes);
-    $statement = self::prepare("INSERT INTO $tablename (".implode(',', $attributes).")
-      VALUES (".implode(',', $params).")");
-    foreach($attributes as $attribute) {
-      $statement->bindValue(":$attribute", $this->{$attribute});
+class DbModel extends PDO
+{
+    private static $instance;               // Singleton
+    private const DBHOST = 'localhost';
+    private const DBUSER = 'root';
+    private const DBPASS = 'root';
+    private const DBNAME = 'bomerle';
+    // ----------------------------------------------------------------------------------------------
+    public function __construct()
+    {
+        $_dsn = 'mysql:dbname='.self::DBNAME.';host='.self::DBHOST.';charset=utf8';
+        try
+        {
+            parent::__construct($_dsn, self::DBUSER, self::DBPASS);
+            $this->setAttribute(PDO::MYSQL_ATTR_INIT_COMMAND, 'SET NAMES utf8');
+            $this->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_OBJ);
+            $this->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        }
+        catch(PDOException $e) 
+        {
+            die($e->getMessage());
+        }
     }
-    $statement->execute();
-    return true;
-  }
-  // -------------------------------------------------------------------------
-  public static function findOne($where) // [ email => 'y@free.fr, password => '12234' ]
-  {
-    $tablename = static::tableName();   // Calls a method of the calling class
-    $attributes = array_keys($where);
-    $criterias = implode("AND ", array_map( fn($attr) => "$attr = :$attr", $attributes));
-    $statement = self::prepare("SELECT * FROM $tablename WHERE $criterias");
-    foreach($where as $key => $item) {
-      $statement->bindValue(":$key", $item);
+    // ----------------------------------------------------------------------------------------------
+    public static function getInstance():self
+    {
+        if(self::$instance === null) { self::$instance = new self(); }
+        return self::$instance;
     }
-    $statement->execute();
-    return $statement->fetchObject(static::class); // Return an object with the class of the calling class
-  }
-  // -------------------------------------------------------------------------
-  public static function prepare($sql) 
-  {
-    return Application::$app->db->pdo->prepare($sql);
-  }
 }
+
 ?>

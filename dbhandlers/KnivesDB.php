@@ -2,12 +2,12 @@
 
 namespace app\dbhandlers;
 
-use app\Core\Db;
+use app\Core\DbModel;
 use app\Core\Logger;
 use PDO;
 use PDOException;
 
-class KnivesDB extends Db
+class KnivesDB extends DbModel
 {
     private const STATUS_VENDU = ['numcode' => 10, 'numlabel' => 'Vendu'] ;
     private const STATUS_DISPOINTERNET = ['numcode' => 20, 'numlabel' => 'Disponible internet'] ;
@@ -25,7 +25,7 @@ class KnivesDB extends Db
     {        
         try
         {
-            $this->db = Db::getInstance();
+            $this->db = DbModel::getInstance();
             $statement = $this->db->prepare('SELECT knvlabel, knvprice, knvdesc FROM bomerle.knives');
             $statement->execute();
             $result = $statement->fetchAll(PDO::FETCH_ASSOC);
@@ -34,7 +34,7 @@ class KnivesDB extends Db
         catch(PDOException $e)
         {
             $this->logger->console($e->getMessage());
-            return [];
+            return array();
         }       
     }
 }
