@@ -15,6 +15,7 @@ class KnivesController extends Controller {
   public function __construct()
   {
     $this->logger = new Logger(__CLASS__);
+    parent::__construct();
   }
   // --------------------------------------------------------------------
   public function getAll() {

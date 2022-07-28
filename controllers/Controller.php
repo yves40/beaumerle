@@ -9,13 +9,13 @@ class Controller {
 
   public string $layout = 'main';
   public string $action = '';
-  /**
-   * 
-   * @var BaseMiddleware[]
-   * 
-   */
   protected array $middlewares = [];
 
+  // ------------------------------------------------------------------------
+  public function __construct()
+  {
+    
+  }
   // ------------------------------------------------------------------------
   public function setLayout($layout) {
     $this->layout = $layout;
