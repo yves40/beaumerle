@@ -21,6 +21,10 @@ class SiteController extends Controller {
         $logger->console('Knife label '.$record['knvlabel'].' € '.$record['knvprice'].' : '.$record['knvdesc']);
       }
     }
+    // Some HTTP directives
+    header('Access-Control-Allow-Origin: *');
+    header('Content-Type: application/json');
+    // Build the JSON response
     if($response = json_encode($allknives, JSON_FORCE_OBJECT | JSON_UNESCAPED_UNICODE)) {
       return $response;
     }
