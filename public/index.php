@@ -33,6 +33,7 @@
   $app->router->get('/', [SiteController::class, 'home']);
   $app->router->get('/knives/getall', [KnivesController::class, 'getAll']);
   $app->router->post('/knives/getbyid', [KnivesController::class, 'getKniveByID']);
+  $app->router->post('/knives/getbylabel', [KnivesController::class, 'getKniveByLabel']);
   
 
   $app->run();

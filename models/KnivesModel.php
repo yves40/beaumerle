@@ -55,9 +55,19 @@ class KnivesModel
         return $data;
     }
     // --------------------------------------------------------------------
+    public function getKniveByLabel($label)
+    {
+        $kndb = new KnivesDB();
+        $knive = $kndb->getKniveByLabel($label);
+        foreach($knive as $key => $value ) {    // Fill the data array with received values
+            $data[$key] = $value;
+        }
+        $data["knvstatustext"] = $this->getTextStatus(intval($data["knvstatus"]));
+        return $data;
+    }
+    // --------------------------------------------------------------------
     public function getTextStatus($statuscode)
     {
-        echo 'Search for status text with code ['.$statuscode.']';
         foreach(self::STATUS_ARRAY as $key => $value) {
             if($value["numcode"] === $statuscode) {
                 return $value["numlabel"];

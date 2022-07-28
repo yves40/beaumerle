@@ -55,8 +55,25 @@ class KnivesDB extends DbModel
     }
     // --------------------------------------------------------------------
     public function getKniveByLabel($label) {
-    
-}
+        try
+        {
+            $this->db = DbModel::getInstance();
+            $statement = $this->db->prepare('SELECT knvid, knvcollectionid, knvlabel, 
+                                                knvstatus, knvprice, knvdesc, 
+                                                knvcomment, knvmanche, knvtotlength, 
+                                                knvbladelength, knvweight, knvimage
+                        FROM bomerle.knives WHERE knvlabel = :1' );
+            $statement->bindValue(':1', $label);
+            $statement->execute();
+            $result = $statement->fetch(PDO::FETCH_ASSOC);
+            return $result;  // Data array 
+        }
+        catch(PDOException $e)
+        {
+            $this->logger->console($e->getMessage());
+            return array();
+        }       
+    }
 }
 
 ?>

@@ -18,12 +18,11 @@ class KnivesController extends Controller {
   }
   // --------------------------------------------------------------------
   public function getAll() {
-
-    $knvmodel = new KnivesModel();
-    $allknives = $knvmodel->getAllKnives();
     // Some HTTP directives
     header('Access-Control-Allow-Origin: *');
     header('Content-Type: application/json');
+    $knvmodel = new KnivesModel();
+    $allknives = $knvmodel->getAllKnives();
     // Build the JSON response
     if($response = json_encode($allknives, JSON_FORCE_OBJECT | JSON_UNESCAPED_UNICODE)) {
       return $response;
@@ -34,18 +33,41 @@ class KnivesController extends Controller {
   }
   // --------------------------------------------------------------------
   public function getKniveByID() {
+    // Some HTTP directives
+    header('Access-Control-Allow-Origin: *');
+    header('Content-Type: application/json');
     $rq = new Request();
     if($rq->isPost()) {
       $json = file_get_contents('php://input');
       $postdata = json_decode($json, true, 16, JSON_OBJECT_AS_ARRAY | JSON_UNESCAPED_UNICODE);
       $knvmodel = new KnivesModel();
       $knvmodel = $knvmodel->getKniveByID($postdata["kniveid"]);
-      var_dump($knvmodel);
-    }
+      if($response = json_encode($knvmodel, JSON_FORCE_OBJECT | JSON_UNESCAPED_UNICODE)) {
+        return $response;
+      }
+      else {
+        return json_encode(array());
+      }
+      }
   }
   // --------------------------------------------------------------------
   public function getKniveByLabel($label) {
-    
+    // Some HTTP directives
+    header('Access-Control-Allow-Origin: *');
+    header('Content-Type: application/json');
+    $rq = new Request();
+    if($rq->isPost()) {
+      $json = file_get_contents('php://input');
+      $postdata = json_decode($json, true, 16, JSON_OBJECT_AS_ARRAY | JSON_UNESCAPED_UNICODE);
+      $knvmodel = new KnivesModel();
+      $knvmodel = $knvmodel->getKniveByLabel($postdata["knivelabel"]);
+    }
+    if($response = json_encode($knvmodel, JSON_FORCE_OBJECT | JSON_UNESCAPED_UNICODE)) {
+      return $response;
+    }
+    else {
+      return json_encode(array());
+    }
   }
 }
 
