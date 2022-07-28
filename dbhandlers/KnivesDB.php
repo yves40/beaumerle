@@ -9,11 +9,6 @@ use PDOException;
 
 class KnivesDB extends DbModel
 {
-    private const STATUS_VENDU = ['numcode' => 10, 'numlabel' => 'Vendu'] ;
-    private const STATUS_DISPOINTERNET = ['numcode' => 20, 'numlabel' => 'Disponible internet'] ;
-    private const STATUS_DISPOSHOP = ['numcode' => 20, 'numlabel' => 'Disponible boutique'] ;
-    private const STATUS_ONORDER = ['numcode' => 40, 'numlabel' => 'Sur commande'] ;
-
     private Logger $logger;
     // ----------------------------------------------------------------------------------------------
     public function __construct()
