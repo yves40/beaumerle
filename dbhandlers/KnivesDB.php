@@ -42,7 +42,10 @@ class KnivesDB extends DbModel
         try
         {
             $this->db = DbModel::getInstance();
-            $statement = $this->db->prepare('SELECT knvid, knvcollectionid, knvlabel, knvprice, knvdesc, knvimage 
+            $statement = $this->db->prepare('SELECT knvid, knvcollectionid, knvlabel, 
+                                                knvstatus, knvprice, knvdesc, 
+                                                knvcomment, knvmanche, knvtotlength, 
+                                                knvbladelength, knvweight, knvimage
                         FROM bomerle.knives WHERE knvid = :1' );
             $statement->bindValue(':1', $id);
             $statement->execute();

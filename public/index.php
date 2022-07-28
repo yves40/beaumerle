@@ -32,6 +32,7 @@
   // Register a class and a method for the controller to call it
   $app->router->get('/', [SiteController::class, 'home']);
   $app->router->get('/knives/getall', [KnivesController::class, 'getAll']);
+  $app->router->post('/knives/getbyid', [KnivesController::class, 'getKniveByID']);
   
 
   $app->run();

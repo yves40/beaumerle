@@ -3,6 +3,7 @@
 namespace app\controllers;
 
 use app\core\Logger;
+use app\core\Request;
 use app\models\KnivesModel;
 
 class KnivesController extends Controller {
@@ -32,9 +33,15 @@ class KnivesController extends Controller {
     }
   }
   // --------------------------------------------------------------------
-  public function getKniveByID($id) {
-    $knvmodel = new KnivesModel();
-    $knvmodel->getKniveByID($id);
+  public function getKniveByID() {
+    $rq = new Request();
+    if($rq->isPost()) {
+      $json = file_get_contents('php://input');
+      $postdata = json_decode($json, true, 16, JSON_OBJECT_AS_ARRAY | JSON_UNESCAPED_UNICODE);
+      $knvmodel = new KnivesModel();
+      $knvmodel = $knvmodel->getKniveByID($postdata["kniveid"]);
+      var_dump($knvmodel);
+    }
   }
   // --------------------------------------------------------------------
   public function getKniveByLabel($label) {

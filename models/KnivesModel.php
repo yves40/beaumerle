@@ -7,18 +7,20 @@ use app\dbhandlers\KnivesDB;
 
 class KnivesModel
 {
-    protected $knvid;
-    protected $knvcollectionid;
-    protected $knvlabel;
-    protected $knvprice;
-    protected $knvdesc;
-    protected $knvcomment;
-    protected $knvmanche;
-    protected $knvtotlength;
-    protected $knvbladelenght;
-    protected $knvweight;
-    protected $knvimage;
-
+    protected $data = [
+        "knvid" => '',
+        "knvcollectionid" => '',
+        "knvlabel" => '',
+        "knvstatus" => '',
+        "knvprice" => '',
+        "knvdesc" => '',
+        "knvcomment" => '',
+        "knvmanche" => '',
+        "knvtotlength" => '',
+        "knvbladelenght" => '',
+        "knvweight" => '',
+        "knvimage" => ''
+    ];
     // --------------------------------------------------------------------
     public function __construct($knvid = null)
     {
@@ -34,7 +36,10 @@ class KnivesModel
     {
         $kndb = new KnivesDB();
         $knive = $kndb->getKniveByID($id);
-        return $knive;
+        foreach($knive as $key => $value ) {    // Fill the data array with received values
+            $data[$key] = $value;
+        }
+        return $data;
     }
 }
 
