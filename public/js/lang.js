@@ -127,20 +127,9 @@ function loadVariableStrings(language) {
     }
     // Load all id's text data
     $('[id]').each( (index, element) => {
-        element.text = getLabel(element.id);
+        element.text = getText(element.id, language);
     })
     // Set language in session
     sessionStorage.setItem('pagelang', language);
     return;
-}
-//------------------------------------------------------------------
-// Get an element label
-//------------------------------------------------------------------
-function getLabel(elementid) {
-    thetext = activedictionary[elementid];
-    if(thetext) {
-        return thetext;
-    }
-    console.log('loadVariableStrings::getLabel : Element not found for ID ' + elementid);
-    return '';
 }
