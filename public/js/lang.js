@@ -13,96 +13,87 @@
     Jul 29 2022     Admin page labels
     
 */
-
-/*
-    Place here all messages in all languages
-*/
 const anylang = [
 //    { "id": "u-deletedcopyright", "text": "Ratoon, 2.41 RC4-MVC : Jul 27 2022"},
 ]
+englishdict = '{ \
+        "a-hometext": "HOME", \
+        "a-models": "MODELS", \
+        "a-contacts": "CONTACTS", \
+        "a-english": "UK", \
+        "a-french": "FR", \
+        "h1-sitetitle": "Beau Merle\'s workshop", \
+        "p-title": "Involved for 2 centuries in the manufacture of the best\
+            knives, our company carries on the tradition\
+            creation of models recognized worldwide for their quality and aesthetics.\
+            Their solidity is matched only by their perfect suitability for use\
+            daily for the most varied needs.", \
+        "s-tous": "All", \
+        "s-collection": "Collection", \
+        "s-cuisine": "Cooking", \
+        "s-serie": "Series", \
+        "opengallery": "Show more", \
+        "closegallery": "Close", \
+        "h1-contacts": "Contacts", \
+        "p-contactslist": "Engineer Designer Producer : ratoon@free.fr  \
+                Marketing Strategy Director : labaronne@free.fr  \
+                Export director : barbilec@free.fr  \
+                Financial director : letono@free.fr  \
+                Public sector relations director: bintoule@free.fr  \
+                Delivery dispatch driver : yves@free.fr", \
+        "h4-qui": "Who are we ?", \
+        "p-qui": "Our team of 11 craftsmen have a total of 162 years \
+                    of experience in creating unique and original models. Holders of numerous prizes \
+                    in art knife fairs around the world, we are committed to perpetuating the excellence \
+                    transmitted by 8 generations of French, Italian, German, Peruvian, \
+                    Japanese and... Martian master cutlers!", \
+        "p-copyright": "Made by Reco DEV International Corporation" , \
+        "h1-adminhome": "Administration tasks" , \
+        "p-adminhome": "Manage users, knives, knives collections..." , \
+        "g-weight": "Weight", \
+        "g-length": "Length", \
+        "g-tranchant": "Edge length" }';
 
-const endict = [
-    // Interface 
-    { "id": "a-hometext", "text": "HOME"},
-    { "id": "a-models", "text": "MODELS"},
-    { "id": "a-contacts", "text": "CONTACTS"},
-    { "id": "a-english", "text": "UK"},
-    { "id": "a-french", "text": "FR"},
-    { "id": "h1-sitetitle", "text": "Beau Merle's workshop"},
-    { "id": "p-title", "text": "Involved for 2 centuries in the manufacture of the best\
-        knives, our company carries on the tradition\
-        creation of models recognized worldwide for their quality and aesthetics.\
-        Their solidity is matched only by their perfect suitability for use\
-        daily for the most varied needs."},
-    { "id": "s-tous", "text": "All"},
-    { "id": "s-collection", "text": "Collection"},
-    { "id": "s-cuisine", "text": "Cooking"},
-    { "id": "s-serie", "text": "Series"},
-    { "id": "opengallery", "text": "Show more"},
-    { "id": "closegallery", "text": "Close"},
-    { "id": "h1-contacts", "text": "Contacts"},
-    { "id": "p-contactslist", "text": "Engineer Designer Producer : ratoon@free.fr , \
-        Marketing Strategy Director : labaronne@free.fr , \
-        Export director : barbilec@free.fr , \
-        Financial director : letono@free.fr , \
-        Public sector relations director: bintoule@free.fr , \
-        Delivery dispatch driver : yves@free.fr"},
-    { "id": "h4-qui", "text": "Who are we ?"},
-    { "id": "p-qui", "text": "Our team of 11 craftsmen have a total of 162 years \
-        of experience in creating unique and original models. Holders of numerous prizes \
-        in art knife fairs around the world, we are committed to perpetuating the excellence \
-        transmitted by 8 generations of French, Italian, German, Peruvian, \
-        Japanese and... Martian master cutlers!"},
-    { "id": "p-copyright", "text": "Made by Reco DEV International Corporation" },
-    { "id": "h1-adminhome", "text": "Administration tasks" },
-    { "id": "p-adminhome", "text": "Manage users, knives, knives collections..." },
-        // Global strings
-     { "id": "g-weight", "text": "Weight"},
-     { "id": "g-length", "text": "Length"},
-     { "id": "g-tranchant", "text": "Edge length"},
-]
+frenchdict = '{ \
+        "a-hometext": "HOME", \
+        "a-models": "MODELS", \
+        "a-contacts": "CONTACTS", \
+        "a-english": "UK", \
+        "a-french": "FR", \
+        "h1-sitetitle": "Atelier Beau Merle" \
+        "p-title": "Impliquée depuis 2 siècles dans la fabrication des meilleurs\
+            couteaux, notre entreprise perpétue la tradition\
+            de création de modèles mondialement reconnus pour leur qualité et leur esthétique.\
+            Leur solidité n\'a d\'égal que leur parfaite adéquation avec une utilisation\
+            quotidienne pour les besoins les plus variés.", \
+        "s-tous": "Tous", \
+        "s-collection": "Collection", \
+        "s-cuisine": "Cuisine", \
+        "s-serie": "Série", \
+        "opengallery": "Plus de photos", \
+        "closegallery": "Fermer", \
+        "h1-contacts": "Contacts", \
+        "p-contactslist": "Ingénieur Concepteur Réalisateur : ratoon@free.fr , \
+                Directrice Stratégie Marketing : labaronne@free.fr , \
+                Export director : barbilec@free.fr , \
+                Directeur financier : letono@free.fr , \
+                Directeur relations secteur public: bintoule@free.fr , \
+                Chauffeur d\'estafette livraison : yves@free.fr", \
+        "h4-qui": "Qui sommes nous ?", \
+        "p-qui": "Notre équipe de 11 artisans compagnons totalise 162 années \
+                    d\'expérience ans la création de modèles uniques et originaux. \
+                    Titulaires de nombreux prix dans les salons de couteaux d\'art du monde entier, \
+                    nous avons à coeur de perpétrer l\'excellence transmise par 8 générations \
+                    de maitres couteliers Français, Italiens, Allemands, Péruviens, Japonais, et...Martiens ! ", \
+        "p-copyright": "Réalisé par Reco DEV International Corporation" , \
+        "h1-adminhome": "Administration" , \
+        "p-adminhome": "Gestion utilisateur, couteaux, collections..." , \
+        "g-weight": "Poids", \
+        "g-length": "Longueur", \
+        "g-tranchant": "Longueur tranchant" }';
+        
 
-const frdict = [
-    // Interface 
-    { "id": "a-hometext", "text": "HOME"},
-    { "id": "a-models", "text": "MODELES"},
-    { "id": "a-contacts", "text": "CONTACTS"},
-    { "id": "a-english", "text": "UK"},
-    { "id": "a-french", "text": "FR"},
-    { "id": "h1-sitetitle", "text": "Atelier Beau Merle"},
-    { "id": "p-title", "text": "Impliquée depuis 2 siècles dans la fabrication des meilleurs\
-        couteaux, notre entreprise perpétue la tradition\
-        de création de modèles mondialement reconnus pour leur qualité et leur esthétique.\
-        Leur solidité n'a d'égal que leur parfaite adéquation avec une utilisation\
-        quotidienne pour les besoins les plus variés."},
-    { "id": "s-tous", "text": "Tous    "},
-    { "id": "s-collection", "text": "Collection"},
-    { "id": "s-cuisine", "text": "Cuisine"},
-    { "id": "s-serie", "text": "Série"},
-    { "id": "opengallery", "text": "Plus de photos"},
-    { "id": "closegallery", "text": "Fermer"},
-    { "id": "h1-contacts", "text": "Contacts"},
-    { "id": "p-contactslist", "text": "Ingénieur Concepteur Réalisateur : ratoon@free.fr , \
-        Directrice Stratégie Marketing : labaronne@free.fr , \
-        Directeur export : barbilec@free.fr , \
-        Directeur financier : letono@free.fr , \
-        Directeur relations secteur public: bintoule@free.fr , \
-        Chauffeur d'estafette livraison : yves@free.fr "},
-    { "id": "h4-qui", "text": "Qui sommes nous ?"},
-    { "id": "p-qui", "text": "Notre équipe de 11 artisans compagnons totalise 162 années \
-        d'expérience ans la création de modèles uniques et originaux. \
-        Titulaires de nombreux prix dans les salons de couteaux d'art du monde entier, \
-        nous avons à coeur de perpétrer l'excellence transmise par 8 générations \
-        de maitres couteliers Français, Italiens, Allemands, Péruviens, Japonais, et...Martiens ! "},
-    { "id": "p-copyright", "text": "Réalisé par Reco DEV International Corporation" },
-    { "id": "h1-adminhome", "text": "Administration" },
-    { "id": "p-adminhome", "text": "Gestion utilisateur, couteaux, collections..." },
-     // Global strings
-     { "id": "g-weight", "text": "Poids"},
-     { "id": "g-length", "text": "Longueur"},
-     { "id": "g-tranchant", "text": "Longueur tranchant"},
-]
-
+activedictionary = null;
 //------------------------------------------------------------------
 // Utilities to load labels
 // Hi Ratoon, you normally should not touch this part of code.
@@ -112,19 +103,15 @@ const frdict = [
 //------------------------------------------------------------------
 function getLang() { return document.documentElement.getAttribute("lang"); }
 //------------------------------------------------------------------
-// Retrieve a specific string
+// Get an element label
 //------------------------------------------------------------------
 function getText(id, language = sessionStorage.getItem("pagelang")) {
-    // Assign the proper dictionary
-    let dictionary =  language === "en" ? endict : frdict;
-    const result = dictionary.find( (label) =>  label.id === id );
-    if ( result !== undefined) {
-        return result.text;
+    result = activedictionary[id];
+    if ( result ) {
+        return result;
     }
-    else {
-        console.log('getText : Element not found for ID ' + id);
-        return '';
-    }
+    console.log('loadVariableStrings::getText : Element not found for ID ' + id);
+    return '';
 }
 //------------------------------------------------------------------
 // Called by script.js during page load and user language switching
@@ -132,32 +119,28 @@ function getText(id, language = sessionStorage.getItem("pagelang")) {
 let element;
 function loadVariableStrings(language) {
     // Assign the proper dictionary
-    let dictionary =  language === "en" ? endict : frdict;
+    if(language === "en") {
+        activedictionary = JSON.parse(englishdict);
+    }
+    else {
+        activedictionary = JSON.parse(frenchdict);
+    }
+    // Load all id's text data
     $('[id]').each( (index, element) => {
-        console.log(index + ' ' + element.id);
         element.text = getLabel(element.id);
     })
-    for(let i = 0; i < dictionary.length; i++) {
-        let jqelement = $('#' + dictionary[i].id);
-        if($(jqelement).attr('id') !== undefined) {
-            $(jqelement).text(dictionary[i].text);
-        }
-        else {
-            console.log('loadVariableStrings : Element not found for ID ' + dictionary[i].id);
-        }
-    }
-    // Also assign untranslated symbols
-    for(let i = 0; i < anylang.length; i++) {
-        // Check this is an interface element
-        if(anylang[i].id.startsWith('u-')) {
-            element = document.getElementById(anylang[i].id);
-            element.innerHTML = anylang[i].text;
-        }
-    }
     // Set language in session
     sessionStorage.setItem('pagelang', language);
     return;
 }
+//------------------------------------------------------------------
+// Get an element label
+//------------------------------------------------------------------
 function getLabel(elementid) {
-    return;
+    thetext = activedictionary[elementid];
+    if(thetext) {
+        return thetext;
+    }
+    console.log('loadVariableStrings::getLabel : Element not found for ID ' + elementid);
+    return '';
 }

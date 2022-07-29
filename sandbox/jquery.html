@@ -41,9 +41,14 @@
     let p1show = true;
     let p2show = true;
     let p1cycle = 0;
-    const Version = " jquery.html: Apr 25 2022, 1.08 ";
+    const Version = " jquery.html: Jul 29 2022, 1.09 ";
 
     $(document).ready(function(){
+
+        console.log('***********************');
+        $('[id]').each( (index, element) => {
+            console.log(index + ' ' + element.id);
+        })
 
         $("#HideShowAll").click( () => {
             $("p").toggle(500);

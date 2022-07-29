@@ -10,9 +10,9 @@
         <link rel="stylesheet" href="style.css">
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;600;700&display=swap" >
-        <script src="jquery.min.js"></script>
-        <script src="script.js"></script>
-        <script src="lang.js"></script>
+        <script src="js/jquery.min.js"></script>
+        <script src="js/script.js"></script>
+        <script src="js/lang.js"></script>
         <script src="https://kit.fontawesome.com/a33a97f757.js" crossorigin="anonymous"></script>        
         <title><?php echo APPTITLE ?></title>
   </head>
@@ -36,7 +36,7 @@
       <!---------------------------- The core section ---------------------------->
       {{content}}
 
-      <!-- Footer -->
+      <!----------------------------  Footer ---------------------------- -->
       <footer class="page-footer font-small blue">
         <div class="footer-copyright text-center py-3">
               <p class="version"><?php echo COPYRIGHT ?></p>

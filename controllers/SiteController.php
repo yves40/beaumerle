@@ -18,6 +18,11 @@ class SiteController extends Controller {
   public function home() {
     return $this->render('home');
   }
+  // --------------------------------------------------------------------
+  public function adminhome() {
+    $this->setLayout('admin');
+    return $this->render('adminhome');
+  }
 }
 
 ?>

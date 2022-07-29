@@ -46,7 +46,7 @@
       <!---------------------------- The core section ---------------------------->
       {{content}}
 
-      <!-- Footer -->
+      <!----------------------------  Footer ---------------------------- -->
       <footer class="page-footer font-small blue">
         <div class="footer-copyright text-center py-3">
             <p class="version"><?php echo COPYRIGHT ?></p>

@@ -52,8 +52,11 @@
       else {
         $this->user = null;   // Not logged
       }
-
     }
+    //-----------------------------------------------------------------------------
+    // Called after each php request to the apache server
+    // Dispatches the request to the Router loaded with a routes table by the 
+    // index.php program.
     //-----------------------------------------------------------------------------
     public function run() {
       try {
@@ -63,6 +66,14 @@
         $this->response->setStatusCode($e->getCode());
         echo $this->router->renderView('_error', [ 'exception' => $e]);
       }
+    }
+    //-----------------------------------------------------------------------------
+    public function login() {
+      return $this->controller;
+    }
+    //-----------------------------------------------------------------------------
+    public function logout() {
+      return $this->controller;
     }
     //-----------------------------------------------------------------------------
     public function getController() {

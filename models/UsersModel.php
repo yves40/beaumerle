@@ -7,7 +7,13 @@ use App\dbhandlers\UsersDB;
 
 class UsersModel extends DbModel
 {
-    public const IS_ADMIN = 10; 
+    public const STATUS_REGISTERED = 10; 
+    public const STATUS_CONFIRMED = 20; 
+    public const STATUS_SUSPENDED = 30; 
+    public const STATUS_DELETED = 40; 
+    public const ROLE_ADMIN = 10; 
+    public const ROLE_STD = 20; 
+    
     protected $id;
     protected $email;
     protected $password;
@@ -16,6 +22,7 @@ class UsersModel extends DbModel
     protected $role;
     protected $profile_picture;
     protected $isLogged = false;
+    protected array $errors = [];
 
   // --------------------------------------------------------------------
   public function __construct($id = null)
@@ -40,7 +47,7 @@ class UsersModel extends DbModel
     // --------------------------------------------------------------------
     public function isLogged()  {   return $this->isLogged; }
     // --------------------------------------------------------------------
-    public function isAdmin() { return intval($this->role) === self::IS_ADMIN ? true : false; }
+    public function isAdmin() { return intval($this->role) === self::ROLE_ADMIN ? true : false; }
     // --------------------------------------------------------------------
     public function getId() { return $this->id;}
     // --------------------------------------------------------------------

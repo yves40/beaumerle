@@ -25,6 +25,10 @@ class Controller {
     $this->layout = $layout;
   }
   // ------------------------------------------------------------------------
+  public function redirect($path) {
+    Application::$app->response->redirect($path);
+  }
+  // ------------------------------------------------------------------------
   // All PHP pages served by Apache are using this method, which calls the 
   // instanciated router object renderView() method publicly accessible in the 
   // application object.
