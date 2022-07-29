@@ -51,7 +51,18 @@
           $middleware->execute();       
         }
       }
-      return call_user_func($callback, $this->request, $this->response);
+      // Check if we received an array. This should never happen.
+      // But in case a rest api call is made without specifying the proper "content-type: application/json"
+      // the result would just be an array. Check the getALL() getKniveByID() and getKniveByLabel()
+      // methods in the KnivesController class to understand.
+      $theresponse = call_user_func($callback, $this->request, $this->response);
+      if(is_array($theresponse)) {
+        var_dump($theresponse);
+        return 'Received an array !!!';
+      }
+      else {
+        return $theresponse;
+      }
     }
     # --------------------------------------------------------------------
     public function renderView($view, $params = [], $filetype = 'php') {

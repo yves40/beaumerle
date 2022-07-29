@@ -18,6 +18,17 @@ class Request {
       return strtolower($_SERVER['REQUEST_METHOD']);
     }
     //-----------------------------------------------------------------------------
+    public function isJSON() {
+      if(isset($_SERVER['CONTENT_TYPE'])) {
+        $type = strtolower($_SERVER['CONTENT_TYPE']); // Hope it will aways be present
+        if($type === 'application/json') 
+          return true;
+        else 
+          return false;
+      }
+      return false;
+    }
+    //-----------------------------------------------------------------------------
     public function isGet() { return $this->method() === 'get'; }
     //-----------------------------------------------------------------------------
     public function isPost() { return $this->method() === 'post'; }
