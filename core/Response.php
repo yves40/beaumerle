@@ -12,4 +12,12 @@ class Response
   {
     header('Location: '.$path);
   }
+  public function setJsonFormat()
+  {
+    header('Content-Type: application/json');    
+  }
+  public function setAccessControlOrigin()
+  {
+    header('Access-Control-Allow-Origin: *');
+  }
 }

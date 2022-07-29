@@ -4,6 +4,7 @@ namespace app\controllers;
 
 use app\core\Logger;
 use app\core\Request;
+use app\core\Response;
 use app\models\KnivesModel;
 
 class KnivesController extends Controller {
@@ -18,10 +19,10 @@ class KnivesController extends Controller {
     parent::__construct();
   }
   // --------------------------------------------------------------------
+  // Retrieve all knives : JSON request, JSON response
+  // --------------------------------------------------------------------
   public function getAll() {
-    // Some HTTP directives
-    header('Access-Control-Allow-Origin: *');
-    header('Content-Type: application/json');
+    $an = new Response(); $an->setJsonFormat();
     $knvmodel = new KnivesModel();
     $allknives = $knvmodel->getAllKnives();
     // Build the JSON response
@@ -33,10 +34,10 @@ class KnivesController extends Controller {
     }
   }
   // --------------------------------------------------------------------
+  // Retrieve One knive by ID : JSON request, JSON response
+  // --------------------------------------------------------------------
   public function getKniveByID() {
-    // Some HTTP directives
-    header('Access-Control-Allow-Origin: *');
-    header('Content-Type: application/json');
+    $an = new Response(); $an->setJsonFormat();
     $rq = new Request();
     if($rq->isPost()) {
       $json = file_get_contents('php://input');
@@ -52,11 +53,12 @@ class KnivesController extends Controller {
       }
   }
   // --------------------------------------------------------------------
-  public function getKniveByLabel($label) {
-    // Some HTTP directives
-    header('Access-Control-Allow-Origin: *');
-    header('Content-Type: application/json');
+  // Retrieve One knive by Label : JSON request, JSON response
+  // --------------------------------------------------------------------
+  public function getKniveByLabel($label) 
+  {
     $rq = new Request();
+    $an = new Response(); $an->setJsonFormat();
     if($rq->isPost()) {
       $json = file_get_contents('php://input');
       $postdata = json_decode($json, true, 16, JSON_OBJECT_AS_ARRAY | JSON_UNESCAPED_UNICODE);

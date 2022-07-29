@@ -16,12 +16,16 @@ class KnivesDB extends DbModel
         $this->logger = new Logger(__CLASS__);
     }
     // ----------------------------------------------------------------------------------------------
-    public function getKnivesList()
+    public function getKnivesList() : array
     {        
         try
         {
             $this->db = DbModel::getInstance();
-            $statement = $this->db->prepare('SELECT knvid, knvcollectionid, knvlabel, knvprice, knvdesc, knvimage FROM bomerle.knives');
+            $statement = $this->db->prepare('SELECT knvid, knvcollectionid, knvlabel, knvprice, 
+                                                    knvdesc, knvimage, knvcollection
+                                FROM bomerle.knives AA, bomerle.knivescollections BB
+                                WHERE AA.knvcollectionid = BB.knvmodelid
+                                ORDER BY AA.knvid');
             $statement->execute();
             $result = $statement->fetchAll(PDO::FETCH_ASSOC);
             return $result;  // Data array 
@@ -33,15 +37,17 @@ class KnivesDB extends DbModel
         }       
     }
     // --------------------------------------------------------------------
-    public function getKniveByID($id) {
+    public function getKniveByID($id) : array
+    {
         try
         {
             $this->db = DbModel::getInstance();
             $statement = $this->db->prepare('SELECT knvid, knvcollectionid, knvlabel, 
                                                 knvstatus, knvprice, knvdesc, 
                                                 knvcomment, knvmanche, knvtotlength, 
-                                                knvbladelength, knvweight, knvimage
-                        FROM bomerle.knives WHERE knvid = :1' );
+                                                knvbladelength, knvweight, knvimage, knvcollection
+                                FROM bomerle.knives AA, bomerle.knivescollections BB 
+                                WHERE knvid = :1 AND AA.knvcollectionid = BB.knvmodelid' );
             $statement->bindValue(':1', $id);
             $statement->execute();
             $result = $statement->fetch(PDO::FETCH_ASSOC);
@@ -54,15 +60,17 @@ class KnivesDB extends DbModel
         }       
     }
     // --------------------------------------------------------------------
-    public function getKniveByLabel($label) {
+    public function getKniveByLabel($label) : array
+    {
         try
         {
             $this->db = DbModel::getInstance();
             $statement = $this->db->prepare('SELECT knvid, knvcollectionid, knvlabel, 
                                                 knvstatus, knvprice, knvdesc, 
                                                 knvcomment, knvmanche, knvtotlength, 
-                                                knvbladelength, knvweight, knvimage
-                        FROM bomerle.knives WHERE knvlabel = :1' );
+                                                knvbladelength, knvweight, knvimage, knvcollection
+                        FROM bomerle.knives AA, bomerle.knivescollections BB 
+                        WHERE knvlabel = :1 AND AA.knvcollectionid = BB.knvmodelid' );
             $statement->bindValue(':1', $label);
             $statement->execute();
             $result = $statement->fetch(PDO::FETCH_ASSOC);

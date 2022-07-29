@@ -31,20 +31,21 @@ class KnivesModel
         "knvtotlength" => '',
         "knvbladelenght" => '',
         "knvweight" => '',
-        "knvimage" => ''
+        "knvimage" => '',
+        "knvcollection" => ''
     ];
     // --------------------------------------------------------------------
     public function __construct($knvid = null)
     {
     }
     // --------------------------------------------------------------------
-    public function getAllKnives()
+    public function getAllKnives() : array
     {
         $kndb = new KnivesDB();
         return $kndb->getKnivesList();
     }
     // --------------------------------------------------------------------
-    public function getKniveByID($id)
+    public function getKniveByID($id) : array
     {
         $kndb = new KnivesDB();
         $knive = $kndb->getKniveByID($id);
@@ -55,7 +56,7 @@ class KnivesModel
         return $data;
     }
     // --------------------------------------------------------------------
-    public function getKniveByLabel($label)
+    public function getKniveByLabel($label) :array
     {
         $kndb = new KnivesDB();
         $knive = $kndb->getKniveByLabel($label);
@@ -66,7 +67,7 @@ class KnivesModel
         return $data;
     }
     // --------------------------------------------------------------------
-    public function getTextStatus($statuscode)
+    public function getTextStatus($statuscode) : string
     {
         foreach(self::STATUS_ARRAY as $key => $value) {
             if($value["numcode"] === $statuscode) {

@@ -25,7 +25,7 @@
     <!-- Footer -->
     <footer class="page-footer font-small blue">
       <div class="footer-copyright text-center py-3">
-      <p class="version"><?php echo Application::$app->copyright ?></p>
+      <p class="version"><?php echo COPYRIGHT ?></p>
       </div>
     </footer>
   </body>
