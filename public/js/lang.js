@@ -10,6 +10,7 @@
                     is now u-copyright
     May 08 2022     JQuery.
     May 11 2022     JQuery..must change ids : conflict with '#' sign...
+    Jul 29 2022     Admin page labels
     
 */
 
@@ -52,8 +53,10 @@ const endict = [
         in art knife fairs around the world, we are committed to perpetuating the excellence \
         transmitted by 8 generations of French, Italian, German, Peruvian, \
         Japanese and... Martian master cutlers!"},
-     { "id": "p-copyright", "text": "Made by Reco DEV International Corporation" },
-     // Global strings
+    { "id": "p-copyright", "text": "Made by Reco DEV International Corporation" },
+    { "id": "h1-adminhome", "text": "Administration tasks" },
+    { "id": "p-adminhome", "text": "Manage users, knives, knives collections..." },
+        // Global strings
      { "id": "g-weight", "text": "Weight"},
      { "id": "g-length", "text": "Length"},
      { "id": "g-tranchant", "text": "Edge length"},
@@ -92,6 +95,8 @@ const frdict = [
         nous avons à coeur de perpétrer l'excellence transmise par 8 générations \
         de maitres couteliers Français, Italiens, Allemands, Péruviens, Japonais, et...Martiens ! "},
     { "id": "p-copyright", "text": "Réalisé par Reco DEV International Corporation" },
+    { "id": "h1-adminhome", "text": "Administration" },
+    { "id": "p-adminhome", "text": "Gestion utilisateur, couteaux, collections..." },
      // Global strings
      { "id": "g-weight", "text": "Poids"},
      { "id": "g-length", "text": "Longueur"},
@@ -128,6 +133,10 @@ let element;
 function loadVariableStrings(language) {
     // Assign the proper dictionary
     let dictionary =  language === "en" ? endict : frdict;
+    $('[id]').each( (index, element) => {
+        console.log(index + ' ' + element.id);
+        element.text = getLabel(element.id);
+    })
     for(let i = 0; i < dictionary.length; i++) {
         let jqelement = $('#' + dictionary[i].id);
         if($(jqelement).attr('id') !== undefined) {
@@ -137,7 +146,6 @@ function loadVariableStrings(language) {
             console.log('loadVariableStrings : Element not found for ID ' + dictionary[i].id);
         }
     }
-    sessionStorage.setItem('pagelang', language);
     // Also assign untranslated symbols
     for(let i = 0; i < anylang.length; i++) {
         // Check this is an interface element
@@ -146,4 +154,10 @@ function loadVariableStrings(language) {
             element.innerHTML = anylang[i].text;
         }
     }
+    // Set language in session
+    sessionStorage.setItem('pagelang', language);
+    return;
+}
+function getLabel(elementid) {
+    return;
 }
