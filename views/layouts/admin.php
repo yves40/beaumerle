@@ -46,11 +46,14 @@ use app\core\Application;
           <li><a id="a-usersedit" class="dropdown-item" href="#"></a></li>
         </ul>
       </li>
-      <li class="nav-item">
+      <li class="nav-item pe-3">
         <a id="a-hometext" class="nav-link active" aria-current="page" href="/"></a>
       </li>
     </ul>
   </nav>
+
+
+
   <!---------------------------- The core section ---------------------------->
   <div class="container">
     {{content}}
