@@ -25,19 +25,14 @@
     Jul 27 2022     Migrate to WAMP: 1
 -->
     <section class="info" id="info">
-            <h1 id="h1-sitetitle" >Atelier Beau Merle</h1>
-            <p id="p-title" >Impliquée depuis 2 siècles dans la fabrication des meilleurs
-            couteaux, notre entreprise perpétue la tradition
-            de création de modèles mondialement reconnus pour leur qualité et leur esthétique.
-            Leur solidité n'a d'égal que leur parfaite adéquation avec une utilisation  
-            quotidienne pour les besoins les plus variés.
-            </p>
+            <h1 id="h1-sitetitle" >A</h1>
+            <p id="p-title">A</p>
     </section>
     <!----------------------------- The products ---------------------------->
     <section class="products" id="products">
         <!-- Now the catalog section with dynamic images -->
         <div class="row.centered">
-            <button id="opengallery">Voir le Catalogue</button>
+            <button id="opengallery"></button>
         </div>
         <div class="items hide" id="itemsmenu">
             <span id="s-tous" action="tous" class="item">Tous</span>
@@ -52,27 +47,16 @@
     </section>
     <!---------------------------- The contacts ---------------------------->
     <section class="contacts" id="contacts">
-        <h1 id="h1-contacts" >Contacts</h1>
+        <h1 id="h1-contacts" ></h1>
         <div>
-            <p id="p-contactslist"> Ingénieur Concepteur Réalisateur : ratoon@free.fr <br>
-                Directrice collection et Marketing : labaronne@free.fr <br>
-                Directeur export : barbilec@free.fr <br>
-                Directeur financier : letono@free.fr <br>
-                Directeur relations secteur public: bintoule@free.fr <br>
-                Chauffeur d'estafette livraison : yves@free.fr <br>
-            </p>
+            <p id="p-contactslist"></p>
         </div>
     </section>
     <!----------------------------- Footer  ---------------------------->
     <section class="footer">
-        <h4 id="h4-qui">Qui sommes nous ?</h4>
-        <p id="p-qui">Notre équipe de 11 artisans compagnons totalise 162 années d'expérience 
-            dans la création de modèles uniques et originaux. Titulaires de nombreux 
-            prix dans les salons de couteaux d'art du monde entier, nous avons à 
-            coeur de perpétrer l'excellence transmise par 8 générations de maitres 
-            couteliers Français, Italiens, Allemands, Péruviens, Japonais, et...Martiens ! 
-        </p>
-        <p id="p-copyright">Made by Reco DEV International Corporation</p>
+        <h4 id="h4-qui"></h4>
+        <p id="p-qui"></p>
+        <p id="p-copyright"></p>
         <p><i class="fa-solid fa-heart"></i></p>
     </section>
     <!---------------------- fullscreen img preview box ----------------->

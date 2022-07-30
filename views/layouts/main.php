@@ -27,15 +27,15 @@
       <section class="menu">
           <nav>
               <div id="thelogo">
-                  <a id="logo"><img src="/images/BeauMerle.png" alt=""></a>
+                  <a><img id="img-logo" src="/images/BeauMerle.png" alt=""></a>
               </div>
               <div class="nav-links" id="navLinks">
                 <i class="fas fa-times" ></i>
                 <ul id="menuentries">
-                    <li><a id="a-hometext" >HOME</a></li>
-                    <li><a id="a-models" >PRODUCTS</a></li>
-                    <li><a id="a-contacts" >CONTACTS</a></li>
-                    <li><a href="/admin">ADMIN</a></li>
+                    <li><a id="a-hometext" ></a></li>
+                    <li><a id="a-models" ></a></li>
+                    <li><a id="a-contacts" ></a></li>
+                    <li><a id="a-adminmenu" href="/admin"></a></li>
                     <li><span id="a-french"></span> | <span id="a-english"></span></li>
                 </ul>
               </div>
