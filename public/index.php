@@ -1,6 +1,7 @@
 <?php
 
-  use app\core\Application;
+use app\controllers\AuthController;
+use app\core\Application;
   use app\controllers\SiteController;
   use app\controllers\KnivesController;
   use app\core\Logger;
@@ -36,8 +37,9 @@
   // Standard PHP requests
   $app->router->get('/', [SiteController::class, 'home']);
   $app->router->get('/admin', [SiteController::class, 'adminhome']);
-  $app->router->get('/admin/login', [AuthController::class, 'login']);
-  $app->router->post('/admin/login', [AuthController::class, 'login']);  
+  $app->router->get('/usersregister', [AuthController::class, 'register']);
+  $app->router->get('/userslogin', [AuthController::class, 'login']);
+  $app->router->get('/usersedit', [AuthController::class, 'edit']);
 
   // JSON request. They send back a JSON response for an SPA application.
   $app->router->get('/knives/getall', [KnivesController::class, 'getAll']);

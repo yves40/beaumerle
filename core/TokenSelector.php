@@ -9,7 +9,7 @@ class TokenSelector {
   // private $hashedtoken; 
   private $expires;
   private $url;
-  private const TARGETURL = '/users/registerconfirmed';
+  private const TARGETURL = '/usersregisterconfirmed';
 
   /**
    * TARGETURL est le path dans le routeur pour confirmer l'enregistrement

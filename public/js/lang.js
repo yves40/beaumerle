@@ -28,7 +28,8 @@ englishdict = '{ \
         "a-usersadmin": "Users ", \
         "a-userslist": "List ", \
         "a-usersnew": "New User ", \
-        "a-usersedit": "Manage User ", \
+        "a-usersedit": "Edit User ", \
+        "a-userslogin": "Login  ", \
         "a-models": "MODELS", \
         "a-contacts": "CONTACTS", \
         "a-adminmenu": "ADMINISTRATION", \
@@ -73,7 +74,8 @@ frenchdict = '{ \
         "a-usersadmin": "Les utilisateurs ", \
         "a-userslist": "Lister ", \
         "a-usersnew": "Ajouter ", \
-        "a-usersedit": "Gérer ", \
+        "a-usersedit": "Modifier ", \
+        "a-userslogin": "Se connecter ", \
         "a-models": "MODELS", \
         "a-contacts": "CONTACTS", \
         "a-adminmenu": "ADMINISTRATION", \

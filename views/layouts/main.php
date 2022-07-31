@@ -17,8 +17,8 @@
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;600;700&display=swap" >
         <script src="https://kit.fontawesome.com/a33a97f757.js" crossorigin="anonymous"></script>        
         <script src="js/jquery.min.js"></script>
-        <script src="js/script.js"></script>
         <script src="js/lang.js"></script>
+        <script src="js/script.js"></script>
         <link rel="stylesheet" href="css/style.css">
         <title><?php echo APPTITLE ?></title>
   </head>
