@@ -9,7 +9,7 @@
   define('ROOT', dirname(__DIR__));
   define('IMAGEROOT', '/images/profile_pictures/');
   define('DEFAULTIMAGE', 'defaultuserpicture.png');
-  define('COPYRIGHT', '© Beaumerle by ratoon : Jul 30 2022, 1.21');
+  define('COPYRIGHT', '© Beaumerle by ratoon : Jul 31 2022, 1.22');
   define('APPTITLE', 'BoMerle-MVC');
 
 

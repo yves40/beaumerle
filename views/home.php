@@ -25,8 +25,8 @@
     Jul 27 2022     Migrate to WAMP: 1
 -->
     <section class="info" id="info">
-            <h1 id="h1-sitetitle" >A</h1>
-            <p id="p-title">A</p>
+            <h1 id="h1-sitetitle" ></h1>
+            <p id="p-title"></p>
     </section>
     <!----------------------------- The products ---------------------------->
     <section class="products" id="products">
@@ -42,7 +42,7 @@
         </div>
         <div id="dynamicgallery" class="gallery"></div>
         <div class="row.centered">
-            <button id="closegallery">Fermer</button>
+            <button id="closegallery"></button>
         </div>
     </section>
     <!---------------------------- The contacts ---------------------------->

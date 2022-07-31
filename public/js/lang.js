@@ -21,14 +21,14 @@ const anylang = '{ \
 
 englishdict = '{ \
         "a-hometext": "HOME", \
-        "a-knivesadmin": "Knives", \
-        "a-kniveslist": "List", \
-        "a-knivesnew": "New one", \
-        "a-knivesedit": "Update", \
-        "a-usersadmin": "Users", \
-        "a-userslist": "List", \
-        "a-usersnew": "New User", \
-        "a-usersedit": "Manage User", \
+        "a-knivesadmin": "Knives ", \
+        "a-kniveslist": "List ", \
+        "a-knivesnew": "New one ", \
+        "a-knivesedit": "Update ", \
+        "a-usersadmin": "Users ", \
+        "a-userslist": "List ", \
+        "a-usersnew": "New User ", \
+        "a-usersedit": "Manage User ", \
         "a-models": "MODELS", \
         "a-contacts": "CONTACTS", \
         "a-adminmenu": "ADMINISTRATION", \
@@ -66,14 +66,14 @@ Japanese and... Martian master cutlers!", \
 
 frenchdict = '{ \
         "a-hometext": "HOME", \
-        "a-knivesadmin": "Les couteaux", \
-        "a-kniveslist": "Lister", \
-        "a-knivesnew": "Ajouter", \
-        "a-knivesedit": "Mettre à jour", \
-        "a-usersadmin": "Les utilisateurs", \
-        "a-userslist": "Lister", \
-        "a-usersnew": "Ajouter", \
-        "a-usersedit": "Gérer", \
+        "a-knivesadmin": "Les couteaux ", \
+        "a-kniveslist": "Lister ", \
+        "a-knivesnew": "Ajouter ", \
+        "a-knivesedit": "Mettre à jour ", \
+        "a-usersadmin": "Les utilisateurs ", \
+        "a-userslist": "Lister ", \
+        "a-usersnew": "Ajouter ", \
+        "a-usersedit": "Gérer ", \
         "a-models": "MODELS", \
         "a-contacts": "CONTACTS", \
         "a-adminmenu": "ADMINISTRATION", \

@@ -18,42 +18,42 @@ use app\core\Application;
 
 <body>
   <!---------------------------- The menu section ---------------------------->
-  <nav class="navbar navbar-expand-md bg-light">
-    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-      <!-- Knives -->
-      <li class="nav-item dropdown">
-        <a id="a-knivesadmin" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-        </a>
-        <ul class="dropdown-menu">
-          <li><a id="a-kniveslist" class="dropdown-item" href="#"></a></li>
-          <li><a id="a-knivesnew" class="dropdown-item" href="#"></a></li>
-          <li>
-            <hr class="dropdown-divider">
+
+  <nav class="navbar navbar-expand-lg bg-light ">
+    <div class="container-fluid">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent" mx-4>
+        <ul class="navbar-nav mr-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a id="a-hometext" class="nav-link active" aria-current="page" href="/"></a>
           </li>
-          <li><a id="a-knivesedit" class="dropdown-item" href="#"></a></li>
         </ul>
-      </li>
-      <!-- Users -->
-      <li class="nav-item dropdown">
-        <a id="a-usersadmin" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-        </a>
-        <ul class="dropdown-menu">
-          <li><a id="a-userslist" class="dropdown-item" href="#"></a></li>
-          <li><a id="a-usersnew" class="dropdown-item" href="#"></a></li>
-          <li>
-            <hr class="dropdown-divider">
-          </li>
-          <li><a id="a-usersedit" class="dropdown-item" href="#"></a></li>
-        </ul>
-      </li>
-      <li class="nav-item pe-3">
-        <a id="a-hometext" class="nav-link active" aria-current="page" href="/"></a>
-      </li>
-    </ul>
+
+        <div class="dropdown">
+          <button id="a-knivesadmin"class="btn btn-light dropdown-toggle" type="button" 
+                data-bs-toggle="dropdown" aria-expanded="false"></button>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1" >
+            <li><a id="a-kniveslist" class="dropdown-item" href="/basic"></a></li>
+            <li><a id="a-knivesnew" class="dropdown-item" href="/tonoregister"></a></li>
+            <li><hr class="dropdown-divider"> </li>
+            <li><a id="a-knivesedit" class="dropdown-item" href="/tonologin"></a></li>
+          </ul>
+        </div>
+        <div class="dropdown">
+          <button id="a-usersadmin" class="btn btn-light dropdown-toggle" type="button"
+                data-bs-toggle="dropdown" aria-expanded="false"></button>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+            <li><a id="a-userslist" class="dropdown-item" href="/basic"></a></li>
+            <li><a id="a-usersnew" class="dropdown-item" href="/tonoregister"></a></li>
+            <li><hr class="dropdown-divider"> </li>
+            <li><a id="a-usersedit" class="dropdown-item" href="/tonologin"></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
   </nav>
-
-
-
   <!---------------------------- The core section ---------------------------->
   <div class="container">
     {{content}}

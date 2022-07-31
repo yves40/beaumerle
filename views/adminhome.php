@@ -1,7 +1,6 @@
 <?php ?>
 <section class="info" id="info">
-        <h1 id="h1-sitetitle"></h1>
-        <p id="p-adminhome"></p>
+        <h2 id="p-adminhome"></h2>
 </section>
 
 
