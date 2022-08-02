@@ -50,6 +50,10 @@ class AuthController extends Controller {
     return $this->render('register', [ 'model' => $usermodel]);
   }
   // ------------------------------------------------------------------------
+  public function JregisterUser( ) {
+
+  }
+  // ------------------------------------------------------------------------
   public function logout(Request $request, Response $response) {
     Application::$app->logout();
     $response->redirect('/');

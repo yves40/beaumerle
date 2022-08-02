@@ -1,42 +1,41 @@
-    <h1>Register</h1>
-    <form action="" method="post">
-        <div class="row">
-            <div class="col">
-                <div class="form-group">
-                    <label>First Name</label>
-                    <input type="text" name="firstname" value="Yves" class="form-control ">
-                    <div class="invalid-feedback">
+<script type="module" src="js/register.js"></script>
 
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="form-group">
-                    <label>Last name</label>
-                    <input type="text" name="lastname" value="Toubhans" class="form-control ">
-                    <div class="invalid-feedback">
-                    </div>
-                </div>
-            </div>
-        </div>
+<h1 id="h1title">Register</h1>
+<div class="row">
+    <div class="col">
         <div class="form-group">
-            <label>Your email</label>
-            <input type="text" name="email" value="y@free.fr" class="form-control ">
+            <label id="lfname">First Name</label>
+            <input id="ifname" type="text" name="firstname" value="Yves" class="form-control ">
             <div class="invalid-feedback">
             </div>
         </div>
+    </div>
+    <div class="col">
         <div class="form-group">
-            <label>Your password</label>
-            <input type="password" name="password" value="" class="form-control ">
+            <label id="llname">Last name</label>
+            <input id="ilname"  type="text" name="lastname" value="Toubhans" class="form-control ">
             <div class="invalid-feedback">
+            </div>
+        </div>
+    </div>
+</div>
+<div class="form-group">
+    <label id="lemail">Your email</label>
+    <input id="iemail"  type="text" name="email" value="y@free.fr" class="form-control ">
+    <div class="invalid-feedback">
+    </div>
+</div>
+<div class="form-group">
+    <label id="lpassword">Your password</label>
+    <input id="ipassword"  type="password" name="password" value="" class="form-control ">
+    <div class="invalid-feedback">
 
-            </div>
-        </div>
-        <div class="form-group">
-            <label>Password check</label>
-            <input type="password" name="confirmPassword" value="" class="form-control ">
-            <div class="invalid-feedback">
-            </div>
-        </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
+    </div>
+</div>
+<div class="form-group">
+    <label id="lpasswordcheck">Password check</label>
+    <input id="ipasswordcheck"  type="password" name="confirmPassword" value="" class="form-control ">
+    <div class="invalid-feedback">
+    </div>
+</div>
+<button id="b-registeruser" class="btn btn-primary mt-3">Submit</button>
