@@ -59,7 +59,7 @@ $(document).ready( () => {
     }
     // --------------------------------------------------------------------------------------
     function registeruser() {
-      console.log('Call the register API');
+      logger.info('Call the register API');
     }
   });
 
