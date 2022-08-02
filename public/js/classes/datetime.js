@@ -12,119 +12,113 @@
 //    Aug 02 2022   Back to work
 //----------------------------------------------------------------------------
 // eslint-disable-next-line no-unused-vars
-const Version = 'datetime:1.13, Aug 10 2021';
 
-const months = [ 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec' ];
+export class DateTime {
 
-//----------------------------------------------------------------------------
-// Full date & time string 
-// syncmode set to TRUE if waiting for the I/O to complete
-//----------------------------------------------------------------------------
-function getDateTime() {
-    let d = new Date();
-    return months[d.getMonth()] + '-' + d.getDate() + '-' + d.getFullYear() + ' ' 
-            + d.toTimeString().replace(/.*(\d{2}:\d{2}:\d{2}).*/, "$1") ;
-}
-function getDate() {
-    let d = new Date();
-    return months[d.getMonth()] + '-' + d.getDate() + '-' + d.getFullYear() + ' ';
-}
+Version = 'datetime:1.14, Aug 02 2022';
+months = [ 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec' ];
 
-// Offset is optional and specified in days
-function getDateBrowserFormat(offset = 0) {  // For bootstrap / browser date picker format
-    let d;
-    if(offset === 0) {
-        d = new Date(Date.now());
+    constructor() {
+
     }
-    else {
-        d = new Date();
-        d.setDate(d.getDate() + offset);
+
+    //----------------------------------------------------------------------------
+    // Full date & time string 
+    // syncmode set to TRUE if waiting for the I/O to complete
+    //----------------------------------------------------------------------------
+    getDateTime() {
+        let d = new Date();
+        return this.months[d.getMonth()] + '-' + d.getDate() + '-' + d.getFullYear() + ' ' 
+                + d.toTimeString().replace(/.*(\d{2}:\d{2}:\d{2}).*/, "$1") ;
     }
-    return d.getFullYear() + '-' +  (d.getMonth() + 1).toString().padStart(2, "0") + '-' + d.getDate().toString().padStart(2, "0");
-}
-
-function getDateBrowserFormatMax(offset = 0) {
-    let d;
-    if(offset === 0) {
-        d = new Date(Date.now());
+    getDate() {
+        let d = new Date();
+        return this.months[d.getMonth()] + '-' + d.getDate() + '-' + d.getFullYear() + ' ';
     }
-    else {
-        d = new Date();
-        d.setDate(d.getDate() + offset);
+
+    // Offset is optional and specified in days
+    getDateBrowserFormat(offset = 0) {  // For bootstrap / browser date picker format
+        let d;
+        if(offset === 0) {
+            d = new Date(Date.now());
+        }
+        else {
+            d = new Date();
+            d.setDate(d.getDate() + offset);
+        }
+        return d.getFullYear() + '-' +  (d.getMonth() + 1).toString().padStart(2, "0") + '-' + d.getDate().toString().padStart(2, "0");
     }
-    d.setHours(23);
-    d.setMinutes(59);
-    return d.getFullYear() + '-' +  (d.getMonth() + 1).toString().padStart(2, "0") + '-' + d.getDate().toString().padStart(2, "0");
-}
 
-function getDateBrowserFormatMin(offset = 0) {
-    let d;
-    if(offset === 0) {
-        d = new Date(Date.now());
+    getDateBrowserFormatMax(offset = 0) {
+        let d;
+        if(offset === 0) {
+            d = new Date(Date.now());
+        }
+        else {
+            d = new Date();
+            d.setDate(d.getDate() + offset);
+        }
+        d.setHours(23);
+        d.setMinutes(59);
+        return d.getFullYear() + '-' +  (d.getMonth() + 1).toString().padStart(2, "0") + '-' + d.getDate().toString().padStart(2, "0");
     }
-    else {
-        d = new Date();
-        d.setDate(d.getDate() + offset);
+
+    getDateBrowserFormatMin(offset = 0) {
+        let d;
+        if(offset === 0) {
+            d = new Date(Date.now());
+        }
+        else {
+            d = new Date();
+            d.setDate(d.getDate() + offset);
+        }
+        d.setHours(0);
+        d.setMinutes(0);
+        return d.getFullYear() + '-' +  (d.getMonth() + 1).toString().padStart(2, "0") + '-' + d.getDate().toString().padStart(2, "0");
     }
-    d.setHours(0);
-    d.setMinutes(0);
-    return d.getFullYear() + '-' +  (d.getMonth() + 1).toString().padStart(2, "0") + '-' + d.getDate().toString().padStart(2, "0");
-}
 
-function getTime() {
-    let d = new Date();
-    return d.toTimeString().replace(/.*(\d{2}:\d{2}:\d{2}).*/, "$1") ;
-}
-function getShortTime() {
-    return new Date().toTimeString().slice(0,5);
-}
-
-function getHoursMinutes() {
-    let d = new Date();
-    let time = d.getHours() + ':' + d.getMinutes();
-    return time;
-}
-
-function getHoursMinutesSeconds() {
-    let d = new Date();
-    return d.toTimeString().replace(/.*(\d{2}:\d{2}:\d{2}).*/, "$1");
-}
-
-function convertDateTime(thedate) {
-    if (thedate) {
-        let computedate = new Date(thedate);
-        let day = computedate.getDate();
-        let days = '';
-        let datetime = null;
-        if (day < 10) days = day.toString().replace(/.*(^\d{1}).*/, "0$1");
-            else days = day.toString();
-                datetime = months[computedate.getMonth()] + '-' +  days + '-' 
-                + computedate.getFullYear() + ' ' 
-                + computedate.toTimeString().replace(/.*(\d{2}:\d{2}:\d{2}).*/, "$1"); 
-        return datetime;
+    getTime() {
+        let d = new Date();
+        return d.toTimeString().replace(/.*(\d{2}:\d{2}:\d{2}).*/, "$1") ;
     }
-    else {
-        return "Unset"
+    getShortTime() {
+        return new Date().toTimeString().slice(0,5);
     }
+
+    getHoursMinutes() {
+        let d = new Date();
+        let time = d.getHours() + ':' + d.getMinutes();
+        return time;
+    }
+
+    getHoursMinutesSeconds() {
+        let d = new Date();
+        return d.toTimeString().replace(/.*(\d{2}:\d{2}:\d{2}).*/, "$1");
+    }
+
+    convertDateTime(thedate) {
+        if (thedate) {
+            let computedate = new Date(thedate);
+            let day = computedate.getDate();
+            let days = '';
+            let datetime = null;
+            if (day < 10) days = day.toString().replace(/.*(^\d{1}).*/, "0$1");
+                else days = day.toString();
+                    datetime = this.months[computedate.getMonth()] + '-' +  days + '-' 
+                    + computedate.getFullYear() + ' ' 
+                    + computedate.toTimeString().replace(/.*(\d{2}:\d{2}:\d{2}).*/, "$1"); 
+            return datetime;
+        }
+        else {
+            return "Unset"
+        }
+    }
+
+    convertSecondsToHMS(seconds) {
+        let computedate = new Date(1970,0,1);
+        computedate.setSeconds(seconds);
+        return computedate.toTimeString().replace(/.*(\d{2}:\d{2}:\d{2}).*/, "$1");    
+    }
+
 }
 
-function convertSecondsToHMS(seconds) {
-    let computedate = new Date(1970,0,1);
-    computedate.setSeconds(seconds);
-    return computedate.toTimeString().replace(/.*(\d{2}:\d{2}:\d{2}).*/, "$1");    
-}
-
-
-module.exports =  {
-    getDateTime: getDateTime,
-    getDate: getDate,
-    getDateBrowserFormat: getDateBrowserFormat,
-    getDateBrowserFormatMax: getDateBrowserFormatMax,
-    getDateBrowserFormatMin: getDateBrowserFormatMin,
-    getTime: getTime,
-    getShortTime: getShortTime,
-    getHoursMinutes,
-    getHoursMinutesSeconds,
-    convertDateTime,
-    convertSecondsToHMS,
-}

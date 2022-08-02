@@ -24,10 +24,11 @@
 //----------------------------------------------------------------------------
 
 import properties from './properties';
+import { DateTime } from './datetime';
 
 export class Logger {
 
-    Version = 'Logger:1.51, Aug 02 2022';
+    Version = 'Logger:1.52, Aug 02 2022';
     DEBUG = parseInt(properties.DEBUG);
     INFORMATIONAL = parseInt(properties.INFORMATIONAL);
     WARNING = parseInt(properties.WARNING);
@@ -36,8 +37,10 @@ export class Logger {
     MAXLOGS = 10;
     LOGGERLEVEL = parseInt(properties.DEFAULTLEVEL);
     traceconsoleflag = true;
+    datetime = null;
         
     constructor() {
+        this.datetime = new DateTime();
     }
     //----------------------------------------------------------------------------
     // LOCAL FUNCTIONS
@@ -59,10 +62,9 @@ export class Logger {
     //----------------------------------------------------------------------------
     log(mess, level, syncmode = false) {
         if (level >= this.LOGGERLEVEL) {
-            /* let logstring = datetime.getDateTime()
-                    + ' [' + levelToString(level) + '] '
-                    + ' ' + mess ; */
-            let logstring = ' [' + this.levelToString(level) + '] ' + ' ' + mess ;
+            let logstring = this.datetime.getDateTime()
+                    + ' [' + this.levelToString(level) + '] '
+                    + ' ' + mess ;
             // Is the module called from a browser or from a standalone script ? 
             let display = console;
             if (typeof window !== 'undefined') {
